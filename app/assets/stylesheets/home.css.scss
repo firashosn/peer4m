@@ -1,0 +1,799 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+/* Links and Background Main */
+
+body {
+	font-family: 'Lanenar';
+}
+
+a, a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+
+.bg {
+	background-position: center;
+	background-size: cover;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+	background-repeat: no-repeat no-repeat;
+	background-attachment: fixed;
+	height:850px;
+	max-width: 100%;
+}
+
+
+.mac {
+	background-image:url('./mac-desk.png');
+
+}
+
+.student {
+
+	background-image:url('./study-girl2.png');
+
+}
+
+/* End */
+
+
+
+/* Navigation (Home & About) */
+
+nav.navbar-default {
+	background-color:transparent;
+
+}
+
+nav.navbar-brand {
+	padding:10px 15px;
+}
+
+.navbar-toggle {
+	border:none;
+}
+
+.navbar-collapse {
+	border-top: none;
+	box-shadow: none;
+
+}
+
+.navbar-default .navbar-collapse, .navbar-brand {
+	margin-top: 20px;
+}
+
+
+.navbar-default .navbar-brand {
+	font-size: 4rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #ff4d4d !important;
+	font-family: 'walkway_boldregular';
+}
+
+.navbar-default .navbar-brand:hover {
+	color: #ff4d4d !important;
+}
+
+nav.navbar-default .navbar-nav > li > a {
+	color: #fff;
+	font-size: 1.7rem;
+	font-family: Lanenar;
+	padding:8px 30px;
+	margin:0 10px;
+	border-radius: 3px;
+	background:rgba(255,255,255,0.3);
+
+}
+
+nav.navbar-default .navbar-nav > li > a:hover {
+	color:#ff4d4d;
+	background:rgba(255,255,255,0.5);
+	
+}
+
+
+
+
+/* END */
+
+
+/* Login Modal */
+
+.modal-title {
+	text-align: center;
+	font-family: 'Lanenar';
+	color: #ff4d4d;
+	font-size: 3rem;
+
+}
+
+.modal-header {
+	border-bottom: none;
+}
+
+.modal-backdrop {
+
+  background-color:#ff4d4d;
+
+}
+.modal-backdrop.fade {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.modal-backdrop.in {
+  filter: alpha(opacity=80);
+  opacity: 1;
+}
+
+.modal-content {
+
+  background-color: rgba(255,255,255,0.5);
+	border:none;
+  outline: none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+.form-control {
+	border-radius:none;
+}
+
+/* Statistic Information */
+
+.statistics {
+background:#ff4d4d;
+
+
+}
+
+.underline {
+	width:10%;
+	border-top: 3px solid #383736;
+	margin-bottom: 20px; 
+}
+
+
+.heading {
+	color: #383736;
+	font-size: 5rem;
+	letter-spacing: 1px;
+	margin-top: 40px;
+	text-align: center;
+	font-family: 'walkway_boldregular';
+}
+
+.fa-check-square-o {
+	font-size: 6rem;
+	margin:0 20px;
+	color: #383736;
+	
+}
+
+.statistics .row {
+	margin:0 0 40px 0;
+}
+
+.statistics .row:last-child {
+	margin:0 0 80px 0;
+}
+
+
+.stat {
+	font-family: 'Lanenar';
+	color: #fff;
+	vertical-align: 17px;
+	font-size: 2rem;
+	font-weight: 900;
+
+}
+
+
+
+
+/* END */
+
+       
+
+
+/* Introduction / About Content */
+
+.main-content {
+	margin-top: 220px;
+	text-align: center;
+
+}
+
+
+.intro {
+	font-family: 'Lanenar';
+	color: #fff;
+	font-size: 3rem;
+	letter-spacing: 1px;
+	margin-bottom: 40px;
+}
+
+/* Featured Content */
+
+.feature, .goal {
+	text-align: center;
+	font-family: 'Lanenar';
+	margin-bottom: 40px;
+
+}
+
+
+.feature_details h3 {
+	color: #ff4d4d;
+	font-family: 'walkway_boldregular';
+	letter-spacing: 2px; 
+
+}
+
+
+.feature_details, .goal_details p {
+	font-size: 2rem;
+	margin:20px 0 40px 0;
+}
+
+
+/* END */
+
+/* Our Goals */
+
+.goal .fa-heart-o, .fa-comments-o, .fa-pencil {
+	font-size: 10rem;
+	margin:40px 0 20px 0;
+	color: #ff4d4d;
+}
+
+/* END */
+
+
+
+
+
+
+/* PEER4M Story */
+
+.our-story {
+	background: #e3e3e3;
+}
+
+.our-story p {
+	font-family: 'Lanenar';
+	font-size: 1.8em;
+	letter-spacing: 1px;
+
+}
+
+.our-story span > cite {
+	font-family: 'walkway_boldregular';
+	font-size: 2rem;
+	margin: 30px;
+	font-style: italic;
+	color: #ff4d4d;
+
+}
+
+.fa-quote-left, .fa-quote-right  {
+	font-size: 3rem;
+	color: #ff4d4d;
+	margin:20px 0;
+}
+
+/* END */
+
+/* The Team */
+
+.team {
+
+	position: relative;
+	background: #252525;
+	margin:0 0 80px 0;
+
+}
+
+.team h3 {
+	font-family: 'walkway_boldregular';
+	text-align: center;
+	color: #fff;
+	margin:40px 0;
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+
+.team::after, .team::before {
+content: "";
+display: block;
+position: absolute;
+left: 50%;
+top: 100%;
+width: 0px;
+height: 0px;
+border-style: solid;
+border-width: 18px 18px 0 18px;
+border-color: #252525 transparent transparent transparent;
+}
+
+.bio h3 {
+	font-family: 'walkway_boldregular';
+	margin:0 0 20px 0;
+	letter-spacing: 1px;
+	color: #ff4d4d;
+}
+
+.bio .row {
+	margin:0 0 80px 0;
+}
+
+
+.personal-social {
+	margin:20px 0;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+}
+
+.personal-social.fa-twitter {
+	background:#0EB4F0;
+	padding:10px;
+	margin-right:10px;
+
+}
+
+.personal-social.fa-linkedin {
+	background: #1A85BC;
+	padding:10px;
+}
+
+.bio-description {
+	font-family: 'Lanenar';
+	font-size: 1.8rem;
+	letter-spacing: 1px;
+
+}
+
+.bio-pic {
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+
+}
+
+.bio .col-md-3 {
+	text-align: center;
+}
+
+
+
+
+
+
+
+/* END */
+
+
+
+/* Buttons */
+
+
+
+.btn-trial {
+	padding:14px 50px;
+	font-size: 1.4rem;
+	letter-spacing: 1px;
+	border:2px solid #ff4d4d;
+	text-transform: uppercase;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-ms-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px;
+	color: #fff;
+	-webkit-transition: background, 0.5s ease;
+	-moz-transition: background, 0.5s ease;
+	-ms-transition: background, 0.5s ease;
+	-o-transition: background, 0.5s ease;
+	transition: background, 0.5s ease;
+
+}
+
+.btn-trial:hover {
+	background:#ff4d4d;
+	text-decoration: none;
+	color: #fff;
+
+}
+
+/* Icons */
+
+.glyphicon-star-empty,
+.glyphicon-tasks,
+.glyphicon-signal,
+.glyphicon-time
+ {
+	font-size: 7rem;
+	margin:40px 0 20px 0;
+	color: #404040;
+	-webkit-transition: margin 0.5s ease;
+	-moz-transition: margin 0.5s ease;
+	-ms-transition: margin 0.5s ease;
+	-o-transition: margin 0.5s ease;
+	transition: margin 0.5s ease;
+
+
+}
+
+
+.feature:hover > .glyphicon-star-empty,
+.feature:hover > .glyphicon-tasks,
+.feature:hover > .glyphicon-signal,
+.feature:hover > .glyphicon-time
+
+{
+	margin: 60px 0 -5px 0;
+
+
+}
+
+
+
+/* End */
+
+
+
+/* Quotes */
+
+
+.quotations {
+  
+  background:#ff4d4d;
+ 
+}
+
+  .quote {
+  	margin:20px 0 80px 0;
+  }
+
+
+.quote-text {
+border:1px solid #fff;
+/*background-color: #f6f9fa;*/
+/*border-left: none;*/
+color: rgba(85,94,106,0.8);
+font-size: 16px;
+font-style: italic;
+line-height: 1.6;
+margin: 0 0 30px 0;
+padding: 20px;
+position: relative;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+-ms-border-radius: 5px;
+-o-border-radius: 5px;
+border-radius: 5px;
+/*-webkit-box-shadow: 0 5px 0 #383736;
+-moz-box-shadow: 0 5px 0 #383736;
+box-shadow: 0 5px 0 #383736;*/
+  
+}
+
+.quote:hover >.quote-text {
+	background: #fff;
+}
+  
+blockquote.quote-text::before {
+
+border: solid 14px transparent;
+z-index: 3;
+border-top-color: #fff;
+top: auto;
+right: auto;
+bottom: -28px;
+left: 30px;
+      
+      }
+
+
+.quote-text::before, .quote-text::after {
+    
+content: "";
+display: block;
+height: 0;
+width: 0;
+position: absolute;
+
+}
+
+.quote-text::after {
+border: solid 14px transparent;
+z-index: 2;
+border-width: 18px;
+top: auto;
+right: auto;
+bottom: -36px;
+left: 26px;
+}
+
+.quote-author-pic {
+  
+  display:inline-block;
+  margin-right:12px;
+  margin-left:24px;
+  border-radius:50%;
+  -webkit-border-radius:50%;
+  -moz-border-radius:50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  height:auto;
+  width:40px;
+  float:left;
+  
+}
+
+p.quote-author {
+	line-height: 40px;
+}
+
+.quote-author a {
+  color:#000;
+  font-size:14px;
+}
+
+
+.quote-author-pic strong {
+  display:block;
+
+}
+   
+
+
+/* Quotes End */
+
+
+/* Footer */
+
+footer {
+	background: #383736;
+	text-align: center;
+
+}
+
+footer h3 {
+	font-family: 'walkway_boldregular';
+	letter-spacing: 2px;
+	color:#adadad;
+	margin: 40px 0 20px 0;
+}
+
+
+.glyphicon-send,
+.glyphicon-earphone {
+	font-size: 2rem;
+	padding:15px;
+	margin:10px 0;
+	color: #ff4d4d;
+
+}
+
+.glyphicon-send:before, .glyphicon-earphone:before {
+	margin-right: 15px;
+}
+
+
+
+.fa-twitter, .fa-linkedin, .fa-facebook {
+	color: #fff;
+	padding:10px;
+	font-size: 3rem;
+}
+
+
+.peer4m-social.fa-facebook, .peer4m-social.fa-twitter,.peer4m-social.fa-linkedin {
+	margin:30px 0;
+
+}
+
+
+.copyright {
+	margin: 20px 0;
+	color: #adadad;
+	font-family: 'Lanenar';
+}
+
+
+
+
+/* End */
+
+/* Media Queries */
+
+
+@media (max-width: 1199px) {
+	.stat {
+		margin-left: 10px;
+	}
+}
+
+@media (max-width: 1034px) {
+	.bg {
+		background-attachment: scroll;
+	}
+}
+
+
+
+@media (max-width: 992px) {
+	.fa-check-square-o:before {
+	margin-bottom: 10px;
+
+	}
+	.align-c {
+	font-size: 5rem;
+	text-align: center;
+	}
+
+	.bio-pic {
+	margin: 0 0 40px 0;
+}
+
+.bio .row {
+	margin:0 0 20px 0;
+}
+
+
+}
+
+
+@media (max-width: 768px) {
+
+	.student {
+		background-position: center right;
+	}
+
+	.mac-desk {
+		background-position: center center;
+	}
+  
+  .navbar-default .navbar-brand {
+  	font-size: 2.8rem;
+  	padding:10px 15px;
+  }
+
+  .navbar-default .navbar-collapse, .navbar-brand, .navbar-toggle {
+	margin-top: 15px;
+	}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background: transparent;
+}
+
+	.intro {
+		font-size: 2rem;
+	}
+
+	.navbar-default .navbar-nav > li > a {
+		border-radius:0;
+		text-align: center;
+	}
+	.navbar-default .navbar-nav > li > a:hover {
+		background: rgba(255,255,255,1);
+	}
+
+	.navbar-default .navbar-toggle .icon-bar {
+		background-color: #ff4d4d;
+	}
+
+	footer h3 {
+		padding:0 10px;
+		font-size: 1.7rem;
+	}
+
+	.glyphicon-send:after, .glyphicon-earphone:after {
+		font-size: 2rem;
+	}
+
+	.fa-facebook,
+	.fa-twitter,
+	.fa-linkedin {
+	font-size: 2rem;
+	margin:15px;
+
+}
+
+.glyphicon-send,
+.glyphicon-earphone {
+
+	margin:0;
+}
+
+.glyphicon-earphone {
+	margin-bottom: 20px;
+}
+
+.glyphicon-star-empty,
+.glyphicon-tasks,
+.glyphicon-signal,
+.glyphicon-time {
+
+	margin:20px 0 20px 0;
+
+	}
+
+.heading {
+	font-size: 3rem;
+}
+
+.stat {
+	text-align: center;
+}
+
+.align-c {
+	font-size: 5rem;
+	text-align: center;
+	}
+
+.bio .row {
+	margin:0 0 40px 0;
+}
+
+.bio-pic {
+	margin: 0 0 40px 0;
+}
+
+.bio h3 {
+	font-size: 2rem;
+}
+
+.social {
+	text-align: center;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

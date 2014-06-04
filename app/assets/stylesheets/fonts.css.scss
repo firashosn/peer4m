@@ -1,0 +1,36 @@
+
+
+@font-face {
+
+    font-family: 'Lanenar';
+    src: url('/assets/lanenar_-webfont.eot') format('embedded-opentype'), /* IE6-IE8 */ 
+    	 url('/assets/lanenar_-webfont.woff') format('woff'), /* Modern Browsers */
+    	 url('/assets/lanenar_-webfont.ttf') format('truetype'), /* Safari, Android, iOS */
+    	 url('/assets/lanenar_-webfont.svg') format('svg'); /* Legacy iOS */
+
+}
+
+
+@font-face {
+    font-family: 'walkway_boldregular';
+    src: url('/assets/Walkway_Bold-webfont.eot'), 
+    	 url('/assets/Walkway_Bold-webfont.eot' + "?#iefix") format('embedded-opentype'), 
+    	 url('/assets/Walkway_Bold-webfont.woff') format('woff'), 
+    	 url('/assets/Walkway_Bold-webfont.ttf') format('truetype'), 
+    	 url('/assets/Walkway_Bold-webfont.svg' + "#walkway_boldregular") format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+// @font-face {
+//     font-family: 'MyFont';
+//     src: url(font-path('myfont-webfont.eot') + "?#iefix") format('embedded-opentype'),
+//          url(font-path('myfont-webfont.woff')) format('woff'), 
+//          url(font-path('myfont-webfont.ttf'))  format('truetype'),
+//          url(font-path('myfont-webfont.svg') + "#MyFont") format('svg');
+// }
+
+
+
+  

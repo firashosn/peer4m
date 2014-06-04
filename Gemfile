@@ -31,6 +31,8 @@ gem 'bootstrap_form'
 
 gem 'bootstrap-sass', '~> 3.1.1.1'
 
+gem "font-awesome-rails"
+
 gem 'font-awesome-sass-rails', '~> 3.0.2.2'
 
 # Use ActiveModel has_secure_password
