@@ -7,9 +7,7 @@
 
 /* Links and Background Main */
 
-body {
-	font-family: 'Lanenar';
-}
+@import "bootstrap";
 
 a, a:hover {
 	color: #000;
@@ -656,6 +654,11 @@ footer h3 {
   	padding:10px 15px;
   }
 
+  .navbar-collapse {
+  	border-top:transparent;
+  	box-shadow: transparent;
+  }
+
   .navbar-default .navbar-collapse, .navbar-brand, .navbar-toggle {
 	margin-top: 15px;
 	}
@@ -668,15 +671,17 @@ footer h3 {
 		font-size: 2rem;
 	}
 
-	.navbar-default .navbar-nav > li > a {
+	nav.navbar-default .navbar-nav > li > a {
 		border-radius:0;
+		margin:0;
 		text-align: center;
 	}
-	.navbar-default .navbar-nav > li > a:hover {
+	nav.navbar-default .navbar-nav > li > a:hover {
 		background: rgba(255,255,255,1);
 	}
 
-	.navbar-default .navbar-toggle .icon-bar {
+
+	nav.navbar-default .navbar-toggle .icon-bar {
 		background-color: #ff4d4d;
 	}
 
