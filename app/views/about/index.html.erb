@@ -1,3 +1,231 @@
-This is the about us page muthafucka...
+<header class="bg student">
+		<nav class="navbar-default" role="navigation">
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <%= link_to 'PEER4M', root_path, :class => "navbar-brand" %>   
+		    </div>
 
-<%= link_to 'Home', root_path %>
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><%= link_to 'Home', root_path %></li>
+		        <li><a data-target="#LoginModal" data-toggle="modal" href="#">Login</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container -->
+		</nav><!-- /.navigation -->
+
+		<div class="container main-content">
+			<div class="row">
+				<div class="col-md-12">
+					<blockquote>
+					<p class="intro">&quot;Our mission is to ensure students are ready to hit the ground running in the ‘real world’ – life after school.&quot;
+					</p>
+					</blockquote>
+				</div>
+			</div>
+		</div> <!-- end of main content -->
+
+	</header><!-- /header -->
+
+		<!-- Login Modal -->
+
+<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Login</h4>
+      </div>
+      
+  	<div class="modal-body">
+		<form class="form-horizontal" role="form">
+		  <div class="form-group">
+		    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+		    <div class="col-sm-10">
+		      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+		    <div class="col-sm-10">
+		      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <div class="checkbox">
+		        <label>
+		          <input type="checkbox"> Remember me
+		        </label>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <button type="submit" class="btn btn-default">Sign in</button>
+		    </div>
+		  </div>
+		</form>
+	</div> <!-- /.modal-body -->
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	
+
+
+	<!-- Our Goals --> 
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="heading">Our Goals</h2>
+				<hr class="underline">
+			</div>
+		</div>
+		<div class="row">
+		<div class="col-md-4 goal">
+			<h1>01.</h1>
+                <i class="fa fa-pencil"></i>
+                <div class="goal_details">
+                    <p>To reduce the prevalence of freeloading and encourage students to be more engaged and committed.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 goal">
+            	<h1>02.</h1>
+                <i class="fa fa-heart-o"></i>
+                <div class="goal_details">
+                    <p>To make team projects a more enjoyable and fulfilling experience.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 goal">
+            	<h1>03.</h1>
+                <i class="fa fa-comments-o"></i>
+                <div class="goal_details">
+                    <p>To provide students with constructive criticism and feedback so they can develop their soft skills and be better equipped for the real world.</p>
+                </div>
+            </div>
+            
+
+        </div> <!-- End of row -->
+	</div> <!-- End of our Goals -->
+
+<div class="container-fluid our-story">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="heading">Our Story</h2>
+				<hr class="underline">
+			</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 storyline"> 
+				<p>
+				The story behind PEER4M is based on events that occurred during the middle of the night in 2012 while putting the final touches on a “team” project due a few hours later...
+				<br><br>
+				Doing work at this hour was not my choice. However, after receiving an elaborate email just after midnight from a group member, whose only duty was to edit, stating that he could not complete the editing because he/she was not feeling well, I had no choice.
+				<br><br>
+				As I cursed this person’s name, I sucked it up and edited the project myself after already putting in more than my fair share of work into the project. Once the project was handed in, I spoke to my professor about potential redistribution of grades for this student. As he giggled, he responded with 5 words that I will never forget, “Welcome to the real world…”
+				<br><br>
+				This is what inspired the inception of PEER4M.com to actually bring the “real world” to team projects in an educational environment. Bring an aspect of accountability, feedback, and tracking of performance similar to a performance review in the real world.
+				</p>
+				</div>
+			</div> <!-- End of story -->
+		</div> 
+	</div> 
+</div> <!-- Our Story END -->
+
+
+<div class="container-fluid team">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Meet the Team</h3>
+		</div>
+	</div>
+</div> <!-- End of the Team container-fluid -->
+	
+	<div class="container bio">
+		<div class="row">
+			<div class="col-md-3">
+				<img class="bio-pic" src="./../images/stefano-twitter.png">
+			</div>
+			<div class="col-md-9">
+				<h3>Stefano Cerone, Co-Founder</h3>
+				<p class="bio-description">
+					Stefano is an innovation aficionado at heart who loves to constantly learn new things and defy the status quo. He is an MBA graduate with a specialization in Marketing and Brand Management, and has a B.Comm in Accounting, making him a well-rounded business professional.<br><br>
+					Stefano is a health &amp; fitness enthusiast, a fan of all types of music, has a passion for big dogs, and loves to be constantly busy – weird. 
+				</p>
+				<div class="social">
+					<a href="https://twitter.com/stefanocerone" target="_blank"><i class="personal-social fa fa-twitter"></i></a>
+					<a href="http://ca.linkedin.com/pub/stefano-cerone-mba/26/295/430" target="_blank"><i class="personal-social fa fa-linkedin"></i></a>
+				</div>	
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3">
+				<img class="bio-pic" src="images/firas.png">
+			</div>
+			<div class="col-md-9">
+				<h3>Firas Hosn, Co-Founder</h3>
+				<p class="bio-description">
+					Firas is responsible for the effective technical functionality of the platform. He is a computer programmer by trade, with over 7 years of practical experience. He also brings great perspective to PEER4M due to his role as a a part-time post-secondary instructor.<br><br>
+					Firas is talented at a multitude of activities including DJing, basketball (he can dunk), and football.
+				</p>
+				<div class="social">
+					<a href="https://twitter.com/DjFBomb/media" target="_blank"><i class="personal-social fa fa-twitter"></i></a>
+					<a href="http://ca.linkedin.com/pub/firas-hosn/12/824/771" target="_blank"><i class="personal-social fa fa-linkedin"></i></a>	
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3 text-center">
+				<img class="bio-pic" src="images/dilo.jpg">
+			</div>
+			<div class="col-md-9">
+				<h3>Matthew DiLorenzo, Co-Founder</h3>
+				<p class="bio-description">
+					Matthew is effective at managing multiple tasks, has a kean eye for issues and is a self proclaimed problem solver. Despite earlier aspirations of becoming a doctor, displayed through his Bachelor of Science (Hon) degree in Life Science, Matthew’s inherent business acumen over came him.<br><br>
+					He is a food junkie, an Electronic Dance Music (EDM) fan, and steadily follows a minimum of 3 different TV series at a time.
+				</p>
+				<div class="social">
+					<a href="" target="_blank"><i class="personal-social fa fa-twitter"></i></a>
+					<a href="http://ca.linkedin.com/pub/matthew-dilorenzo/50/569/4ab" target="_blank"><i class="personal-social fa fa-linkedin"></i></a>
+				</div>	
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3">
+				<img class="bio-pic" src="images/rocco-biopic.png">
+			</div>
+			<div class="col-md-9">
+				<h3>Rocco Marinaccio, Creative Director</h3>
+				<p class="bio-description">
+					Rocco has played a quintessential role in the development of the PEER4M platform. His critical eye oversees all creative output including our front-end strategy, the UX/UI and responsive design. Formally educated in business with a specialization in finance, he has a very distinct mix of disciplines that has brought tremendous value to PEER4M.
+					<br><br>
+					Rocco is a talented guitarist, hockey player and Apple fan boy.
+				</p>
+				<div class="social">
+					<a href="https://twitter.com/rmarinac89" target="_blank"><i class="personal-social fa fa-twitter"></i></a>
+					<a href="http://ca.linkedin.com/pub/rocco-marinaccio/47/476/29" target="_blank"><i class="personal-social fa fa-linkedin"></i></a>
+
+			</div>
+		</div>
+
+
+
+
+
+
+		</div> <!-- End of the Team container -->

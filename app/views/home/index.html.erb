@@ -11,14 +11,15 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="index.html">Peer4m</a>
+		      <%= link_to 'PEER4M', root_path, :class => "navbar-brand" %>
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      
 		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="about.html">About</a></li>
+		        <!-- <li><a href="about.html">About</a></li> -->
+		        <li><%= link_to 'About', about_path %></li>
 		        <li><a data-target="#LoginModal" data-toggle="modal" href="#">Login</a></li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
@@ -83,6 +84,7 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
 
 <div class="container-fluid statistics">
 	<div class="container">
@@ -181,7 +183,7 @@
   
 		  <div class="col-md-4 quote">
 		    <blockquote class="quote-text">
-		    <a href="#">
+		    <a href="http://ehlt.flinders.edu.au/education/iej/articles/v4n3/Burdett/paper.pdf" target="_blank">
 		    &quot; Majority of post-secondary students have a negative perception towards group work stemming from unequal distribution of work and infrequent use of peer evaluations.&quot;</a>
 		    </blockquote>
 		    <img class="quote-author-pic" src="http://teamtreehouse.com/assets/new-marketing/pj_membericon_bigger.jpg">
@@ -191,18 +193,18 @@
  
 			<div class="col-md-4 quote">
 				<blockquote class="quote-text">
-			    <a href="#">&quot;Studies show that between 45 - 60% of North American employers fell that recent graduates lack soft skills necessary in the 'real world'.&quot;</a>
+			    <a href="http://business.time.com/2013/11/10/the-real-reason-new-college-grads-cant-get-hired" target="_blank">&quot;Studies show that between 45 - 60% of North American employers fell that recent graduates lack soft skills necessary in the 'real world'.&quot;</a>
 			    </blockquote>
-			    <img class="quote-author-pic" src="images/adecco.png">
+			    <img class="quote-author-pic" title="addeco-logo" src="images/adecco.png">
 			    <p class="quote-author"><strong>Workforce Solutions &amp; Adecco</strong></a></p>
 			</div>
 
   
 			  <div class="col-md-4 quote">
 			  	<blockquote class="quote-text">
-			    <a href="#">&quot;During the school year, two students per minute tweet something negative about group work. Search "group work" on Twitter, see for yourself.&quot;</a>
+			    <a href="http://twitter.com" target="_blank">&quot;During the school year, two students per minute tweet something negative about group work. Search "group work" on Twitter, see for yourself.&quot;</a>
 			    </blockquote>
-			    <img class="quote-author-pic" src="images/stefano-twitter.png">
+			    <img class="quote-author-pic" title="stefano-twitter-picture" src="images/stefano-twitter.png">
 			    <p class="quote-author"><strong>Stefano Cerone</strong></p>
 			  </div>
   	</div> <!-- / row -->

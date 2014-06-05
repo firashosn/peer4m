@@ -12,8 +12,8 @@ module Peer4m
   class Application < Rails::Application
 
 
-# add app/assets/fonts to the asset path
-config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    # add app/assets/fonts to the asset path
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

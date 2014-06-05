@@ -57,9 +57,21 @@ nav.navbar-brand {
 	padding:10px 15px;
 }
 
-.navbar-toggle {
-	border:none;
+
+.navbar-default .navbar-toggle {
+	border:transparent;
+	background-color:transparent;
+	margin-top:15px;
 }
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color:transparent !important;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color:#ff4d4d !important;
+}
+
 
 .navbar-collapse {
 	border-top: none;
@@ -67,13 +79,10 @@ nav.navbar-brand {
 
 }
 
-.navbar-default .navbar-collapse, .navbar-brand {
-	margin-top: 20px;
-}
-
 
 .navbar-default .navbar-brand {
 	font-size: 4rem;
+	margin-top:15px;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	color: #ff4d4d !important;
@@ -88,8 +97,8 @@ nav.navbar-default .navbar-nav > li > a {
 	color: #fff;
 	font-size: 1.7rem;
 	font-family: Lanenar;
-	padding:8px 30px;
-	margin:0 10px;
+	padding:10px 30px;
+	margin:20px 10px 0;
 	border-radius: 3px;
 	background:rgba(255,255,255,0.3);
 
@@ -107,46 +116,7 @@ nav.navbar-default .navbar-nav > li > a:hover {
 /* END */
 
 
-/* Login Modal */
 
-.modal-title {
-	text-align: center;
-	font-family: 'Lanenar';
-	color: #ff4d4d;
-	font-size: 3rem;
-
-}
-
-.modal-header {
-	border-bottom: none;
-}
-
-.modal-backdrop {
-
-  background-color:#ff4d4d;
-
-}
-.modal-backdrop.fade {
-  filter: alpha(opacity=0);
-  opacity: 0;
-}
-.modal-backdrop.in {
-  filter: alpha(opacity=80);
-  opacity: 1;
-}
-
-.modal-content {
-
-  background-color: rgba(255,255,255,0.5);
-	border:none;
-  outline: none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-
-.form-control {
-	border-radius:none;
-}
 
 /* Statistic Information */
 
@@ -189,11 +159,11 @@ background:#ff4d4d;
 
 
 .stat {
-	font-family: 'Lanenar';
 	color: #fff;
 	vertical-align: 17px;
 	font-size: 2rem;
-	font-weight: 900;
+	font-weight: 100;
+	letter-spacing:1px;
 
 }
 
@@ -219,14 +189,15 @@ background:#ff4d4d;
 	color: #fff;
 	font-size: 3rem;
 	letter-spacing: 1px;
-	margin-bottom: 40px;
+	margin-bottom: 60px;
 }
 
 /* Featured Content */
 
 .feature, .goal {
 	text-align: center;
-	font-family: 'Lanenar';
+	// font-family: 'Lanenar';
+	letter-spacing:0.6px;
 	margin-bottom: 40px;
 
 }
@@ -235,13 +206,14 @@ background:#ff4d4d;
 .feature_details h3 {
 	color: #ff4d4d;
 	font-family: 'walkway_boldregular';
-	letter-spacing: 2px; 
+	letter-spacing: 2px;
+	margin-bottom:20px;
 
 }
 
 
 .feature_details, .goal_details p {
-	font-size: 2rem;
+	font-size: 1.6rem;
 	margin:20px 0 40px 0;
 }
 
@@ -270,26 +242,33 @@ background:#ff4d4d;
 }
 
 .our-story p {
-	font-family: 'Lanenar';
-	font-size: 1.8em;
+	font-size: 1.2em;
 	letter-spacing: 1px;
+	padding:20px;
+	border-radius:5px;
 
 }
 
-.our-story span > cite {
+.storyline span {
 	font-family: 'walkway_boldregular';
 	font-size: 2rem;
-	margin: 30px;
-	font-style: italic;
+	// font-style: italic;
 	color: #ff4d4d;
 
 }
 
-.fa-quote-left, .fa-quote-right  {
-	font-size: 3rem;
-	color: #ff4d4d;
-	margin:20px 0;
+.storyline {
+	background: #fff;
+	margin:20px 0 40px 0;
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	-ms-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	-o-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 }
+
+
+
 
 /* END */
 

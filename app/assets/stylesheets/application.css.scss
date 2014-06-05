@@ -15,7 +15,68 @@
  *= require font-awesome
  */
 
+$link-color:#000;
+
 
 @import "bootstrap";
 
+// Navigation
 
+h1 {
+    font-family: 'Lanenar';
+}
+
+a:hover {
+	text-decoration:none;
+}
+
+
+.navbar-toggle {
+	padding:10px 0;
+}
+
+
+
+
+/* Login Modal */
+
+.modal-title {
+	text-align: center;
+	font-family: 'Lanenar';
+	color: #ff4d4d;
+	font-size: 3rem;
+
+}
+
+.modal-header {
+	border-bottom: none;
+}
+
+.modal-backdrop {
+
+  background-color:#ff4d4d;
+
+}
+.modal-backdrop.fade {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.modal-backdrop.in {
+  filter: alpha(opacity=80);
+  opacity: 1;
+}
+
+.modal-content {
+
+  background-color: rgba(255,255,255,0.5);
+	border:none;
+  outline: none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+.form-control {
+	border-radius:none;
+}
+
+// Modal Window - Login

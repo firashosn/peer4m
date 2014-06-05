@@ -14,7 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree
+//= require bootstrap
 
+$(document).ready(function() {
+	WinHeight = $(window).height()
+$('.bg.mac, .bg.student').css('height', WinHeight);
+	
+});
 
 
 smoothScroll.init({
