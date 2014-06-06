@@ -15,6 +15,9 @@
  *= require font-awesome
  */
 
+ // require_self includes this file last
+ // require_tree compiles all sass files
+
 $link-color:#000;
 
 
@@ -39,6 +42,14 @@ a:hover {
 
 
 /* Login Modal */
+
+.modal-title {
+	text-align: center;
+	font-family: 'Lanenar';
+	color: #ff4d4d;
+	font-size: 3rem;
+
+}
 
 .modal-title {
 	text-align: center;
@@ -81,6 +92,11 @@ a:hover {
 
 // Modal Window - Login
 
+
+
+
+
+// Media Queries
 
 @media (max-width: 768px) {
 

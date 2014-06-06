@@ -175,7 +175,7 @@ background:#ff4d4d;
 
 /* Introduction / About Content */
 
-.main-content {
+.main-content, .main-mission {
 	margin-top: 220px;
 	text-align: center;
 
@@ -188,6 +188,13 @@ background:#ff4d4d;
 	font-size: 3rem;
 	letter-spacing: 1px;
 	margin-bottom: 60px;
+}
+
+.mission {
+	font-family: 'Lanenar';
+	color: #fff;
+	font-size: 3rem;
+	letter-spacing: 1px;
 }
 
 /* Featured Content */
@@ -513,7 +520,6 @@ left: 26px;
   display:inline-block;
   margin-right:12px;
   margin-left:24px;
-  border-radius:50%;
   -webkit-border-radius:50%;
   -moz-border-radius:50%;
   -ms-border-radius: 50%;
@@ -667,8 +673,20 @@ footer h3 {
 	background: transparent;
 }
 
-	.intro {
+	.intro, .mission {
 		font-size: 2rem;
+	}
+
+	.main-content {
+		margin-top: 100px;
+	}
+
+	.main-mission {
+		margin-top: 180px;
+	}
+
+	.btn-trial {
+		padding:13px 35px;
 	}
 
 	nav.navbar-default .navbar-nav > li > a {
