@@ -391,7 +391,7 @@ border-color: #252525 transparent transparent transparent;
 	padding:14px 50px;
 	font-size: 1.4rem;
 	letter-spacing: 1px;
-	border:2px solid #ff4d4d;
+	border:4px solid #ff4d4d;
 	text-transform: uppercase;
 	-webkit-border-radius:4px;
 	-moz-border-radius:4px;
@@ -694,6 +694,7 @@ p.quote-author {
 
 	.btn-trial {
 		padding:13px 35px;
+		background:#ff4d4d;
 	}
 
 	nav.navbar-default .navbar-nav > li > a {
