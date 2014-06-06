@@ -7,7 +7,6 @@
 
 /* Links and Background Main */
 
-@import "bootstrap";
 
 a, a:hover {
 	color: #000;
@@ -175,19 +174,18 @@ background:#ff4d4d;
 
 /* Introduction / About Content */
 
-.main-content, .main-mission {
-	margin-top: 220px;
-	text-align: center;
-
+.main-content {
+	text-align:center;
 }
 
 
-.intro {
+.main-content .intro {
 	font-family: 'Lanenar';
+	margin-top:20%;
 	color: #fff;
 	font-size: 3rem;
 	letter-spacing: 1px;
-	margin-bottom: 60px;
+	margin-bottom: 5%;
 }
 
 .mission {
@@ -195,6 +193,12 @@ background:#ff4d4d;
 	color: #fff;
 	font-size: 3rem;
 	letter-spacing: 1px;
+
+}
+
+.main-mission blockquote {
+	margin-top:25%;
+	text-align:center;
 }
 
 /* Featured Content */
@@ -205,6 +209,11 @@ background:#ff4d4d;
 	letter-spacing:0.6px;
 	margin-bottom: 40px;
 
+}
+
+.feature-wrapper {
+	min-height:400px;
+	margin-top:20px;
 }
 
 
@@ -264,7 +273,7 @@ background:#ff4d4d;
 
 .storyline {
 	background: #fff;
-	margin:20px 0 40px 0;
+	margin-top:20px;
 	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 	-ms-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
@@ -553,13 +562,13 @@ p.quote-author {
 
 /* Footer */
 
-footer {
+#contact_us {
 	background: #383736;
 	text-align: center;
 
 }
 
-footer h3 {
+#contact_us h3 {
 	font-family: 'walkway_boldregular';
 	letter-spacing: 2px;
 	color:#adadad;
@@ -703,7 +712,7 @@ footer h3 {
 		background-color: #ff4d4d;
 	}
 
-	footer h3 {
+	#contact_us h3 {
 		padding:0 10px;
 		font-size: 1.7rem;
 	}
