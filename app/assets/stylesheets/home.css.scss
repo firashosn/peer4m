@@ -682,17 +682,15 @@ p.quote-author {
 	background: transparent;
 }
 
-	.intro, .mission {
+
+	.main-content .intro, .mission {
 		font-size: 2rem;
 	}
 
-	.main-content {
-		margin-top: 100px;
+	.main-content .intro {
+		margin-bottom: 60px;
 	}
 
-	.main-mission {
-		margin-top: 180px;
-	}
 
 	.btn-trial {
 		padding:13px 35px;
