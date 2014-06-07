@@ -97,13 +97,13 @@ nav.navbar-default .navbar-nav > li > a {
 	padding:10px 30px;
 	margin:20px 10px 0;
 	border-radius: 3px;
-	background:rgba(255,255,255,0.3);
+	background:rgba(255,77,77,0.6);
 
 }
 
 nav.navbar-default .navbar-nav > li > a:hover {
-	color:#ff4d4d;
-	background:rgba(255,255,255,0.5);
+	color:#fff;
+	background:rgba(255,77,77,0.8);
 	
 }
 
@@ -274,6 +274,7 @@ background:#ff4d4d;
 .storyline {
 	background: #fff;
 	margin-top:20px;
+	margin-bottom:40px;
 	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 	-ms-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
@@ -296,13 +297,13 @@ background:#ff4d4d;
 
 }
 
-.team h3 {
+.team h2 {
 	font-family: 'walkway_boldregular';
 	text-align: center;
 	color: #fff;
 	margin:40px 0;
-	letter-spacing: 2px;
-	font-weight: bold;
+	letter-spacing: 1px;
+	font-size:5rem;
 }
 
 .team::after, .team::before {
@@ -702,11 +703,7 @@ p.quote-author {
 		margin:0;
 		text-align: center;
 	}
-	nav.navbar-default .navbar-nav > li > a:hover {
-		background: rgba(255,255,255,1);
-	}
-
-
+	
 	nav.navbar-default .navbar-toggle .icon-bar {
 		background-color: #ff4d4d;
 	}
