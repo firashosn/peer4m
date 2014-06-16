@@ -113,6 +113,61 @@ nav.navbar-default .navbar-nav > li > a:hover {
 /* END */
 
 
+// Modal Form
+
+.form-horizontal .input-group {
+	margin:10px 0;
+}
+
+  // .form-control:focus {
+            
+  //      border-color:rgb(255,77,77);
+  //      -webkit-box-shadow: 0px 0px 5px rgb(255,77,77);     
+  //         }
+   
+
+   .btn-default {
+       background:rgba(255,77,77,0.7);
+       color:#fff;
+        border:none;
+              }
+              
+   .btn-default:hover {
+       background:rgba(255,77,77,0.9);
+       color:#fff;
+    }
+
+    input[type=text] {
+    	font-family: Lanenar;
+    }
+
+    *::-webkit-input-placeholder {
+    	font-family: Lanenar;
+    }
+
+    *:-moz-placeholder {
+    	font-family: Lanenar;
+    }
+
+    *::-moz-placeholder {
+		font-family: Lanenar;
+    }
+
+    *::-moz-placeholder {
+    	font-family: Lanenar;
+    }
+
+    .sign-in.btn-default {
+    	width:100%;
+    	padding:15px;
+    	margin-top: 10px;
+    	text-transform: uppercase;
+    }
+
+
+
+// / Modal Form
+
 
 
 /* Statistic Information */
