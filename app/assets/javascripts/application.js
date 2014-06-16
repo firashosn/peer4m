@@ -21,4 +21,10 @@ $('.bg.mac, .bg.student').css('height', WinHeight);
 	
 });
 
+$(document).ready(function() {
+	
+	$("[data-toggle=popover]").popover();
+	
+});
+
 
