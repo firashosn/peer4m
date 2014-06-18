@@ -1,0 +1,17 @@
+<h1>Listting Instructors</h1>
+ 
+<table>
+  <tr>
+    <th>UserName</th>
+    <th>Password</th>
+  </tr>
+ 
+  <% @instructors.each do |instructor| %>
+    <tr>
+      <td><%= instructor.user_name %></td>
+      <td><%= instructor.password %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', instructors_path %>

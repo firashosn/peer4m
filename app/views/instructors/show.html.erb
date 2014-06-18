@@ -1,0 +1,24 @@
+<p>
+  <strong>UserName:</strong>
+  <%= @instructor.user_name %>
+</p>
+ 
+<p>
+  <strong>Password:</strong>
+  <%= @instructor.password %>
+</p>
+
+<h2>Add a course:</h2>
+<%= form_for([@instructor, @instructor.courses.build]) do |f| %>
+  <p>
+    <%= f.label :course_id %><br>
+    <%= f.text_field :course_id %>
+  </p>
+  <p>
+    <%= f.label :course_name %><br>
+    <%= f.text_field :course_name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
