@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require_tree
 //= require bootstrap
+//= require moment
+//= require bootstrap-datetimepicker
 
 $(document).ready(function() {
 	WinHeight = $(window).height()
