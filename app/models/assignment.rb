@@ -2,6 +2,7 @@ class Assignment < ActiveRecord::Base
   belongs_to :course
   has_many :teams
 
+=begin
 def assign_teams
         if @teams_text
           @team_line = @teams_text.split(/\n/).map do |line|
@@ -15,11 +16,12 @@ def assign_teams
           end
         end
       end
+=end
+
 
 end
 
 class Team < ActiveRecord::Base
-      attr_accessible :name
       belongs_to :assignment
       has_and_belongs_to_many :students
 end
