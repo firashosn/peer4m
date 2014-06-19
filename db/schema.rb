@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140617012019) do
 
   create_table "instructors", force: true do |t|
     t.string   "user_name"
-    t.text     "password"
+    t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
