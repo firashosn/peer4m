@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-def new
+def index
 	end
 
 def create
