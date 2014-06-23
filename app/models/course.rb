@@ -1,7 +1,5 @@
 class Course < ActiveRecord::Base
-	require 'CSV'
-
-#
+#	require 'CSV'
 
   belongs_to :instructor
   has_many :assignments

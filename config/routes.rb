@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   
   get 'about' => 'about#index' 
 
+  devise_scope :user do
+  
+    get "/login" => "devise/sessions#new", :as => :login
+    get "/sign_up" => "devise/registrations#new", :as => :sign_up
+  
+  end
   
   
   # The priority is based upon order of creation: first created -> highest priority.
@@ -28,11 +34,16 @@ Rails.application.routes.draw do
       resources :courses 
     end
 
-    resources :courses do
-      resources :assignments
-    end
-
     resources :students
+
+    resources :courses do
+      resources :assignments do
+        resources :team do
+          resources :students
+        end
+      end
+    end
+      
 
   # Example resource route with options:
   #   resources :products do

@@ -1,10 +1,11 @@
 class Team < ActiveRecord::Base
-	require 'CSV'
+  #require 'CSV'
 
   belongs_to :assignment
   has_many :students
 
-  def self.import(file)
+=begin
+ def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
 
       team_hash = row.to_hash # get the team name
@@ -17,5 +18,6 @@ class Team < ActiveRecord::Base
       end # end if !product.nil?
     end # end CSV.foreach
   end # end self.import(file)
+=end
 
 end

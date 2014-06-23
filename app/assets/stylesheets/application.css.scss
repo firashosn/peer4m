@@ -25,6 +25,31 @@ $link-color:#000;
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
 
+// defaults
+
+
+html,
+body {
+	height:100%;
+}
+
+#wrapper {
+	min-height:100%;
+	position:relative;
+
+}
+
+#contact_us {
+	width:100%;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+
+}
+
+
+
 // Navigation
 
 h1 {
@@ -39,7 +64,6 @@ a:hover {
 .navbar-toggle {
 	padding:10px 0;
 }
-
 
 
 

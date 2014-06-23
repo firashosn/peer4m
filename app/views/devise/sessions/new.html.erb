@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 login-bg">
+			<h2 class="text-center">Sign in</h2>
+			<div class="text-center"><p>No Account?<%= render "devise/shared/links" %></p></div>
+			<%= bootstrap_form_for resource, url: session_path(resource_name) do |f| %>
+			  <div>
+			  <%= f.email_field :email, autofocus: true %>
+		
+			    <%= f.password_field :password, autocomplete: "off" %>
+
+			  <% if devise_mapping.rememberable? -%>
+			    <div><%= f.check_box :remember_me %></div>
+			  <% end -%>
+
+			  <div><%= f.submit 'Sign in', class: "btn btn-info btn-block btn-lg" %></div>
+			<% end %>
+			
+		</div>
+	</div>
+</div>
+
