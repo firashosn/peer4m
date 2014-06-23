@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!
 
+   roles = ["instructor", "student"]
 
   def create
     @user = User.new(params[:user])
@@ -18,5 +19,5 @@ end
 
 
 
-  
+
 end
