@@ -14,6 +14,12 @@
           <div>
             <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
+          <div><%= f.form_group :role, label: { text: "Role" } do %>
+            <% User::ROLES.each do |role| %>
+              <%= f.radio_button :role, role, label: role.humanize, inline: true %>
+            <% end %>
+          <% end %></div>
+
           <div><%= f.submit "Sign up", class: "btn btn-info btn-block btn-lg" %></div>
         <% end %>
 

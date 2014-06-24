@@ -6,8 +6,8 @@ class CoursesController < ApplicationController
   end
 
   def create
-      @instructor = Instructor.find(params[:instructor_id])
-      @course = @instructor.courses.create(course_params)
+      @user = User.find(params[:id])
+      @course = @user.course.create(course_params)
       if @course.save
       	redirect_to instructor_course_path(@instructor,@course)
       else

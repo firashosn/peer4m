@@ -5,18 +5,23 @@ class UsersController < ApplicationController
    roles = ["instructor", "student"]
 
   def create
-    @user = User.new(params[:user])
+    binding.pry
+    @user = User.new(user_params)
+    @user.update(role: 2)
     if @user.save
-      if @user.intructor?
-        redirect_to courses_path
-      elsif @user.student?
-        redirect_to show_course_path(@course)
+     # if @user.intructor?
+      #  redirect_to courses_path
+      #elsif @user.student?
+       # redirect_to show_course_path(@course)
     end
   end
 
 end
 
-
+private
+  def user_params
+    params.require(:user).permit(:email, :password, :role)
+  end
 
 
 

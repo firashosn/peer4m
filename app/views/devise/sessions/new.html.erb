@@ -9,6 +9,12 @@
 		
 			    <%= f.password_field :password, autocomplete: "off" %>
 
+			    <div><%= f.form_group :role, label: { text: "Role" } do %>
+            <%= f.radio_button :role, 0, label: "Admin", inline: true %>
+            <%= f.radio_button :role, 1, label: "Instructor", inline: true %>
+            <%= f.radio_button :role, 2, label: "Student", inline: true %>
+          <% end %></div>
+
 			  <% if devise_mapping.rememberable? -%>
 			    <div><%= f.check_box :remember_me %></div>
 			  <% end -%>
