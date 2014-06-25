@@ -50,7 +50,7 @@ body {
 
 
 
-// Navigation
+// Home Page Navigation
 
 h1 {
     font-family: 'Lanenar';
@@ -63,6 +63,59 @@ a:hover {
 
 .navbar-toggle {
 	padding:10px 0;
+}
+
+// Internal Navigation
+
+.nav > li > a {
+	padding:20px 15px;
+}
+
+.navbar {
+	border:none;
+	border-radius:0px;
+}
+
+div.navbar.navbar-default {
+	background:#e7e7e7;
+	min-height:60px;
+}
+
+.navbar > .container .navbar-brand {
+	margin-left:0;
+}
+
+
+.navbar-default .navbar-brand.internal-brand {
+	font-size: 4rem;
+	padding:5px;
+	margin:6px 0;
+	letter-spacing: 2px;
+	line-height:50px;
+	height:50px;
+	text-transform: uppercase;
+	color: #ff4d4d;
+
+}
+
+.navbar-default .navbar-nav.internal-nav > li:hover > a {
+	height:64px;
+}
+
+.nav li:active {
+	border-bottom:4px solid #333333;
+	-webkit-transition: border-bottom .25s ease-in-out;
+
+}
+
+.navbar-default .navbar-nav.internal-nav > li > a:hover  {
+	border-bottom:4px solid #333333;
+	-webkit-transition: border-bottom .25s ease-in-out;
+}
+
+.navbar-default .navbar-nav.internal-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	border-bottom:4px solid #333333;
+	-webkit-transition: border-bottom .25s ease-in-out;
 }
 
 

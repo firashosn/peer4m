@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 sign-up-bg">
+    <div class="col-md-6 col-md-offset-3 authentication-form-bg">
       <h2 class="text-center">Sign up</h2>
       <div class="text-center"><p>Already Have an Account?<%= render "devise/shared/links" %></p></div>
         <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -13,6 +13,12 @@
 
           <div>
             <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+          <div><%= f.form_group :role, label: { text: "Role" } do %>
+            <% User::ROLES.each do |role| %>
+              <%= f.radio_button :role, role, label: role.humanize, inline: true %>
+            <% end %>
+          <% end %></div>
 
           <div><%= f.submit "Sign up", class: "btn btn-info btn-block btn-lg" %></div>
         <% end %>

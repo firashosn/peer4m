@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624005331) do
+ActiveRecord::Schema.define(version: 20140624051913) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 20140624005331) do
   end
 
   add_index "courses", ["instructor_id"], name: "index_courses_on_instructor_id"
+
+  create_table "enrollments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "instructors", force: true do |t|
     t.string   "user_name"
@@ -80,6 +87,7 @@ ActiveRecord::Schema.define(version: 20140624005331) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
