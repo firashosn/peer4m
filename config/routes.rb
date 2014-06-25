@@ -30,16 +30,20 @@ Rails.application.routes.draw do
   #   resources :products
 
     resources :users do
-      resources :courses 
-    end
-
-    resources :courses do
-      resources :assignments do
-        resources :team #do
-         # resources :students
-        #end
+      resources :courses do
+        resources :assignments do
+          resources :team 
+        end
       end
     end
+
+    #resources :courses do
+     # resources :assignments do
+      #  resources :team #do
+         # resources :students
+        #end
+     # end
+    #end
       
 
   # Example resource route with options:

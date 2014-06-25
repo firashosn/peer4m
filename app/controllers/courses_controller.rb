@@ -6,10 +6,14 @@ class CoursesController < ApplicationController
   end
 
   def create
-      @user = User.find(params[:id])
-      @course = @user.course.create(course_params)
+     #binding.pry
+      @currUser = current_user
+      @user = User.find(@currUser.id)
+      @course = Course.create(course_params)
+
       if @course.save
-      	redirect_to instructor_course_path(@instructor,@course)
+        @user.enrollments.create(:course_id => @course.id, :user_id => @user.id)
+      	redirect_to user_course_path(@user,@course)
       else
       	render 'new'
       end

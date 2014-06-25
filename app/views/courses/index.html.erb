@@ -1,1 +1,19 @@
 <%= render 'shared/nav' %>
+
+<h1>New Course</h1>
+
+<%= bootstrap_form_for :course, url: user_courses_path(:id) do |f| %>
+  <p>
+    <%= f.label :course_id %><br>
+    <%= f.text_field :course_id %>
+  </p>
+ 
+  <p>
+    <%= f.label :course_name %><br>
+    <%= f.text_field :course_name %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -6,7 +6,8 @@ before_action :authenticate_user!
     @user = User.new(user_params)
     if @user.save
     	if @user.role == "instructor"
-    		  user_courses_path(:user_id)
+        binding.pry
+    		  user_courses_path(:id)
     	elsif @user.role == "student"
 
     	end
