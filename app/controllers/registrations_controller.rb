@@ -6,7 +6,9 @@ before_action :authenticate_user!
     @user = User.new(user_params)
     if @user.save
     	if @user.role == "instructor"
-    		  user_courses_path(:user_id)
+    		  redirect_to new_session_path(@user)
+      elsif @user.role == "student"
+        redirect_to new_session_path(@user)
     	end
     end
   end
