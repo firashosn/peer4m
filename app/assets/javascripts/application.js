@@ -29,4 +29,8 @@ $(document).ready(function() {
 	
 });
 
+$(document).ready(function() {
+	$('.tb-btn-space').tooltip();
+});
+
 

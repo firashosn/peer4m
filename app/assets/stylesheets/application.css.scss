@@ -39,8 +39,13 @@ body {
 
 }
 
+#content {
+	padding-bottom:130px;
+}
+
 #contact_us {
 	width:100%;
+	height:130px;
 	position:absolute;
 	bottom:0;
 	left:0;
@@ -122,59 +127,161 @@ div.navbar.navbar-default {
 
 /* Login Modal */
 
-.modal-title {
-	text-align: center;
-	font-family: 'Lanenar';
-	color: #ff4d4d;
-	font-size: 3rem;
+// .modal-title {
+// 	text-align: center;
+// 	font-family: 'Lanenar';
+// 	color: #ff4d4d;
+// 	font-size: 3rem;
 
-}
+// }
 
-.modal-title {
-	text-align: center;
-	font-family: 'Lanenar';
-	color: #ff4d4d;
-	font-size: 3rem;
+// .modal-title {
+// 	text-align: center;
+// 	font-family: 'Lanenar';
+// 	color: #ff4d4d;
+// 	font-size: 3rem;
 
-}
+// }
 
-.modal-subtitle {
-	text-align: center;
-	margin-top:20px;
-}
+// .modal-subtitle {
+// 	text-align: center;
+// 	margin-top:20px;
+// }
 
-.modal-header {
-	border-bottom: none;
-}
+// .modal-header {
+// 	border-bottom: none;
+// }
 
-.modal-backdrop {
+// .modal-backdrop {
 
-  background-color:#ff4d4d;
+//   background-color:#ff4d4d;
 
-}
-.modal-backdrop.fade {
-  filter: alpha(opacity=0);
-  opacity: 0;
-}
-.modal-backdrop.in {
-  filter: alpha(opacity=80);
-  opacity: 1;
-}
+// }
+// .modal-backdrop.fade {
+//   filter: alpha(opacity=0);
+//   opacity: 0;
+// }
+// .modal-backdrop.in {
+//   filter: alpha(opacity=80);
+//   opacity: 1;
+// }
 
-.modal-content {
+// .modal-content {
 
-  background-color: rgba(255,255,255,0.7);
-	border:none;
-  outline: none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
+//   background-color: rgba(255,255,255,0.7);
+// 	border:none;
+//   outline: none;
+//   -webkit-box-shadow:none;
+//   box-shadow:none;
+// }
 
 
 // Modal Window - Login
 
 
+//  Buttons
 
+.btn {
+	border:none;
+}
+
+.btn.action {
+	font-size:1.8rem;
+}
+
+// Tables
+
+.heading-titles {
+	margin-bottom:20px;
+}
+
+.table > thead:first-child > tr:first-child > th {
+	background:rgba(255,77,77,0.7);
+}
+
+.page-title {
+	margin:50px;
+}
+
+.tb-btn-space {
+	margin:20px;
+	text-align:center;
+}
+
+
+.glyphicon-eye-open, .glyphicon-pencil, .glyphicon-trash {
+	font-size:18px;
+	color:rgba(255,77,77,1);
+}
+
+
+
+td.t-info {
+
+	width:11em;
+	word-wrap:break-word;
+
+	} 
+
+.table thead tr th:first-child {
+border-top-left-radius: 4px;
+border-bottom-left-radius: 4px;
+
+}
+
+.table thead tr th:last-child {
+
+border-top-right-radius: 4px;
+border-bottom-right-radius: 4px;
+
+}
+
+.table > thead > tr > th {
+	border-bottom:transparent;
+}
+
+tbody tr:nth-child(even){
+  background:#ECF0F1;
+}
+
+.table > tbody > tr > td {
+	border-top:none;
+	padding-top:15px;
+	padding-bottom	:15px;
+}
+
+.courses-table {
+	margin-bottom:40px;
+	position:relative;
+}
+
+
+.tooltip-inner {
+	background:rgba(51,51,51,1);
+	padding:10px;
+}
+
+
+.tooltip.left .tooltip-arrow {
+	border-left-color:rgba(51,51,51,1);
+}
+
+.tooltip.right .tooltip-arrow {
+	border-right-color:rgba(51,51,51,1);
+}
+
+.tooltip.bottom .tooltip-arrow {
+	border-bottom-color:rgba(51,51,51,1);
+}
+
+// Courses Error
+
+.no-courses {
+	color:rgba(34,34,34,0.3);
+	padding:2%;
+	margin-top:40px;
+
+}
 
 
 // Media Queries

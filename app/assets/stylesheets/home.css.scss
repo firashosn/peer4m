@@ -390,11 +390,6 @@ border-color: #252525 transparent transparent transparent;
 	
 }
 
-.bio .row:last-child {
-	padding-bottom:80px;
-	
-}
-
 
 .personal-social {
 	margin:20px 0;
@@ -523,7 +518,6 @@ border-color: #252525 transparent transparent transparent;
 .quotations {
   
   background:#ff4d4d;
-  padding-bottom:80px;
  
 }
 
@@ -774,6 +768,10 @@ p.quote-author {
 		background-color: #ff4d4d;
 	}
 
+	#contact_us {
+		height:160px;
+	}
+
 	#contact_us h3 {
 		padding:0 10px;
 		font-size: 1.7rem;
@@ -832,9 +830,6 @@ p.quote-author {
 	margin: 0 0 40px 0;
 }
 
-.bio {
-	padding-bottom:100px;
-}
 
 .bio h3 {
 	font-size: 2rem;
@@ -843,10 +838,6 @@ p.quote-author {
 .social {
 	text-align: center;
 
-}
-
-.quotations {
-	padding-bottom:140px;
 }
 
 .quote-text {

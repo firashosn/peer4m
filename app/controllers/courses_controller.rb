@@ -1,15 +1,16 @@
 class CoursesController < ApplicationController
 
+  before_action :authenticate_user!, except: [:show]
+  before_action :set_course, only: [:edit, :update, :destroy]
 
   def new
     @course = Course.new
   end
 
   def create
-      @user = User.find(params[:id])
-      @course = @user.course.create(course_params)
+      @course = Course.new(course_params)
       if @course.save
-      	redirect_to instructor_course_path(@instructor,@course)
+      	redirect_to user_courses_path(:id)
       else
       	render 'new'
       end
@@ -24,16 +25,22 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find(params[:id])
+  @course = Course.find(params[:id])
   end
 
   def update
     @course = Course.find(params[:id])
     if @course.update(course_params)
-      redirect_to courses_path
+      redirect_to user_courses_path
     else
     render 'edit'
     end
+  end
+
+  def destroy
+    @course = Course.find(params[:id])
+    @course.destroy
+    redirect_to user_courses_path
   end
 
 
