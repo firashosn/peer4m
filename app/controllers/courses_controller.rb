@@ -53,6 +53,20 @@ class CoursesController < ApplicationController
     redirect_to user_courses_path
   end
 
+def csv_import_studentlist
+     @parsed_file=CSV::Reader.parse(params[:student_list][:file])
+     n=0
+     @parsed_file.each  do |row|
+     student=Uset.new
+     student.email=row[1]
+     if c.save
+        n=n+1
+     else
+        binding.pry
+     end
+     flash.now[:message]="CSV Import Successful,  #{n} new records added to data base"
+end
+
 
   private
     def course_params
