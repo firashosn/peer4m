@@ -14,23 +14,31 @@
 //= require jquery_ujs
 //= require_tree
 //= require bootstrap
-//= require moment
-//= require bootstrap-datetimepicker
+//= require bootstrap-datepicker
 
+
+// Ensuring the bg images are the height on the viewport on page load
 $(document).ready(function() {
 	WinHeight = $(window).height()
 $('.bg.mac, .bg.student').css('height', WinHeight);
 	
 });
 
+// Temp popover on front-end login modal that indicates we are in beta.
 $(document).ready(function() {
 	
 	$("[data-toggle=popover]").popover();
 	
 });
 
+// Tooltip with text to describe icons
 $(document).ready(function() {
 	$('.tb-btn-space').tooltip();
 });
+
+// Datepicker
+function add_datepicker() {
+	$('[data-behaviour~=datepicker]').datepicker({ format: 'dd/mm/yyyy'});
+}
 
 

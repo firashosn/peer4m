@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(user)
     if user.role == "instructor"
-    user_courses_path(user.id)
+    courses_path
     end
   end
 

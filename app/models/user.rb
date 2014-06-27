@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 #insructor is enrolled, but his role is instructor
 
 	has_many :enrollments
-	has_many :courses, :through => :enrollments
+  has_many :courses
+	# has_many :courses, :through => :enrollments
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -16,7 +17,11 @@ class User < ActiveRecord::Base
   validates :role, inclusion: ROLES
 
   def add_default_role
-  	self.role = User::ROLES.last if self.role.nil?
+  	self.role = 'instructor' if self.role.nil?
+  end
+
+  def enrolled_courses
+    self.enrollments.map(&:course)
   end
 
   #attr_accessible :email, :encrypted_password, :role

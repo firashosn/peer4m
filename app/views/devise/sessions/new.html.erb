@@ -1,3 +1,4 @@
+<body class="sign-in bg">
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 authentication-form-bg">
@@ -10,11 +11,11 @@
 		
 			    <%= f.password_field :password, autocomplete: "off" %>
 
-			    <div><%= f.form_group :role, label: { text: "Role" } do %>
+			    <!-- <div><%= f.form_group :role, label: { text: "Role" } do %>
             <%= f.radio_button :role, 0, label: "Admin", inline: true %>
             <%= f.radio_button :role, 1, label: "Instructor", inline: true %>
             <%= f.radio_button :role, 2, label: "Student", inline: true %>
-          <% end %></div>
+          <% end %></div> -->
 
 			  <% if devise_mapping.rememberable? -%>
 			    <div><%= f.check_box :remember_me %></div>
@@ -26,4 +27,5 @@
 		</div>
 	</div>
 </div>
+</body>
 

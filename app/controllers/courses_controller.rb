@@ -5,12 +5,13 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    set_start_date
   end
 
   def create
-      @course = Course.new(course_params)
+      @course = current_user.courses.build(course_params)
       if @course.save
-      	redirect_to user_courses_path(:id)
+      	redirect_to courses_path
       else
       	render 'new'
       end
@@ -21,32 +22,38 @@ class CoursesController < ApplicationController
   	end
 
   def index
-    @courses = Course.all
+    @courses = current_user.courses
   end
 
   def edit
-  @course = Course.find(params[:id])
+    set_start_date
   end
 
   def update
-    @course = Course.find(params[:id])
     if @course.update(course_params)
-      redirect_to user_courses_path
+      redirect_to courses_path
     else
     render 'edit'
     end
   end
 
   def destroy
-    @course = Course.find(params[:id])
     @course.destroy
-    redirect_to user_courses_path
+    redirect_to courses_path
   end
 
 
   private
     def course_params
-      params.require(:course).permit(:course_id, :course_name)
+      params.require(:course).permit(:course_id, :course_name, :start_date)
+    end
+
+    def set_course
+      @course = Course.find(params[:id])
+    end
+
+    def set_start_date
+      @course.start_date = Date.today unless @course.start_date
     end
 
 end

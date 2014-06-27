@@ -1,8 +1,26 @@
 <%= bootstrap_form_for @course do |f| %>
 	
-	<%= f.text_field :course_name %>
-	<%= f.text_field :course_id %>
+
+<!--   <div class="input-append">
+    <input type="text" ='datepicker' >
+    <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+  </div> -->
+
+
+
+	<%= f.text_field :start_date, hide_label: :true, placeholder: "Click to select Start Date", "data-behaviour" => "datepicker", value: @course.start_date.strftime("%d/%m/%Y") %>
+	<%= f.text_field :course_name, hide_label: :true, placeholder: "Course Name" %>
+	<%= f.text_field :course_id, hide_label: :true, placeholder: "Course ID" %>
 
     <%= f.submit "Save changes", class: "btn btn-info" %>
  
 <% end %>
+
+
+
+            
+
+   
