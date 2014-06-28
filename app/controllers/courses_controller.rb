@@ -9,9 +9,24 @@ class CoursesController < ApplicationController
   end
 
   def create
+
       @course = current_user.courses.build(course_params)
       if @course.save
       	redirect_to courses_path
+
+     #binding.pry
+      # @currUser = current_user
+      # @user = User.find(@currUser.id)
+      # @course = Course.create(course_params)
+
+      # if @course.save
+      #   @user.enrollments.create(:course_id => @course.id, :user_id => @user.id)
+      # 	redirect_to user_course_path(@user,@course)
+
+      #@course = Course.new(course_params)
+      #if @course.save
+      #	redirect_to user_courses_path(:id)
+
       else
       	render 'new'
       end

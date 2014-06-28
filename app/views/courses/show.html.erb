@@ -7,31 +7,3 @@
   <strong>Course Name:</strong>
   <%= @course.course_name %>
 </p>
-
-<h2>Add an assignment:</h2>
-<%= form_for([@course, @course.assignments.build]) do |f| %>
-  <p>
-    <%= f.label :assignment_name %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :open_time %><br>
-    <%= f.datetime_field :open_time %>
-  </p>
-  <p>
-    <%= f.label :close_time %><br>
-    <%= f.datetime_field :close_time %>
-  </p>
-  <p>
-    <%= f.label :instruction%><br>
-    <%= f.text_area :instructions %>
-  </p>
-  <p>
-      <%= f.label :teams%><br>
-      <%= f.text_area :teams %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>

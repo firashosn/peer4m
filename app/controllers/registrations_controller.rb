@@ -12,6 +12,9 @@ before_action :authenticate_user!
     	end
     else 
       redirect_to :back, notice: "Error"
+
+    	# 	  user_courses_path(:user_id)
+    	# end
     end
   end
 
