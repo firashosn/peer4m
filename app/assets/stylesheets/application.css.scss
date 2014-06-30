@@ -78,6 +78,7 @@ a:hover {
 
 .nav > li > a {
 	padding:20px 15px;
+	font-family:Century Gothic;
 }
 
 .navbar {
@@ -107,27 +108,29 @@ div.navbar.navbar-default {
 
 }
 
-.navbar-default .navbar-nav.internal-nav > li:hover > a {
-	height:64px;
-}
-
-.nav li:active {
+.blue-active {
 	border-bottom:4px solid #31b0d5;
-	-webkit-transition: border-bottom .25s ease-in-out;
-
+	height:60px;
+	
 }
+
+.navbar-default .navbar-nav.internal-nav > li > a.blue-active, .navbar-default .navbar-nav.internal-nav > li.blue-active  {
+	color:#31b0d5;
+}
+
 
 .navbar-default .navbar-nav.internal-nav > li > a:hover  {
+	height:60px;
 	color:#31b0d5;
 	border-bottom:4px solid #31b0d5;
 	-webkit-transition: border-bottom .25s ease-in-out;
 }
 
-.navbar-default .navbar-nav.internal-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	color:#31b0d5;
-	border-bottom:4px solid #31b0d5;
-	-webkit-transition: border-bottom .25s ease-in-out;
-}
+// .navbar-default .navbar-nav.internal-nav > .blue-active > a, .navbar-default .navbar-nav > .blue-active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+// 	color:#31b0d5;
+// 	border-bottom:4px solid #31b0d5;
+// 	-webkit-transition: border-bottom .25s ease-in-out;
+// }
 
 
 
@@ -283,6 +286,8 @@ tbody tr:nth-child(even){
 	position:relative;
 }
 
+// Date Picker
+
 input#course_start_date {
 	width:38.5%;
 }
@@ -290,6 +295,12 @@ input#course_start_date {
 .datepicker table tr td.active.active, .datepicker table tr td.active:hover.active {
 	background-color:#31b0d5 !important;
 }
+
+.datepicker table tr td span.active.active, .datepicker table tr td span.active:hover.active {
+	background-color:#31b0d5 !important;
+}
+
+// Tooltip
 
 
 .tooltip-inner {
@@ -310,9 +321,9 @@ input#course_start_date {
 	border-bottom-color:rgba(51,51,51,1);
 }
 
-// Courses Error
+// Courses / Assignments Error
 
-.no-courses {
+.no-courses, .no-assignments {
 	color:rgba(34,34,34,0.3);
 	padding:2%;
 	margin-top:40px;

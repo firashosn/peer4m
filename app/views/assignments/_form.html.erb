@@ -1,0 +1,18 @@
+
+	<%= bootstrap_form_for @assignment do |f| %>
+
+  
+    <%= f.text_field :name, placeholder: "Assignment Name" %>
+
+
+    <%= f.datetime_field :close_time, placeholder: "Closing Time" %>
+
+
+    <%= f.label :instruction %><br>
+    <%= f.text_area :instructions %>
+ 
+     <%= f.submit "Save changes", class: "btn btn-info" %>
+
+
+ 
+<% end %>

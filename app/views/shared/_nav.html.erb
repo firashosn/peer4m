@@ -7,8 +7,9 @@
             <a class="navbar-brand internal-brand" href="#">PEER4M</a>
           </div>
               <ul class="nav navbar-nav internal-nav pull-right">
-                <li class="active"><a href="#">Courses</a></li>
-                <li><a href="#">Assignments</a></li>
+                <!-- <li class="active"><a href="#">Courses</a></li> -->
+                <li ><%= link_to 'Courses', courses_path %></li>
+                <li><%= link_to 'Profile', profile_path %></li>
                 <li><%= link_to 'Log out', destroy_user_session_path, :method => 'delete' %></li>
             </ul>
           </div>
