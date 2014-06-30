@@ -25,24 +25,28 @@
             <tbody>
             <% @assignments.each do |assignment| %>
             <tr>
-              <td class="t-info text-left"><%= assignment.assignment_name %></td>
-              <td class="t-info text-left"><%= assignment.assignment_status %></td>
-              <td class="t-info text-left"><%= assignment.close_time %></td>
+              <td class="t-info text-left"><%= assignment.name %></td>
+              <td class="t-info text-left"><%= assignment.status %></td>
+              <td class="t-info text-left"><%= assignment.close_time.try(:to_date) %></td>
           
               <td class="t-info text-center">
 
-            <%= link_to course_assignments_path(course), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View Assignments', class: "tb-btn-space" do %>
-             <i class="glyphicon glyphicon-eye-open"></i>
+              <%= link_to courses_path, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View Teams', class: "tb-btn-space" do %>
+              <i class="fa fa-user"></i>
+             <!-- <i class="glyphicon glyphicon-eye-open"></i> -->
             <% end %>
 
-              <%= link_to edit_course_path(course), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Edit Course', class: "tb-btn-space" do %>
+              <%= link_to edit_course_assignment_path(@course, assignment), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Edit Assignment', class: "tb-btn-space" do %>
               <i class="glyphicon glyphicon-pencil"></i>
               <% end %>
 
-              <%= link_to course_path(course), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'right', 'title' => 'Delete', method: :delete,
+              <%= link_to course_assignments_path(@course, assignment), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'right', 'title' => 'Delete', method: :delete,
                data: { confirm: 'Are you sure?' }, class: "tb-btn-space" do %>
               <i class="glyphicon glyphicon-trash"></i>
               <% end %>
+
+   
+              
             
             </td>
             </tr>

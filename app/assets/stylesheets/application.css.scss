@@ -219,6 +219,15 @@ div.navbar.navbar-default {
 	font-size:1.8rem;
 }
 
+
+// Table icons
+
+.glyphicon-eye-open, .glyphicon-pencil, .glyphicon-trash, .fa-user {
+	font-size:18px;
+	color:rgba(255,77,77,1);
+}
+
+
 // Tables
 
 .heading-titles {
@@ -236,12 +245,6 @@ div.navbar.navbar-default {
 .tb-btn-space {
 	margin:20px;
 	text-align:center;
-}
-
-
-.glyphicon-eye-open, .glyphicon-pencil, .glyphicon-trash {
-	font-size:18px;
-	color:rgba(255,77,77,1);
 }
 
 
@@ -329,6 +332,13 @@ input#course_start_date {
 	margin-top:40px;
 
 }
+
+// Forms
+
+// input#user_first_name, input#user_last_name  {
+// 	display:inline-block;
+// 	width:50%;
+// }
 
 
 // Media Queries

@@ -7,9 +7,11 @@
 			<div class="text-center"><p>No Account?<%= render "devise/shared/links" %></p></div>
 			<%= bootstrap_form_for resource, url: session_path(resource_name) do |f| %>
 			  <div>
-			  <%= f.email_field :email, autofocus: true %>
+
+
+			  <%= f.email_field :email, autofocus: true, hide_label: :true, placeholder: "Enter your email address" %>
 		
-			    <%= f.password_field :password, autocomplete: "off" %>
+			    <%= f.password_field :password, autocomplete: "off", hide_label: :true, placeholder: "Enter your password" %>
 
 	
 
