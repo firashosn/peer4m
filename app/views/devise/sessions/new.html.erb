@@ -6,7 +6,6 @@
 			
 			
 			<%= bootstrap_form_for resource, url: session_path(resource_name) do |f| %>
-			  <div>
 
 
 			  <%= f.email_field :email, autofocus: true, hide_label: :true, placeholder: "Enter your email address" %>
@@ -22,10 +21,10 @@
 			  <div><%= f.submit 'Sign in', class: "btn btn-info btn-block btn-lg" %></div>
 			<% end %>
 			
-		</div>
+
 	</div>
 	<div class="col-md-6 col-md-offset-3">
-		<div class="col-md-6 text-left devise-links">No Account?  <%= link_to 'Register Now!', sign_up_path %></div>
+		<div class="col-md-6 text-left devise-links"><span>No Account?</span> <%= link_to 'Register Now!', sign_up_path %></div>
 		<div class="col-md-6 text-right devise-links"><%= link_to 'Forgot your password?', new_password_path(resource_name) %></div>
 	</div>
 	</div>

@@ -2,36 +2,35 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3 authentication-form-bg">
-      <h2 class="text-center">Sign up</h2>
-      <div class="text-center"><p>Already Have an Account?<%= render "devise/shared/links" %></p></div>
+      <h2 class="auth-headings text-center">Sign up</h2>
+
         <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-          <div>
-           <%= f.text_field :first_name,  autofocus: true, hide_label:true, placeholder: "Enter your first name" %> 
+          <div class="col-md-6 first-name-field">
+           <%= f.text_field :first_name,  autofocus: true, hide_label:true, inline: true, placeholder: "Enter your first name" %>
          </div>
-
-         <div>
-           <%= f.text_field :last_name, hide_label:true, placeholder: "Enter your last name" %> 
+         <div class="col-md-6 last-name-field">
+           <%= f.text_field :last_name, hide_label:true, inline: true, placeholder: "Enter your last name" %> 
          </div>
+           
 
-           <div>
-          <%= f.email_field :email, hide_label: :true, placeholder: "Enter your email address" %></div>
+          <%= f.email_field :email, hide_label: :true, placeholder: "Enter your email address" %> 
+ 
+            <%= f.password_field :password, autocomplete: "off", hide_label: :true, placeholder: "Enter your password" %>
+    
+            <%= f.password_field :password_confirmation, autocomplete: "off", hide_label: :true, placeholder: "Enter your password for confirmation" %>
 
-          <div>
-            <%= f.password_field :password, autocomplete: "off", hide_label: :true, placeholder: "Enter your password" %></div>
-
-          <div>
-            <%= f.password_field :password_confirmation, autocomplete: "off", hide_label: :true, placeholder: "Enter your password for confirmation" %></div>
-
-          <div><%= f.form_group :role, label: { text: "Role" } do %>
+            <%= f.form_group :role, label: { text: "Role" } do %>
             <% User::ROLES.each do |role| %>
               <%= f.radio_button :role, role, label: role.humanize, inline: true %>
             <% end %>
-          <% end %></div>
-
-          <div><%= f.submit "Sign up", class: "btn btn-info btn-block btn-lg" %></div>
+          <% end %>
+          <%= f.submit "Sign up", class: "btn btn-info btn-block btn-lg" %>
+        </div>
         <% end %>
-      </div>
+        <div class="col-md-6 col-md-offset-3">
+        <p class="devise-links text-right">Already created an account? <%= link_to 'Login', login_path %></p>
     </div>
+      </div>
   </div>
 </body>

@@ -8,12 +8,6 @@
 /* Links and Background Main */
 
 
-a, a:hover {
-	color: #000;
-	text-decoration: none;
-}
-
-
 .bg {
 	background-position: center;
 	background-size: cover;
@@ -53,6 +47,9 @@ a, a:hover {
 
 .auth-headings {
 	margin-bottom:40px;
+	font-family: 'walkway_boldregular';
+	letter-spacing: 2px;
+	text-transform: uppercase;
 }
 
 .devise-links {
