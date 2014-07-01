@@ -39,10 +39,26 @@ a, a:hover {
 
 }
 
-// .sign-in {
-// 	background-image:url('./macdesk.jpg');
-// }
+.sign-in, .sign-up, .forgot-password {
+	background-image:url('./torontoset2.jpg');
+}
 
+
+.authentication-form-bg {
+	background: rgba(255,255,255,0.7);
+	padding: 20px;
+	border-radius: 4px;
+	margin-top: 100px;
+}
+
+.auth-headings {
+	margin-bottom:40px;
+}
+
+.devise-links {
+	margin-top:10px;
+
+}
 
 
 /* End */

@@ -33,7 +33,7 @@ end
 
 def edit
     set_close_time
-    # @assignment = Assignment.find(params[:id])
+    @course = Course.find(params[:course_id])
 end
 
 def update

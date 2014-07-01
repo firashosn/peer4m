@@ -1,3 +1,4 @@
+<body class="sign-up bg">
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3 authentication-form-bg">
@@ -6,7 +7,7 @@
         <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
           <div>
-           <%= f.text_field :first_name, hide_label:true, placeholder: "Enter your first name" %> 
+           <%= f.text_field :first_name,  autofocus: true, hide_label:true, placeholder: "Enter your first name" %> 
          </div>
 
          <div>
@@ -14,7 +15,7 @@
          </div>
 
            <div>
-          <%= f.email_field :email, autofocus: true, hide_label: :true, placeholder: "Enter your email address" %></div>
+          <%= f.email_field :email, hide_label: :true, placeholder: "Enter your email address" %></div>
 
           <div>
             <%= f.password_field :password, autocomplete: "off", hide_label: :true, placeholder: "Enter your password" %></div>
@@ -30,9 +31,7 @@
 
           <div><%= f.submit "Sign up", class: "btn btn-info btn-block btn-lg" %></div>
         <% end %>
-
-        
-
+      </div>
     </div>
   </div>
-</div>
+</body>
