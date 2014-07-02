@@ -11,7 +11,7 @@ before_action :authenticate_user!
         #courses_path(:user_id)
     	end
     else 
-      redirect_to :back, notice: "Error"
+      redirect_to :back, :flash => { :error => "You fucked up bitch! Try Again" } 
 
     	# 	  user_courses_path(:user_id)
     	# end

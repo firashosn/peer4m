@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     # resources :users do
       resources :courses do
         resources :assignments do
-          resources :team 
+          resources :team
         end
       end
 

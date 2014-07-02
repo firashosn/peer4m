@@ -1,5 +1,5 @@
-  
-	<%= bootstrap_form_for [:course, @assignment] do |f| %>
+
+	<%= bootstrap_form_for [:course, @assignment], url: {action: @assignment.new_record? ? "create" : "update"} do |f| %>
   
     <%= f.text_field :name, placeholder: "Assignment Name", hide_label: :true %>
 

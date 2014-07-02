@@ -37,17 +37,19 @@ def edit
 end
 
 def update
+    @course = Course.find(params[:course_id])
     @assignment = Assignment.find(params[:id])
     if @assignment.update(assignment_params)
-      redirect_to course_assignments_path(course)
+      redirect_to course_assignments_path(@course)
     else
     render 'edit'
     end
   end
 
 def destroy
+    @course = Course.find(params[:course_id])
     @assignment.destroy
-    redirect_to course_assignments_path(course)
+    redirect_to course_assignments_path(@course)
   end
 
  private
