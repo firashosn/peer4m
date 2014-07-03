@@ -14,6 +14,7 @@
  *= require_tree
  *= require font-awesome
  *= require rails_bootstrap_forms
+ *= require bootstrap-datepicker3
  */
 
  // require_self includes this file last
@@ -23,10 +24,12 @@ $link-color:#000;
 
 
 @import "bootstrap";
-@import "bootstrap-datetimepicker";
+
 
 // defaults
-
+.datepicker.datepicker-dropdown{
+	z-index:99999 !important;
+}
 
 html,
 body {
@@ -52,6 +55,7 @@ body {
 	right:0;
 
 }
+
 
 
 
@@ -94,7 +98,7 @@ div.navbar.navbar-default {
 .navbar-default .navbar-brand.internal-brand {
 	font-size: 4rem;
 	padding:5px;
-	margin:6px 0;
+	margin:3px 0;
 	letter-spacing: 2px;
 	line-height:50px;
 	height:50px;
@@ -108,24 +112,30 @@ div.navbar.navbar-default {
 }
 
 .nav li:active {
-	border-bottom:4px solid #333333;
+	border-bottom:4px solid #31b0d5;
 	-webkit-transition: border-bottom .25s ease-in-out;
 
 }
 
 .navbar-default .navbar-nav.internal-nav > li > a:hover  {
-	border-bottom:4px solid #333333;
+	color:#31b0d5;
+	border-bottom:4px solid #31b0d5;
 	-webkit-transition: border-bottom .25s ease-in-out;
 }
 
 .navbar-default .navbar-nav.internal-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	border-bottom:4px solid #333333;
+	color:#31b0d5;
+	border-bottom:4px solid #31b0d5;
 	-webkit-transition: border-bottom .25s ease-in-out;
 }
 
 
 
 /* Login Modal */
+
+
+
+
 
 // .modal-title {
 // 	text-align: center;
@@ -179,7 +189,24 @@ div.navbar.navbar-default {
 // Modal Window - Login
 
 
-//  Buttons
+// Action Modals
+
+.modal-title {
+	color:#fff;
+}
+
+
+.modal-header.actions {
+	border-bottom:none;
+	background:rgba(14,180,240,0.8);
+	text-align:center;
+	border-top-right-radius:4px;
+	border-top-left-radius:4px;
+}
+
+
+
+//  Action Buttons
 
 .btn {
 	border:none;
@@ -242,6 +269,7 @@ border-bottom-right-radius: 4px;
 
 tbody tr:nth-child(even){
   background:#ECF0F1;
+
 }
 
 .table > tbody > tr > td {
@@ -253,6 +281,14 @@ tbody tr:nth-child(even){
 .courses-table {
 	margin-bottom:40px;
 	position:relative;
+}
+
+input#course_start_date {
+	width:38.5%;
+}
+
+.datepicker table tr td.active.active, .datepicker table tr td.active:hover.active {
+	background-color:#31b0d5 !important;
 }
 
 

@@ -6,10 +6,15 @@ before_action :authenticate_user!
     @user = User.new(user_params)
     if @user.save
     	if @user.role == "instructor"
-    		  redirect_to new_session_path(@user)
+    		redirect_to courses_path
       elsif @user.role == "student"
-        redirect_to new_session_path(@user)
+        #courses_path(:user_id)
     	end
+    else 
+      redirect_to :back, notice: "Error"
+
+    	# 	  user_courses_path(:user_id)
+    	# end
     end
   end
 

@@ -5,17 +5,24 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    set_start_date
   end
 
   def create
-     #binding.pry
-      @currUser = current_user
-      @user = User.find(@currUser.id)
-      @course = Course.create(course_params)
-
+      @course = current_user.courses.build(course_params)
+      @course.enrollment_password = Devise.friendly_token
+      binding.pry
       if @course.save
-        @user.enrollments.create(:course_id => @course.id, :user_id => @user.id)
-      	redirect_to user_course_path(@user,@course)
+      	redirect_to courses_path
+
+     #binding.pry
+      # @currUser = current_user
+      # @user = User.find(@currUser.id)
+      # @course = Course.create(course_params)
+
+      # if @course.save
+      #   @user.enrollments.create(:course_id => @course.id, :user_id => @user.id)
+      # 	redirect_to user_course_path(@user,@course)
 
       #@course = Course.new(course_params)
       #if @course.save
@@ -24,53 +31,59 @@ class CoursesController < ApplicationController
       else
       	render 'new'
       end
-    end
+  end
    
-   def show
+  def show
   	  @course = Course.find(params[:id])
-  	end
+  end
 
   def index
-    @courses = Course.all
+    @courses = current_user.courses
   end
 
   def edit
-  @course = Course.find(params[:id])
+    set_start_date
   end
 
   def update
-    @course = Course.find(params[:id])
     if @course.update(course_params)
-      redirect_to user_courses_path
+      redirect_to courses_path
     else
-    render 'edit'
+      render 'edit'
     end
   end
 
   def destroy
-    @course = Course.find(params[:id])
     @course.destroy
-    redirect_to user_courses_path
+    redirect_to courses_path
   end
 
-def csv_import_studentlist
+  def csv_import_studentlist
      @parsed_file=CSV::Reader.parse(params[:student_list][:file])
      n=0
      @parsed_file.each  do |row|
-     student=Uset.new
-     student.email=row[1]
-     if c.save
-        n=n+1
-     else
-        binding.pry
+       student=Uset.new
+       student.email=row[1]
+       if c.save
+          n=n+1
+       else
+          binding.pry
+       end
      end
      flash.now[:message]="CSV Import Successful,  #{n} new records added to data base"
-end
-
+  end
 
   private
     def course_params
-      params.require(:course).permit(:course_id, :course_name)
+      params.require(:course).permit(:course_id, :course_name, :start_date)
+    end
+
+    def set_course
+      @course = Course.find(params[:id])
+    end
+
+    def set_start_date
+      @course.start_date = Date.today unless @course.start_date
     end
 
 end

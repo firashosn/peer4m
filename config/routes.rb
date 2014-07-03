@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # devise_for :users
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, :controllers => {:registrations => "registrations"}, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
   root 'home#index'
   
   get 'about' => 'about#index' 
@@ -29,13 +29,21 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-    resources :users do
+
+    resources :users 
+
+    # do
+    #   resources :courses 
+    # end
+
+    # resources :users do
       resources :courses do
         resources :assignments do
           resources :team 
         end
       end
-    end
+
+
 
     #resources :courses do
      # resources :assignments do
