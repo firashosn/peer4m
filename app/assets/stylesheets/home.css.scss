@@ -8,12 +8,6 @@
 /* Links and Background Main */
 
 
-a, a:hover {
-	color: #000;
-	text-decoration: none;
-}
-
-
 .bg {
 	background-position: center;
 	background-size: cover;
@@ -39,10 +33,29 @@ a, a:hover {
 
 }
 
-// .sign-in {
-// 	background-image:url('./mbair2.png');
-// }
+.sign-in, .sign-up, .forgot-password {
+	background-image:url('./torontoset2.jpg');
+}
 
+
+.authentication-form-bg {
+	background: rgba(255,255,255,0.7);
+	padding: 20px;
+	border-radius: 4px;
+	margin-top: 100px;
+}
+
+.auth-headings {
+	margin-bottom:40px;
+	font-family: 'walkway_boldregular';
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.devise-links {
+	margin-top:10px;
+
+}
 
 
 /* End */

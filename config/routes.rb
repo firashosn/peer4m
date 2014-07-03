@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
 
   # devise_for :users
-  devise_for :users, :controllers => {:registrations => "registrations"}, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
-  root 'home#index'
+  devise_for :users, :controllers => {:registrations => "registrations"}, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'},
+  :controllers => {:registrations => "registrations"}, :path => '', :path_names => {:edit => 'profile' }
   
+  root 'home#index'
   get 'about' => 'about#index' 
 
   devise_scope :user do
   
     get "/login" => "devise/sessions#new", :as => :login
     get "/sign_up" => "devise/registrations#new", :as => :sign_up
+    get "/profile" => "devise/registrations#edit", :as => :profile
   
   end
   
@@ -35,11 +37,12 @@ Rails.application.routes.draw do
     # do
     #   resources :courses 
     # end
+    
 
     # resources :users do
       resources :courses do
         resources :assignments do
-          resources :team 
+          resources :team
         end
       end
 

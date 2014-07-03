@@ -2,10 +2,9 @@
 
 	<%= f.text_field :start_date, hide_label: :true, placeholder: "Click to select Start Date", "data-behaviour" => "datepicker", value: @course.start_date.strftime("%d/%m/%Y") %>
 	<%= f.text_field :course_name, hide_label: :true, placeholder: "Course Name" %>
-	<%= f.text_field :course_id, hide_label: :true, placeholder: "Course ID" %>
-  <%= f.file_field :student_list %>
+	<%= f.text_field :course_id, hide_label: :true, placeholder: "Course ID" %>  
+   <%= f.submit "Save changes", class: "btn btn-info" %>
 
-    <%= f.submit "Save changes", class: "btn btn-info" %>
  
 <% end %>
 

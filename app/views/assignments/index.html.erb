@@ -1,0 +1,63 @@
+<%= render 'shared/nav' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 heading-titles">
+      <h1 class="text-center page-title"><%= @course.course_name %></h1>
+  <h3><%= link_to 'Add an Assignment +', new_course_assignment_path, :remote => true, class: "btn action btn-info" %></h3>
+    </div>
+  </div>
+
+
+          <% if @assignments.size == 0 %>
+              <h4 class="text-center no-assignments">You currently don't have any assignments for this course. Add an assignment to build list...</h4>
+          <% else %>
+      <div class="row">
+      <div class="col-md-12 courses-table">
+        <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <th class="text-left">Assignment Name</th>
+            <th class="text-left">Status</th>
+            <th class="text-left">Closing Time</th>
+            <th class="text-center" colspan="3">Actions</th>
+          </thead> 
+            <tbody>
+            <% @assignments.each do |assignment| %>
+            <tr>
+              <td class="t-info text-left"><%= assignment.name %></td>
+              <td class="t-info text-left"><%= assignment.status %></td>
+              <td class="t-info text-left"><%= assignment.close_time.try(:to_date) %></td>
+          
+              <td class="t-info text-center">
+
+              <%= link_to course_assignment_team_index_path(@course, assignment), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View Teams', class: "tb-btn-space" do %>
+              <i class="fa fa-user"></i>
+             <!-- <i class="glyphicon glyphicon-eye-open"></i> -->
+            <% end %>
+
+              <%= link_to edit_course_assignment_path(@course, assignment), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Edit Assignment', class: "tb-btn-space" do %>
+              <i class="glyphicon glyphicon-pencil"></i>
+              <% end %>
+
+              <%= link_to course_assignment_path(@course, assignment), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'right', 'title' => 'Delete', method: :delete,
+               data: { confirm: 'Are you sure?' }, class: "tb-btn-space" do %>
+              <i class="glyphicon glyphicon-trash"></i>
+              <% end %>
+            
+            </td>
+            </tr>
+          
+          <% end %>
+          </tbody>
+        </table>
+        </div> <!-- / Table responsive -->
+      </div>
+    </div>
+     <!--This goes back to the index action -->
+  </div>
+<% end %>
+
+<%= render 'shared/footer' %>
+
+<%= render 'shared/modal' %>
