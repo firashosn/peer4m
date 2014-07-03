@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
 
-    before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show]
   before_action :set_assignment, only: [:edit, :update, :destroy]
 
 
@@ -16,7 +16,6 @@ def index
 
 def create
     @course = Course.find(params[:course_id])
-    #binding.pry
     @assignment = @course.assignments.build(assignment_params)
     
       if @assignment.save
@@ -41,6 +40,7 @@ def update
     @assignment = Assignment.find(params[:id])
     if @assignment.update(assignment_params)
       redirect_to course_assignments_path(@course)
+
     else
     render 'edit'
     end

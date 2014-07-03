@@ -9,36 +9,40 @@ class CoursesController < ApplicationController
   end
 
   def create
-      @course = current_user.courses.build(course_params)
-      @course.enrollment_password = Devise.friendly_token
-      binding.pry
-      if @course.save
-      	redirect_to courses_path
-
-     #binding.pry
-      # @currUser = current_user
-      # @user = User.find(@currUser.id)
-      # @course = Course.create(course_params)
-
-      # if @course.save
-      #   @user.enrollments.create(:course_id => @course.id, :user_id => @user.id)
-      # 	redirect_to user_course_path(@user,@course)
-
-      #@course = Course.new(course_params)
-      #if @course.save
-      #	redirect_to user_courses_path(:id)
-
-      else
-      	render 'new'
+      @user = User.find(current_user.id)
+      if current_user.role == "instructor"
+        @course = current_user.courses.build(course_params)
+        @course.enrollment_password = Devise.friendly_token
+        @currUser = current_user
+        @user = User.find(@currUser.id)
+        if @course.save
+          @user.enrollments.create(:course_id => @course.id, :user_id => @user.id)
+        	redirect_to courses_path
+        else
+        	render 'new'
+        end
+      elsif current_user.role == "student"
+        params_c = params[:course]
+        c = Course.find_by(enrollment_password: params_c[:enrollment_password])
+        if c != nil
+        @user.enrollments.create(:course_id => c.id, :user_id => current_user.id)
+          #if c.save
+          redirect_to courses_path
+          #end
+        end
       end
   end
    
   def show
+      #binding.pry
   	  @course = Course.find(params[:id])
   end
 
   def index
-    @courses = current_user.courses
+    #binding.pry
+    #enrollments = Enrollment.where(user_id: current_user.id)
+    @courses = Course.joins(:enrollments).where('enrollments.user_id' => current_user.id)
+    #@courses = current_user.courses
   end
 
   def edit

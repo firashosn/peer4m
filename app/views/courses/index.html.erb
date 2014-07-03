@@ -8,8 +8,7 @@
     </div>
   </div>
 
-
-          <% if @courses == nil %>
+          <% if @courses.size == 0 %>
               <h4 class="text-center no-courses">You currently don't have any courses. Add a course to begin building your course list...</h4>
           <% else %> 
       <div class="row">
@@ -20,6 +19,9 @@
             <th class="text-left">Course Name</th>
             <th class="text-left">Course ID</th>
             <th class="text-left">Start Date</th>
+            <% if current_user.role == "instructor" %>
+            <th class="text-left">Enrollment Password</th>
+            <% end %> 
             <th class="text-center" colspan="3">Actions</th>
           </thead> 
             <tbody>
@@ -28,8 +30,13 @@
               <td class="t-info text-left"><%= course.course_name %></td>
               <td class="t-info text-left"><%= course.course_id %></td>
               <td class="t-info text-left"><%= course.start_date.try(:to_date) %></td>
+              <% if current_user.role == "instructor" %>  
+              <td class="t-info text-left"><%= course.enrollment_password %></td>
+            <% end %>
               
               <td class="t-info text-center">
+
+            <% if current_user.role == "instructor" %>
 
             <%= link_to course_assignments_path(course), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View Assignments', class: "tb-btn-space" do %>
              <i class="glyphicon glyphicon-eye-open"></i>
@@ -43,6 +50,13 @@
                data: { confirm: 'Are you sure?' }, class: "tb-btn-space" do %>
               <i class="glyphicon glyphicon-trash"></i>
               <% end %>
+
+            <% elsif current_user.role == "student" %> 
+
+            <%= link_to course_assignments_path(course), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View Assignments', class: "tb-btn-space" do %>
+             <i class="glyphicon glyphicon-eye-open"></i>
+              <% end %>
+            <% end %> 
             
             </td>
             </tr>

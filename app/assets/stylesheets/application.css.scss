@@ -224,6 +224,16 @@ div.navbar.navbar-default {
 	border-top-left-radius:4px;
 }
 
+.modal-content.action-modal {
+	box-shadow:none;
+	-webkit-box-shadow:none;
+	-ms-box-shadow:none;
+	-o-box-shadow:none;
+	-moz-box-shadow:none;
+	border:none;
+
+}
+
 
 
 //  Action Buttons
@@ -366,7 +376,7 @@ input#course_start_date {
 
 // Courses / Assignments Error
 
-.no-courses, .no-assignments {
+.no-courses, .no-assignments, .no-teams {
 	color:rgba(34,34,34,0.3);
 	padding:2%;
 	margin-top:40px;
