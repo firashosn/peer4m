@@ -1,6 +1,31 @@
 <%= bootstrap_form_for [:assignment, @team], url: {action: @team.new_record? ? "create" : "update"} do |f| %>
 	
-	<%= f.text_field :name, hide_label: :true, placeholder: "Team Name" %>
+
+	<table class="table">
+          <thead>
+            <th class="text-left">Student First Name</th>
+            <th class="text-left">Student Last Name</th>
+            <th class="text-left">Student Email</th>
+            <th class="text-left">Team Status</th>
+            <th class="text-center" colspan="3">Actions</th>
+          </thead> 
+            <tbody>
+
+            <% @students.each do |student| %>
+            <tr>
+              <td class="t-info text-left"><%= student.first_name %></td>
+              <td class="t-info text-left"><%= student.last_name %></td>
+              <td class="t-info text-left"><%= student.email %></td> 
+              <td class="t-info text-left"> na </td>
+              
+              <td class="t-info text-center">
+            
+            </td>
+            </tr>
+          
+          <% end %>
+          </tbody>
+        </table>
 
    <%= f.submit "Add Team", class: "btn btn-info" %>
 	

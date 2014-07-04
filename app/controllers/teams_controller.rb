@@ -4,6 +4,19 @@ class TeamsController < ApplicationController
 
   def new
     @team = Team.new
+    @course = Course.find(params[:course_id])
+    curUsers = User.joins(:enrollments).where('enrollments.course_id' => @course[:id]) 
+    curStudents = curUsers.where('role' => 'student')
+    @students = curStudents
+
+   # binding.pry
+   #if Team != nil
+    # existimgTeams = Team.find(params[:assignment_id])
+   #end
+
+    #studentsInTeams = existimgTeams
+    #go through for each team and make sure the students are removed form our list of students
+#do a check to see if students belong to a team 
   end
 
   def create
