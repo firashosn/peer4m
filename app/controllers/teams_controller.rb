@@ -33,7 +33,7 @@ def edit
 end
 
 def update
-  binding.pry
+  # binding.pry
     @course = Course.find(params[:course_id])
     @assignment = Assignment.find(params[:id])
     if @assignment.update(assignment_params)

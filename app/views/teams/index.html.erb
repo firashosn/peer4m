@@ -4,8 +4,9 @@
   <div class="row">
     <div class="col-md-12 heading-titles">
       <h1 class="text-center page-title">Teams</h1>
-  <h3><%= link_to 'Add a Team +', new_course_assignment_team_path, :remote => true, class: "btn action btn-info" %></h3>
-  <h3><%= link_to 'View Evaluation', new_course_assignment_team_path, :remote => true, class: "btn action btn-default" %></h3>
+      <h4 class="text-center sub-title"><%= @course.course_name %>,  <%= @assignment.name %></h4>
+  <h3 class="inline"><%= link_to 'Add a Team +', new_course_assignment_team_path, :remote => true, class: "btn action btn-info" %></h3>
+  <h3 class="inline"><%= link_to 'View Evaluations', new_course_assignment_team_path, :remote => true, class: "btn action btn-default" %></h3>
     </div>
   </div>
 

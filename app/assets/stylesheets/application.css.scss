@@ -126,21 +126,24 @@ div.navbar.navbar-default {
 }
 
 .blue-active {
-	border-bottom:4px solid #31b0d5;
+	border-bottom:4px solid rgba(14, 180, 240, 1);
 	height:60px;
 	
 }
 
 .navbar-default .navbar-nav.internal-nav > li > a.blue-active, .navbar-default .navbar-nav.internal-nav > li.blue-active  {
-	color:#31b0d5;
+	background:rgba(14, 180, 240, 1);
 }
 
 
 .navbar-default .navbar-nav.internal-nav > li > a:hover  {
 	height:60px;
 	color:#31b0d5;
-	border-bottom:4px solid #31b0d5;
+	border-bottom:4px solid rgba(14, 180, 240, 1);
 	-webkit-transition: border-bottom .25s ease-in-out;
+	-moz-transition: border-bottom .25s ease-in-out;
+	-ms-transition: border-bottom .25s ease-in-out;
+	-o-transition: border-bottom .25s ease-in-out;
 }
 
 // .navbar-default .navbar-nav.internal-nav > .blue-active > a, .navbar-default .navbar-nav > .blue-active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
@@ -148,6 +151,46 @@ div.navbar.navbar-default {
 // 	border-bottom:4px solid #31b0d5;
 // 	-webkit-transition: border-bottom .25s ease-in-out;
 // }
+
+// Dropdown Menu(s)
+
+.dropdown-menu {
+	box-shadow:none;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	-ms-box-shadow:none;
+	-o-box-shadow:none;
+}
+
+.dropdown-menu a {
+	font-family: Century Gothic;
+	
+}
+
+.dropdown-menu > li:hover {
+	color:#fff;
+}
+
+.dropdown-menu > li > a {
+	color:#777777;
+}
+
+.dropdown-menu > li > a:hover {
+	background:rgba(14, 180, 240, 1);
+	color:#fff;
+
+}
+
+.fa-cog, .fa-sign-out {
+	margin-right:5px;
+}
+
+.navbar-default .navbar-nav.internal-nav > .open > a {
+	color:rgba(14, 180, 240, 1);
+}
+
+
+
 
 
 
@@ -269,6 +312,10 @@ div.navbar.navbar-default {
 	-moz-border-radius:4px;
 }
 
+.inline {
+	display:inline-block;
+}
+
 
 // Table icons
 
@@ -301,7 +348,7 @@ div.navbar.navbar-default {
 
 td.t-info {
 
-	width:11em;
+	width:14em;
 	word-wrap:break-word;
 
 	} 
@@ -374,7 +421,7 @@ input#course_start_date {
 	border-bottom-color:rgba(51,51,51,1);
 }
 
-// Courses / Assignments Error
+// Courses / Assignments / Teams Error
 
 .no-courses, .no-assignments, .no-teams {
 	color:rgba(34,34,34,0.3);

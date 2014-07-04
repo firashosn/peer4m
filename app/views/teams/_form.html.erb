@@ -1,6 +1,6 @@
 <%= bootstrap_form_for [:assignment, @team], url: {action: @team.new_record? ? "create" : "update"} do |f| %>
 	
-	<%= f.number_field :name, hide_label: :true, placeholder: "Team Name" %>
+	<%= f.text_field :name, hide_label: :true, placeholder: "Team Name" %>
 
    <%= f.submit "Add Team", class: "btn btn-info" %>
 	
