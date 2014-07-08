@@ -8,7 +8,6 @@ class TeamsController < ApplicationController
     curUsers = User.joins(:enrollments).where('enrollments.course_id' => @course[:id]) 
     curStudents = curUsers.where('role' => 'student')
     @students = curStudents
-
    # binding.pry
    #if Team != nil
     # existimgTeams = Team.find(params[:assignment_id])
@@ -20,19 +19,36 @@ class TeamsController < ApplicationController
   end
 
   def create
-    # binding.pry
-    @team = assignments.teams.build(team_params)
-      if @team.save
-        redirect_to course_assignment_teams_path(@course)
+    @assignment = Assignment.find(params[:assignment_id])
+    @team = @assignment.teams.build()
+    
+
+    if @team.save
+      #binding.pry
+      params[:status].each do |k,v|
+        addUserToTeam(v,@team)
+      end
+        redirect_to course_assignment_teams_path
     else
-      render 'new'
+        render 'new'   
     end
+      
  end
+
+def addUserToTeam(userId,team)
+  binding.pry
+  if(userId != nil)
+          team.team_enrollments.create(:team_id => @team.id, :user_id => current_user.id)
+  end
+end
 
 
   def index
-    @course = Course.find(params[:course_id])
+    #binding.pry
+   @course = Course.find(params[:course_id]) 
    @assignment = Assignment.find(params[:assignment_id])
+   #@teams = Team.joins(:team_enrollments).where('team_enrollments.assignment_id' => @assignment.id)
+   @teams = Team.where(:assignment_id => @assignment.id)
  end
 
  
@@ -65,7 +81,7 @@ def destroy
 
  private
     def team_params
-      params.require(:team).permit(:name)
+      #params.require(:team).permit()
     end
 
 

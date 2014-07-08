@@ -1,9 +1,10 @@
 class Team < ActiveRecord::Base
   #require 'CSV'
 
-  belongs_to :assignment
+  
   has_many :team_enrollments
   has_many :users, :through => :team_enrollments
+  belongs_to :assignment
 
 =begin
  def self.import(file)

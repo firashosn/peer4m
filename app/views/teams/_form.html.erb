@@ -10,13 +10,19 @@
             <th class="text-center" colspan="3">Actions</th>
           </thead> 
             <tbody>
-
-            <% @students.each do |student| %>
+            <% @students.each_with_index do |student, index| %>
+            
             <tr>
               <td class="t-info text-left"><%= student.first_name %></td>
               <td class="t-info text-left"><%= student.last_name %></td>
               <td class="t-info text-left"><%= student.email %></td> 
-              <td class="t-info text-left"> na </td>
+              <td class="t-info text-left">   
+              <% name = "status[#{index}]" %>    
+              <%= check_box_tag name, student.id %>        
+  
+
+              </td>
+
               
               <td class="t-info text-center">
             

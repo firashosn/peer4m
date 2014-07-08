@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
 
 	has_many :enrollments
   has_many :courses
-  has_many :teams
+  has_many :team_enrollments
+  has_many :teams, :through => :team_enrollments
 	# has_many :courses, :through => :enrollments
 
   # Include default devise modules. Others available are:

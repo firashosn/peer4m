@@ -20,8 +20,3 @@ def assign_teams
 
 
 end
-
-class Team < ActiveRecord::Base
-      belongs_to :assignment
-      #has_and_belongs_to_many :students
-end
