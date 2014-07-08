@@ -10,7 +10,7 @@
     </div>
   </div>
 
-          <% if @teams == nil %>
+          <% if @teams != nil && @teams.size == 0 %>
               <h4 class="text-center no-teams">You currently don't have any teams. Add a team to begin building the list...</h4>
           <% else %> 
       <div class="row">
@@ -18,25 +18,64 @@
         <div class="table-responsive">
         <table class="table">
           <thead>
-            <th class="text-left">Team Name</th>
-            <th class="text-left">Status</th>
+            <% if current_user.role == "instructor" %>
+            <th class="text-left">Team ID</th>
+            <th class="text-left">Team Status</th>
             <th class="text-center" colspan="3">Actions</th>
-          </thead> 
+            <% elsif current_user.role == "student" %>
+            <th class="text-left">First Name</th>
+            <th class="text-left">Last Name</th>
+            <th class="text-center" colspan="3">Actions</th>
+            <% end %>
+            
+          </thead>
+
+          
             <tbody>
+            <% if current_user.role == "instructor" %>
             <% @teams.each do |team| %>
             <tr>
-              <td class="t-info text-left"><%= team.name %></td>
+              <td class="t-info text-left"><%= team.id %></td>
               <td class="t-info text-left"><%= team.status %></td>
-   
-              
+
               <td class="t-info text-center">
 
-  
-            
+              <%= link_to course_assignment_teams_path(@assignment, team), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View Teams', class: "tb-btn-space" do %>
+              <i class="fa fa-user"></i>
+             <!-- <i class="glyphicon glyphicon-eye-open"></i> -->
+            <% end %>
+
+              <%= link_to edit_course_assignment_path(@course, assignment), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Edit Assignment', class: "tb-btn-space" do %>
+              <i class="glyphicon glyphicon-pencil"></i>
+              <% end %>
+
+              <%= link_to course_assignment_teams_path(@assignment, team), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'right', 'title' => 'Delete', method: :delete,
+               data: { confirm: 'Are you sure?' }, class: "tb-btn-space" do %>
+              <i class="glyphicon glyphicon-trash"></i>
+              <% end %>
             </td>
             </tr>
-          
           <% end %>
+          
+          <% elsif current_user.role == "student" %>
+
+              <% @teammates.each do |teammate| %>
+            <tr>
+              <td class="t-info text-left"><%= teammate.first_name %></td>
+              <td class="t-info text-left"><%= teammate.last_name %></td>
+
+              <td class="t-info text-center">
+
+
+              <%= link_to new_course_assignment_team_evaluation(@team), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluation Team Member', class: "tb-btn-space" do %>
+              <i class="glyphicon glyphicon-pencil"></i>
+              <% end %>
+
+  
+            <% end %> 
+            </td>
+            </tr>
+            <% end %> 
           </tbody>
         </table>
         </div> <!-- / Table responsive -->

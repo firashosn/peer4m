@@ -36,9 +36,8 @@ class TeamsController < ApplicationController
  end
 
 def addUserToTeam(userId,team)
-  binding.pry
   if(userId != nil)
-          team.team_enrollments.create(:team_id => @team.id, :user_id => current_user.id)
+          team.team_enrollments.create(:team_id => @team.id, :user_id => userId)
   end
 end
 
@@ -48,7 +47,14 @@ end
    @course = Course.find(params[:course_id]) 
    @assignment = Assignment.find(params[:assignment_id])
    #@teams = Team.joins(:team_enrollments).where('team_enrollments.assignment_id' => @assignment.id)
-   @teams = Team.where(:assignment_id => @assignment.id)
+   if current_user.role == "student"
+    #binding.pry
+   #get students asociated with this team
+   @teammates = User.joins(:team_enrollments).where('team_enrollments.team_id' => '2' )
+   #binding.pry
+   else
+    @teams = Team.where(:assignment_id => @assignment.id)
+   end
  end
 
  

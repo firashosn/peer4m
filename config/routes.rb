@@ -42,9 +42,11 @@ Rails.application.routes.draw do
     # resources :users do
       resources :courses do
         resources :assignments do
-          resources :teams
+          resources :teams do
+            resources :evaluations
         end
       end
+    end
 
 
 

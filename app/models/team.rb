@@ -4,6 +4,7 @@ class Team < ActiveRecord::Base
   
   has_many :team_enrollments
   has_many :users, :through => :team_enrollments
+  has_many :evaluations
   belongs_to :assignment
 
 =begin
