@@ -4,7 +4,12 @@
   <div class="row">
     <div class="col-md-12 heading-titles">
       <h1 class="text-center page-title">Courses</h1>
-  <h3><%= link_to 'Add a Course +', new_course_path, :remote => true, class: "btn action btn-info" %></h3>
+      <% if current_user.role == "student" %>
+        <h3><%= link_to 'Enroll in a Course +', new_course_path, :remote => true, class: "btn action btn-info" %></h3>
+        <% elsif current_user.role == "instructor" %> 
+        <h3><%= link_to 'Add a Course +', new_course_path, :remote => true, class: "btn action btn-info" %></h3>          
+      <% end %>
+  
     </div>
   </div>
 

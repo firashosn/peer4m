@@ -671,12 +671,13 @@ p.quote-author {
 .fa-twitter, .fa-linkedin, .fa-facebook {
 	color: #fff;
 	padding:10px;
-	font-size: 3rem;
+	font-size: 2.5rem;
 }
 
 
 .peer4m-social.fa-facebook, .peer4m-social.fa-twitter,.peer4m-social.fa-linkedin {
-	margin:30px 0;
+	margin:15px 0;
+	color:#fff;
 
 }
 
@@ -686,6 +687,17 @@ p.quote-author {
 	color: #adadad;
 	font-family: 'Lanenar';
 }
+
+.copyright-internal {
+	display:inline-block;
+	color:rgba(255,77,77,1);
+}
+
+// .social {
+// 	width:20px;
+// 	height:20px;
+// }
+
 
 
 
