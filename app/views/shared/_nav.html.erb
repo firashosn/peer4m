@@ -15,11 +15,15 @@
                 <% if current_user.role == "student" %>
                   <%= current_user.first_name %> <b><span class="caret"> </span></b>
                   <% elsif current_user.role == "instructor" %> 
-                  Professor<b> <span class="caret"> </span></b>
+                  Instructor<b> <span class="caret"> </span></b>
                   <% end %>
                 <% end %>
 
                     <ul class="dropdown-menu" role="menu">
+                      <div class="dropdown-caret">
+                          <span class="caret-outer"></span>
+                          <span class="caret-inner"></span>
+                      </div>
                       <li><%= link_to '<i class="fa fa-cog"></i> Edit Profile'.html_safe, profile_path %></li>
                       <li class="divider"></li>
                       <li><%= link_to '<i class="fa fa-sign-out"></i> Sign out'.html_safe, destroy_user_session_path, :method => 'delete' %></li>
