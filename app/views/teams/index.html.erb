@@ -45,9 +45,7 @@
              <!-- <i class="glyphicon glyphicon-eye-open"></i> -->
             <% end %>
 
-              <%= link_to edit_course_assignment_path(@course, assignment), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Edit Assignment', class: "tb-btn-space" do %>
-              <i class="glyphicon glyphicon-pencil"></i>
-              <% end %>
+              
 
               <%= link_to course_assignment_teams_path(@assignment, team), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'right', 'title' => 'Delete', method: :delete,
                data: { confirm: 'Are you sure?' }, class: "tb-btn-space" do %>
@@ -64,12 +62,10 @@
               <td class="t-info text-left"><%= teammate.first_name %></td>
               <td class="t-info text-left"><%= teammate.last_name %></td>
 
+            
+
               <td class="t-info text-center">
 
-
-              <%= link_to new_course_assignment_team_evaluation(@team), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluation Team Member', class: "tb-btn-space" do %>
-              <i class="glyphicon glyphicon-pencil"></i>
-              <% end %>
 
   
             <% end %> 
