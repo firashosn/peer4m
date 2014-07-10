@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
 
   before_action :authenticate_user!, except: [:show]
+  #before_action :set_team, only: [:edit, :update, :destroy]
 
   def new
     @team = Team.new
@@ -72,7 +73,6 @@ end
 end
 
 def edit
-    set_close_time
     @course = Course.find(params[:course_id])
 end
 
@@ -89,15 +89,19 @@ def update
   end
 
 def destroy
-    @course = Course.find(params[:course_id])
-    @assignment.destroy
-    redirect_to course_assignments_path(@course)
+    @assignment = Assignment.find(params[:id])
+    @team.destroy
+    redirect_to course_assignment_teams_path(@course, @assignment, team)
   end
 
  private
     def team_params
       #params.require(:team).permit()
     end
+
+  #def set_team
+      #@team = Team.find(params[:id])
+    #end
 
 
 

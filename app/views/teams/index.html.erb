@@ -5,8 +5,22 @@
     <div class="col-md-12 heading-titles">
       <h1 class="text-center page-title">Teams</h1>
       <h4 class="text-center sub-title"><%= @course.course_name %>, <%= @assignment.name %></h4>
+
+  <% if current_user.role == "instructor" %>
+    
   <h3 class="inline"><%= link_to 'Add a Team +', new_course_assignment_team_path, :remote => true, class: "btn action btn-info" %></h3>
+
   <h3 class="inline"><%= link_to 'View Evaluations', new_course_assignment_team_path, :remote => true, class: "btn action btn-default" %></h3>
+  
+  <% elsif current_user.role == "student" %>
+  <ul class="pager">
+    <li class="previous"><%= link_to course_assignments_path do %>
+      &larr; Assignments
+      <% end %>
+    </li>
+  </ul>
+  <h3 class="inline"><%= link_to 'View Evaluations', new_course_assignment_team_path, :remote => true, class: "btn action btn-default" %></h3>
+  <% end %> 
     </div>
   </div>
 
@@ -30,9 +44,9 @@
             
           </thead>
 
-          
             <tbody>
             <% if current_user.role == "instructor" %>
+
             <% @teams.each do |team| %>
             <tr>
               <td class="t-info text-left"><%= team.id %></td>
@@ -40,18 +54,17 @@
 
               <td class="t-info text-center">
 
-              <%= link_to course_assignment_teams_path(@assignment, team), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View Teams', class: "tb-btn-space" do %>
+              <%= link_to course_assignment_teams_path(@assignment, team), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View Team Members', class: "tb-btn-space" do %>
               <i class="fa fa-user"></i>
-             <!-- <i class="glyphicon glyphicon-eye-open"></i> -->
             <% end %>
 
 
-              <%= link_to '', :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Edit Team', class: "tb-btn-space" do %>
+              <%= link_to edit_course_assignment_team_path(@course, @assignment, team), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Edit Team', class: "tb-btn-space" do %>
               <i class="glyphicon glyphicon-pencil"></i>
               <% end %>
 
 
-              <%= link_to course_assignment_teams_path(@assignment, team), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'right', 'title' => 'Delete', method: :delete,
+              <%= link_to course_assignment_team_path(@course, @assignment, team), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'right', 'title' => 'Delete', method: :delete,
                data: { confirm: 'Are you sure?' }, class: "tb-btn-space" do %>
               <i class="glyphicon glyphicon-trash"></i>
               <% end %>
@@ -71,7 +84,7 @@
               <td class="t-info text-center">
 
 
-              <%= link_to '', :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluation Team Member', class: "tb-btn-space" do %>
+              <%= link_to course_assignment_teams_path(@assignment, team), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluation Team Member', class: "tb-btn-space" do %>
               <i class="glyphicon glyphicon-pencil"></i>
               <% end %>
 

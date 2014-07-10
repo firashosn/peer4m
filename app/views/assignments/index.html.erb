@@ -4,7 +4,16 @@
   <div class="row">
     <div class="col-md-12 heading-titles">
       <h1 class="text-center page-title"><%= @course.course_name %></h1>
-  <h3><%= link_to 'Add an Assignment +', new_course_assignment_path, :remote => true, class: "btn action btn-info" %></h3>
+  <% if current_user.role == "instructor" %>
+    <h3><%= link_to 'Add an Assignment +', new_course_assignment_path, :remote => true, class: "btn action btn-info" %></h3>
+    <% elsif current_user.role == "student" %>
+    <ul class="pager">
+      <li class="previous"><%= link_to courses_path do %>
+      &larr; Courses
+      <% end %>
+      </li>
+    </ul>
+  <% end %>
     </div>
   </div>
 
@@ -49,7 +58,7 @@
 
               <% elsif current_user.role == "student" %> 
 
-                <%= link_to course_assignment_teams_path(@course, assignment), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View Teams', class: "tb-btn-space" do %>
+                <%= link_to course_assignment_teams_path(@course, assignment), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View my Team', class: "tb-btn-space" do %>
                 <i class="fa fa-user"></i>
               <% end %>
             <% end %> 
