@@ -50,8 +50,17 @@ end
    if current_user.role == "student"
     #binding.pry
    #get students asociated with this team
-   @teammates = User.joins(:team_enrollments).where('team_enrollments.team_id' => '2' )
-   #binding.pry
+   assignment_teams = Team.where(:assignment_id => @assignment.id)
+   @my_team = nil
+   assignment_teams.each do |team| 
+    @my_team = current_user.team_enrollments.find_by(:team_id => team.id)
+    break if @my_team != nil
+   end
+
+    if @my_team != nil
+      @teammates = User.joins(:team_enrollments).where('team_enrollments.team_id' => @my_team.team_id)
+      @teammates = @teammates.where.not(:id => current_user.id)
+    end
    else
     @teams = Team.where(:assignment_id => @assignment.id)
    end
