@@ -45,7 +45,7 @@
           </thead>
 
             <tbody>
-            <% if current_user.role == "instructor" %>
+            <% if current_user.role == "instructor" && @view_students == false %>
 
             <% @teams.each do |team| %>
             <tr>
@@ -72,7 +72,7 @@
             </tr>
           <% end %>
           
-          <% elsif current_user.role == "student" %>
+          <% elsif current_user.role == "student" || @view_students == true %>
 
               <% @teammates.each do |teammate| %>
             <tr>
@@ -83,10 +83,11 @@
 
               <td class="t-info text-center">
 
-
-              <%= link_to course_assignment_team_evaluation_path(@course,@assignment,@team_id,teammate.id), :remote => false, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluation Team Member', class: "tb-btn-space" do %>
-              <i class="glyphicon glyphicon-pencil"></i>
-              <% end %>
+             <% if current_user.role == "student" %>   
+                <%= link_to course_assignment_team_evaluation_path(@course,@assignment,@team_id,teammate.id), :remote => false, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluation Team Member', class: "tb-btn-space" do %>
+                <i class="glyphicon glyphicon-pencil"></i>
+                <% end %>
+                <%end%>
 
   
             <% end %> 

@@ -33,7 +33,7 @@ class TeamsController < ApplicationController
   def create
     @assignment = Assignment.find(params[:assignment_id])
     @team = @assignment.teams.build()
-    
+    #get the total teams for this assignment and make this team name that plus 1
 
     if @team.save
       #binding.pry
@@ -55,7 +55,7 @@ end
 
 
   def index
-   # binding.pry
+   @view_students = false
    @course = Course.find(params[:course_id]) 
    @assignment = Assignment.find(params[:assignment_id])
    #@teams = Team.joins(:team_enrollments).where('team_enrollments.assignment_id' => @assignment.id)
@@ -75,7 +75,13 @@ end
       @teammates = @teammates.where.not(:id => current_user.id)
     end
    else
-    @teams = Team.where(:assignment_id => @assignment.id)
+    if params[:format].nil? 
+    else
+      @view_students = true
+      @teammates = User.joins(:team_enrollments).where('team_enrollments.team_id' => params[:format])
+      #binding.pry
+    end
+      @teams = Team.where(:assignment_id => @assignment.id)
    end
  end
 
