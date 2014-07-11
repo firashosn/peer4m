@@ -42,7 +42,7 @@
 
               <% if current_user.role == "instructor" %>
 
-              <%= link_to course_assignment_teams_path(@course, assignment), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View Teams', class: "tb-btn-space" do %>
+              <%= link_to course_assignment_teams_path(@course,assignment), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'left', 'title' => 'View Teams', class: "tb-btn-space" do %>
               <i class="fa fa-user"></i>
              <!-- <i class="glyphicon glyphicon-eye-open"></i> -->
             <% end %>

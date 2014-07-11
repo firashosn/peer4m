@@ -1,4 +1,4 @@
-<%= bootstrap_form_for [:assignment, @team], url: {action: @team.new_record? ? "create" : "update"} do |f| %>
+<%= bootstrap_form_for [:course, :assignment, @team], url: {action: @team.new_record? ? "create" : "update"} do |f| %>
 	
 
 	<table class="table">
@@ -10,6 +10,9 @@
             <th class="text-center" colspan="3">Actions</th>
           </thead> 
             <tbody>
+              <%if @students.nil? %>
+              no students
+              <%else%>
             <% @students.each_with_index do |student, index| %>
             
             <tr>
@@ -30,6 +33,7 @@
             </tr>
           
           <% end %>
+          <%end%>
           </tbody>
         </table>
 

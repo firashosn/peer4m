@@ -58,6 +58,8 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    @enrollments = Enrollment.where(:course_id => @course.id)
+    @enrollments.destroy_all
     @course.destroy
     redirect_to courses_path
   end

@@ -4,19 +4,30 @@ class TeamsController < ApplicationController
   #before_action :set_team, only: [:edit, :update, :destroy]
 
   def new
+
     @team = Team.new
     @course = Course.find(params[:course_id])
     curUsers = User.joins(:enrollments).where('enrollments.course_id' => @course[:id]) 
     curStudents = curUsers.where('role' => 'student')
-    @students = curStudents
-   # binding.pry
-   #if Team != nil
-    # existimgTeams = Team.find(params[:assignment_id])
-   #end
+    @students = []
 
-    #studentsInTeams = existimgTeams
-    #go through for each team and make sure the students are removed form our list of students
-#do a check to see if students belong to a team 
+    if Team.nil?
+    else
+      existing_teams = Team.where('assignment_id' => params[:assignment_id])
+      existing_team_ids = existing_teams.pluck('id')
+      if existing_team_ids.count > 0
+        curStudents.each do |student|
+          current_student_teams = student.team_enrollments.pluck('team_id')
+          is_match = existing_team_ids & current_student_teams
+          if is_match.empty?
+           @students.push(student) 
+          end
+        end
+      else
+        @students = curStudents
+      end
+    end
+    
   end
 
   def create
@@ -44,7 +55,7 @@ end
 
 
   def index
-    #binding.pry
+   # binding.pry
    @course = Course.find(params[:course_id]) 
    @assignment = Assignment.find(params[:assignment_id])
    #@teams = Team.joins(:team_enrollments).where('team_enrollments.assignment_id' => @assignment.id)
@@ -55,6 +66,7 @@ end
    @my_team = nil
    assignment_teams.each do |team| 
     @my_team = current_user.team_enrollments.find_by(:team_id => team.id)
+    @team_id = team.id
     break if @my_team != nil
    end
 
@@ -89,9 +101,14 @@ def update
   end
 
 def destroy
-    @assignment = Assignment.find(params[:id])
+  #binding.pry
+    @assignment = Assignment.find(params[:assignment_id])
+    @team = Team.find(params[:id])
+    @team_enrollment = TeamEnrollment.where(:team_id => params[:id])
+    binding.pry
+    @team_enrollment.destroy_all
     @team.destroy
-    redirect_to course_assignment_teams_path(@course, @assignment, team)
+    redirect_to course_assignment_teams_path(params[:course_id], params[:assignment_id])
   end
 
  private

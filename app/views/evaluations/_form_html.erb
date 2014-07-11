@@ -1,0 +1,13 @@
+<%= bootstrap_form_for [:course, :assignment, :team,  @student] do |f| %>
+	
+<table class="table">
+          <thead>
+            <th class="text-left">Student First Name</th>
+            <th class="text-left">Student Last Name</th>
+            <th class="text-left">Student Email</th>
+            <th class="text-left">Team Status</th>
+            <th class="text-center" colspan="3">Actions</th>
+          </thead> 
+</table>
+ 
+<% end %>
