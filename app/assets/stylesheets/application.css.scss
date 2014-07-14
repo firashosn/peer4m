@@ -21,9 +21,95 @@
  // require_tree compiles all sass files
 
 $link-color:#ff4d4d;
+$font-lanear:'Lanenar', Century Gothic;
 
-
+@import "fonts";
+@import "mixins";
+@import "buttons";
 @import "bootstrap";
+
+
+// Wrapper and container to hold down the footer when no content above it
+
+html,
+body {
+	height:100%;
+}
+
+
+#wrapper {
+	min-height:100%;
+	position:relative;
+
+}
+
+#content {
+	padding-bottom:130px;
+}
+
+// Footer
+
+#contact_us {
+	width:100%;
+	height:130px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+
+}
+
+#internal-footer {
+	background:#383736;
+	width:100%;
+	height:40px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+}
+
+.internal-information {
+	padding:10px;
+	line-height:22px;
+	height:22px;
+}
+
+.footer-info {
+	font-family:$font-lanear;
+	color:rgba(255,255,255,0.3);
+	display:inline-block;
+	
+}
+
+a.footer-info:hover {
+	color:rgba(255,255,255,0.8);
+}
+
+
+.internal-social {
+	text-align:right;
+}
+
+.in-social.fa-facebook, .in-social.fa-twitter,.in-social.fa-linkedin {
+	font-size:1.3em;
+	color:rgba(255,255,255,0.3);
+	height:22px;
+	line-height:22px;
+
+
+}
+
+.in-social.fa-facebook:hover, .in-social.fa-twitter:hover,.in-social.fa-linkedin:hover {
+	color:rgba(255,255,255,0.8);
+}
+
+
+// Internal Background
+
+.internal-bg {
+	background:#e7e7e7;
+}
 
 
 // defaults
@@ -44,42 +130,11 @@ $link-color:#ff4d4d;
 }
 
 
-.datepicker.datepicker-dropdown{
-	z-index:99999 !important;
-}
 
-html,
-body {
-	height:100%;
-}
-
-#wrapper {
-	min-height:100%;
-	position:relative;
-
-}
-
-#content {
-	padding-bottom:130px;
-}
-
-#contact_us {
-	width:100%;
-	height:130px;
-	position:absolute;
-	bottom:0;
-	left:0;
-	right:0;
-
-}
-
-
-
-
-// Home Page Navigation
+// Home Page Navbar
 
 h1 {
-    font-family: 'Lanenar';
+    font-family:$font-lanear;
 }
 
 a {
@@ -96,7 +151,8 @@ a:hover {
 	padding:10px 0;
 }
 
-// Internal Navigation
+
+// Internal Navbar
 
 .nav > li > a {
 	padding:20px 15px;
@@ -105,11 +161,13 @@ a:hover {
 
 .navbar {
 	border:none;
-	border-radius:0px;
+	@include border-radius(0px);
 }
 
 div.navbar.navbar-default {
-	background:#e7e7e7;
+	background:#fff;
+	border-bottom:2px solid #cccccc;
+	@include box-shadow(2px 2px 2px #dddddd);
 	min-height:60px;
 }
 
@@ -145,69 +203,32 @@ div.navbar.navbar-default {
 	height:60px;
 	color:#31b0d5;
 	border-bottom:4px solid rgba(14, 180, 240, 1);
-	-webkit-transition: border-bottom .25s ease-in-out;
-	-moz-transition: border-bottom .25s ease-in-out;
-	-ms-transition: border-bottom .25s ease-in-out;
-	-o-transition: border-bottom .25s ease-in-out;
+	@include transition(border-bottom .25s ease-in-out);
 }
 
-// .navbar-default .navbar-nav.internal-nav > .blue-active > a, .navbar-default .navbar-nav > .blue-active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-// 	color:#31b0d5;
-// 	border-bottom:4px solid #31b0d5;
-// 	-webkit-transition: border-bottom .25s ease-in-out;
-// }
 
 // Dropdown Menu(s)
 
-.dropdown-menu {
-	box-shadow:none;
-	-webkit-box-shadow:none;
-	-moz-box-shadow:none;
-	-ms-box-shadow:none;
-	-o-box-shadow:none;
-}
-
-
-.dropdown-menu .dropdown-caret {
-	
+.navbar .navbar-nav li .dropdown-menu:before {
 	position: absolute;
-	top: -10px;
-	width: 18px;
-	height: 10px;
-	float: left;
-	left: auto;
-	right: 71px;
-	overflow: hidden;
-
-}
-
-.dropdown-caret .caret-outer {
-	
-	border-bottom: 10px solid #8899a6;
-	border-bottom-color: rgba(0,0,0,0.1);
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	height: auto;
-	left: 0;
-	top: 0;
-	width: auto;
-}
-
-.dropdown-caret .caret-inner {
-	
-	top: 1.2px;
-	left: 1px;
-	border-left: 9px solid transparent;
-	border-right: 9px solid transparent;
-	border-bottom: 9px solid #fff;
-	border-bottom-color: rgba(255,255,255,0.98);
-}
-
-.caret-inner {
-	
-	position: absolute;
+	top: -9.5px;
+	right: 72px;
 	display: inline-block;
-	margin-left: -1px;
+	border-right: 8px solid transparent;
+	border-bottom: 9px solid #cccccc;
+	border-left: 8px solid transparent;
+	content: '';
+}
+
+.navbar .navbar-nav li .dropdown-menu:after {
+	position: absolute;
+	top: -7px;
+	right: 72px;
+	display: inline-block;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid white;
+	border-left: 8px solid transparent;
+	content: '';
 }
 
 
@@ -236,69 +257,58 @@ div.navbar.navbar-default {
 
 .navbar-default .navbar-nav.internal-nav > .open > a {
 	color:rgba(14, 180, 240, 1);
+	background:transparent;
 }
 
 
+// Rating Panels
 
+.rating-panel {
+	margin:0 0 40px 0;
+	background:#fff;
+	@include border-radius(4px);
 
+}
 
+.rating-icon {
+	text-align:center;
+	margin:0 auto;
+	width:150px;
+	height:150px;
 
-/* Login Modal */
+}
 
+.rating-title {
+	font-family:$font-lanear;
+	color:#ff4d4d;
+	padding:30px 0;
+}
 
+.rating-body {
+	text-align:center;
+	padding: 10px 15px;
+	margin:20px 0;
+}
 
+.rating-fine-print {
+	color: rgba(49,176,213,1);
+	font-size:10px;
+	margin:20px 0;
+}
 
+.panel-footer {
+	background:#fff;
+}
 
-// .modal-title {
-// 	text-align: center;
-// 	font-family: 'Lanenar';
-// 	color: #ff4d4d;
-// 	font-size: 3rem;
+.rating-value {
+	margin:0;
+	color:#fff;
+	background:#39d1b4;
+	@include border-radius(50%);
+	font-size:8em;
+	padding:10px;
 
-// }
-
-// .modal-title {
-// 	text-align: center;
-// 	font-family: 'Lanenar';
-// 	color: #ff4d4d;
-// 	font-size: 3rem;
-
-// }
-
-// .modal-subtitle {
-// 	text-align: center;
-// 	margin-top:20px;
-// }
-
-// .modal-header {
-// 	border-bottom: none;
-// }
-
-// .modal-backdrop {
-
-//   background-color:#ff4d4d;
-
-// }
-// .modal-backdrop.fade {
-//   filter: alpha(opacity=0);
-//   opacity: 0;
-// }
-// .modal-backdrop.in {
-//   filter: alpha(opacity=80);
-//   opacity: 1;
-// }
-
-// .modal-content {
-
-//   background-color: rgba(255,255,255,0.7);
-// 	border:none;
-//   outline: none;
-//   -webkit-box-shadow:none;
-//   box-shadow:none;
-// }
-
-
-// Modal Window - Login
+}
 
 
 // Action Modals
@@ -326,44 +336,12 @@ div.navbar.navbar-default {
 
 }
 
-
-
-//  Action Buttons
-
-.btn {
-	border:none;
+.no-students {
+	font-family:$font-lanear;
+	margin:40px;
+	font-size:2rem;
 }
 
-.btn.action {
-	font-size:1.8rem;
-}
-
-.btn-info.btn-block.btn-lg {
-	font-family: 'Lanenar';
-}
-
-.btn-custom {
-	font-family: 'Lanenar';
-	background:rgba(255,77,77,0.7);
-	color:#fff;
-}
-
-.btn-custom.btn:hover {
-	background:rgba(255,77,77,1);
-	color:#fff;
-}
-
-.btn.btn-lg {
-	border-radius:4px;
-	-webkit-border-radius:4px;
-	-o-border-radius:4px;
-	-ms-border-radius:4px;
-	-moz-border-radius:4px;
-}
-
-.inline {
-	display:inline-block;
-}
 
 
 // Table icons
@@ -449,6 +427,12 @@ input#course_start_date {
 	background-color:#31b0d5 !important;
 }
 
+
+.datepicker.datepicker-dropdown{
+	z-index:99999 !important;
+}
+
+
 // Tooltip
 
 
@@ -470,12 +454,12 @@ input#course_start_date {
 	border-bottom-color:rgba(51,51,51,1);
 }
 
-// Courses / Assignments / Teams Error
 
 .no-courses, .no-assignments, .no-teams {
 	color:rgba(34,34,34,0.3);
 	padding:2%;
 	margin-top:40px;
+	display:none; //fades in once loader is done
 
 }
 
@@ -497,10 +481,6 @@ input {
 
 
 
-// input#user_first_name, input#user_last_name  {
-// 	display:inline-block;
-// 	width:50%;
-// }
 
 
 // Media Queries

@@ -39,7 +39,7 @@
             <% elsif current_user.role == "student" %>
             <th class="text-left">First Name</th>
             <th class="text-left">Last Name</th>
-            <th class="text-center" colspan="3">Actions</th>
+            <th class="text-center" colspan="3">Evaluation Status</th>
             <% end %>
             
           </thead>
@@ -84,7 +84,7 @@
               <td class="t-info text-center">
 
              <% if current_user.role == "student" %>   
-                <%= link_to course_assignment_team_evaluation_path(@course,@assignment,@team_id,teammate.id), :remote => false, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluation Team Member', class: "tb-btn-space" do %>
+                <%= link_to course_assignment_team_evaluation_path(@course,@assignment,@team_id,teammate.id), :remote => false, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluate Team Member', class: "tb-btn-space" do %>
                 <i class="glyphicon glyphicon-pencil"></i>
                 <% end %>
                 <%end%>
@@ -104,5 +104,4 @@
 <% end %>
 
 <%= render 'shared/modal' %>
-
-<%= render 'shared/footer' %>
+<%= render 'shared/internal_footer' %>

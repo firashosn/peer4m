@@ -1,8 +1,12 @@
 class EvaluationsController < ApplicationController
 
 def new
-	binding.pry
   @evaluation = Evaluation.new 
+end
+
+def index
+  #@evaluations = Evaluation.find(:id => params[:team_id])
+
 end
 
  def show
@@ -16,9 +20,8 @@ end
 end
 
   def create
-  	#@team = Team.find_by(:id => params[:team_id])
-  	#@team.evaluations.build(evaluation_params)
-    #binding.pry  
+  	@team = Team.find_by(:id => params[:team_id])
+  	@team.evaluations.build(evaluation_params)
  end
 
    private

@@ -1,0 +1,102 @@
+<%= render 'shared/nav' %>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 heading-titles">
+      <h1 class="text-center page-title"><%= current_user.first_name%>' Overall Ratings</h1>
+  	</div>
+		
+		<div class="col-md-2 col-md-offset-1"> <!-- Dependability -->
+				<div class="rating-panel">
+					<div class="rating-heading">
+			    		<h3 class="rating-title text-center">Dependibility</h3>
+			  		</div>
+					<div class="rating-icon">
+						<h1 class="rating-value">4</h1>
+			  		</div>
+			  <div class="rating-body">
+			    <p>Your ability of being depended on; reliable and trustworthy to your peers.</p>
+			  </div>
+			  <div class="panel-footer">
+			  	<p class="rating-fine-print">*Rating is out of 5 based on a cumulative average.</p>
+			  </div> <!-- close panel footer -->
+			</div> <!-- close panel -->
+		</div> <!-- close Dependability -->
+
+		<div class="col-md-2"> <!-- Communication -->
+				<div class="rating-panel">
+					<div class="rating-heading">
+			    		<h3 class="rating-title text-center">Communication</h3>
+			  		</div>
+					
+					<div class="rating-icon">
+						<h1 class="rating-value">2</h1>
+			  		</div>
+			 
+			  <div class="rating-body">
+			    <p>How clear and concise you interact and convey information.</p>
+			  </div>
+			  <div class="panel-footer">
+			  	<p class="rating-fine-print">*Rating is out of 5 based on a cumulative average.</p>
+			  </div> <!-- close panel footer -->
+			</div> <!-- close panel -->
+		</div> <!-- close Communication -->
+
+
+
+		<div class="col-md-2"> <!-- Quality of Work -->
+				<div class="rating-panel">
+					<div class="rating-heading">
+			    		<h3 class="rating-title text-center">Quality of Work</h3>
+			  		</div>
+					<div class="rating-icon">
+						<h1 class="rating-value">5</h1>
+			  		</div>
+			  <div class="rating-body">
+			    <p>The extent to which you are able to produce highly relevant and pertinent work.</p>
+			  </div>
+			  <div class="panel-footer">
+			  	<p class="rating-fine-print">*Rating is out of 5 based on a cumulative average.</p>
+			  </div> <!-- close panel footer -->
+			</div> <!-- close panel -->
+		</div> <!-- close Quality of Work -->
+
+		<div class="col-md-2"> <!-- Work Ethic -->
+				<div class="rating-panel">
+					<div class="rating-heading">
+			    		<h3 class="rating-title text-center">Work Ethic</h3>
+			  		</div>
+					<div class="rating-icon">
+						<h1 class="rating-value">1</h1>
+			  		</div>
+			  <div class="rating-body">
+			    <p>How your group members value your hard work, consistent effort and diligence.</p>
+			  </div>
+			  <div class="panel-footer">
+			  	<p class="rating-fine-print">*Rating is out of 5 based on a cumulative average.</p>
+			  </div> <!-- close panel footer -->
+			</div> <!-- close panel -->
+		</div> <!-- close Work Ethic -->
+	
+		<div class="col-md-2"> <!-- Team Player -->
+				<div class="rating-panel">
+					<div class="rating-heading">
+			    		<h3 class="rating-title text-center">Team Player</h3>
+			  		</div>
+					<div class="rating-icon">
+						<h1 class="rating-value">3</h1>
+			  		</div>
+			  <div class="rating-body">
+			    <p>How well you are able to work willingly in cooperation with other group members.</p>
+			  </div>
+			  <div class="panel-footer">
+			  	<p class="rating-fine-print">*Rating is out of 5 based on a cumulative average.</p>
+			  </div> <!-- close panel footer -->
+			</div> <!-- close panel -->
+		</div> <!-- close Team Player -->
+	
+</div> <!-- container-fluid -->
+
+
+<%= render 'shared/internal_footer' %>
+

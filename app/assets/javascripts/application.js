@@ -41,14 +41,16 @@ function add_datepicker() {
 	$('[data-behaviour~=datepicker]').datepicker({ format: 'dd/mm/yyyy'});
 }
 
-// Active Link
+// CSS Loader
 
-// $(document).ready(function() {
-// 	$('.navbar-default .navbar-nav.internal-nav > li > a').click(function(){
-//     $('.navbar-default .navbar-nav.internal-nav > li > a').removeClass("blue-active");
-// 	$(this).addClass("blue-active");
-// 	})
-// });
+$(window).load(function() {
+       $('.loader-container').delay(3000).fadeOut();
+       $('.no-courses, .no-assignments, .no-teams').delay(3500).fadeIn(400);     
+});
+
+
+
+
 
 
 

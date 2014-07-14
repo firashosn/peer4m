@@ -18,8 +18,9 @@
   </div>
 
 
-          <% if @assignments.size == 0 %>
-              <h4 class="text-center no-assignments">You currently don't have any assignments for this course. Add an assignment to build list...</h4>
+          <% if @assignments !=nil && @assignments.size == 0 %>
+              <%= render 'shared/loader' %>
+              <h4 class="text-center no-assignments">You currently don't have any assignments for this course. Add an assignment to begin building your list.</h4>
           <% else %>
       <div class="row">
       <div class="col-md-12 courses-table">
@@ -76,6 +77,6 @@
   </div>
 <% end %>
 
-<%= render 'shared/footer' %>
+<%= render 'shared/internal_footer' %>
 
 <%= render 'shared/modal' %>

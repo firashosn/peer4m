@@ -95,7 +95,6 @@ def edit
 end
 
 def update
-  # binding.pry
     @course = Course.find(params[:course_id])
     @assignment = Assignment.find(params[:id])
     if @assignment.update(assignment_params)
@@ -107,11 +106,9 @@ def update
   end
 
 def destroy
-  #binding.pry
     @assignment = Assignment.find(params[:assignment_id])
     @team = Team.find(params[:id])
     @team_enrollment = TeamEnrollment.where(:team_id => params[:id])
-    binding.pry
     @team_enrollment.destroy_all
     @team.destroy
     redirect_to course_assignment_teams_path(params[:course_id], params[:assignment_id])

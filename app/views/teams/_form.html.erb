@@ -1,7 +1,9 @@
 <%= bootstrap_form_for [:course, :assignment, @team], url: {action: @team.new_record? ? "create" : "update"} do |f| %>
 	
-
-	<table class="table">
+  <%if @students != nil && @students.size == 0 %>
+    <div class="text-center no-students">All students are assigned to a group.</div>
+      <%else%>
+	       <table class="table">
           <thead>
             <th class="text-left">Student First Name</th>
             <th class="text-left">Student Last Name</th>
@@ -10,9 +12,7 @@
             <th class="text-center" colspan="3">Actions</th>
           </thead> 
             <tbody>
-              <%if @students.nil? %>
-              no students
-              <%else%>
+              
             <% @students.each_with_index do |student, index| %>
             
             <tr>
@@ -37,7 +37,11 @@
           </tbody>
         </table>
 
-   <%= f.submit "Add Team", class: "btn btn-info" %>
+  <% if @students != nil && @students.size == 0 %>
+  <% else %> 
+    <%= f.submit "Add Team", class: "btn btn-info" %>
+  <% end %>
+   
 	
 	
  

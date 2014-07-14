@@ -1,0 +1,91 @@
+// Border Radius
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+// Box Shadows
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    -ms-box-shadow:inset $top $left $blur $color;
+    -o-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    -ms-box-shadow:inset $top $left $blur $color;
+    -o-box-shadow:inset $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+// Transitions
+
+@mixin transition($property, $time, $easing) {
+    -webkit-transition: $property $time $easing;
+    -moz-transition: $property $time $easing;
+    -ms-transition: $property $time $easing;
+    -o-transition: $property $time $easing;
+    transition: $property $time $easing;
+}
+
+// CSS Loader
+
+@mixin text {
+   
+ font-family: 'Lato';
+ color:$text_color;
+ text-transform: uppercase;
+ font-size:1em;
+ letter-spacing:1.5px;
+ text-align:center;
+ width:90px;
+ margin-top:20px;
+ -webkit-animation: fade $anim_duration infinite;
+
+}
+
+@mixin spin1 {
+  
+  0% { 
+  	-webkit-transform:rotate(0deg);
+  };
+
+  100% { 
+  	-webkit-transform:rotate(360deg); 
+  };
+  
+}
+
+
+@mixin spin2 {
+  0% {
+  	-webkit-transform:rotate(0deg);
+
+  };
+
+  100% { 
+  	-webkit-transform:rotate(-360deg);
+  };
+  
+}
+
+@mixin fade {
+   
+   50% { 
+   	opacity:0.5; 
+   };
+  
+  100% { 
+  	opacity:1;
+  };
+}
+

@@ -1,0 +1,102 @@
+
+@import "mixins"; // @include text, @include fade, @include spin1 & spin2.
+
+$text_color: #39d1b4;
+$border_color: #39d1b4;
+$anim_duration: 3s;
+
+
+.loader-container {
+  width:110px;
+  padding-top:35px;
+  margin:auto;
+  vertical-align: middle;
+}
+
+.loader-container h1 {
+@include text;
+}
+
+.ex {
+ @include text;
+ @include border-radius(4px);
+ font-family:'Lanenar', Century Gothic;
+ font-size:4em;
+ width: 40px;
+ height:40px;
+ margin-top:-17px;
+ display:inline-block;
+ border:4px double $border_color;
+}
+
+.ex:nth-child(1) {  
+  -webkit-animation: spin1 $anim_duration infinite 1s;
+  -webkit-transform-origin:50% 52%;
+  margin-left:10px;
+}
+.ex:nth-child(2) {  
+  -webkit-animation: spin2 $anim_duration infinite 1s;
+  -webkit-transform-origin:50% 52%;
+   margin-left:-20px;
+}
+.ex:nth-child(3) { 
+  -webkit-animation: spin2 $anim_duration infinite 1s;
+  -webkit-transform-origin:50% 52%;
+    margin-left:10px;
+} 
+.ex:nth-child(4) {  
+   margin-left:-1px;
+   -webkit-animation: spin1 $anim_duration infinite 1s;
+   -webkit-transform-origin:50% 52%;
+    margin-left:-20px;
+
+}
+
+// spin 1
+
+
+@-webkit-keyframes spin1 {
+  @include spin1; 
+  }
+@-moz-keyframes spin1 {
+   @include spin1; 
+}
+@-o-keyframes spin1 {
+     @include spin1; 
+}
+@keyframes spin1 {
+     @include spin1; 
+}
+
+// spin 2
+
+
+@-webkit-keyframes spin2 {
+  @include spin2; 
+  }
+@-moz-keyframes spin2 {
+   @include spin2; 
+}
+@-o-keyframes spin2 {
+     @include spin2; 
+}
+@keyframes spin2 {
+     @include spin2; 
+}
+
+
+// Fading text
+
+
+@-webkit-keyframes fade {
+  @include fade; 
+  }
+@-moz-keyframes fade {
+   @include fade; 
+}
+@-o-keyframes fade {
+     @include fade; 
+}
+@keyframes fade {
+     @include fade; 
+}

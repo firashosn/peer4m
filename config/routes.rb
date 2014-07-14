@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   #   resources :products
 
 
-    resources :users 
+    resources :users
+
+    resources :ratings 
 
     # do
     #   resources :courses 
