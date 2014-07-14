@@ -25,7 +25,8 @@
   </div>
 
           <% if @teams != nil && @teams.size == 0 %>
-              <h4 class="text-center no-teams">You currently don't have any teams. Add a team to begin building the list...</h4>
+          <%= render 'shared/loader' %>
+              <h4 class="text-center no-teams">You currently don't have any teams. Add a team to begin building the list.</h4>
           <% else %> 
       <div class="row">
       <div class="col-md-12 courses-table">
@@ -104,4 +105,3 @@
 <% end %>
 
 <%= render 'shared/modal' %>
-<%= render 'shared/internal_footer' %>

@@ -31,7 +31,7 @@ def create
 end
 
 def edit
-  binding.pry
+  # binding.pry
     set_close_time
     @course = Course.find(params[:course_id])
 end
