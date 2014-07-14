@@ -1,22 +1,25 @@
-<%= bootstrap_form_for [:course, :assignment, :team,  @student], url: {action: @student.new_record? ? "new" : "index"} do |f| %>
-	
-<p>
-  <strong>Reviewer Name:</strong>
-  <%= @reviewer.first_name %>
-</p>
+<%= bootstrap_form_for [:course, :assignment, :team,  @evaluation] do |f| %>
+
  
 <p>
-  <strong>Student Name:</strong>
+  <strong>Reviewing :</strong>
   <%= @student.first_name %>
 </p>
-<table class="table">
-          <thead>
-            <th class="text-left">Student First Name</th>
-            <th class="text-left">Student Last Name</th>
-            <th class="text-left">Student Email</th>
-            <th class="text-left">Team Status</th>
-            <th class="text-center" colspan="3">Actions</th>
-          </thead> 
-</table>
- 
+
+<%= f.hidden_field :reviewee_id, :value => @student.id %>
+<%= f.hidden_field :reviewer_id, :value => current_user.id %>
+
+<%= f.text_field :quality_of_work, placeholder: "quality of work(1-5)", hide_label: :false %>
+<%= f.text_field :dependability, placeholder: "dependability(1-5)", hide_label: :false %>
+<%= f.text_field :communication, placeholder: "communication(1-5)", hide_label: :false %>
+<%= f.text_field :team_player_skills, placeholder: "team player skills(1-5)", hide_label: :false %>
+<%= f.text_field :work_ethic, placeholder: "work ethic(1-5)", hide_label: :false %>
+
+
+<%= f.text_field :comment, placeholder: "Comment", hide_label: :true %>
+
+<%= f.submit "Save changes", class: "btn btn-info" %>
+
 <% end %>
+
+ 
