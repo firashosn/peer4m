@@ -27,6 +27,11 @@ class User < ActiveRecord::Base
     self.enrollments.map(&:course)
   end
 
+  def is_already_reviewed(team_id,reviewee_id)
+    review_exists = Evaluation.find_by(:team_id => team_id, :reviewer_id => self.id, :reviewee_id => reviewee_id)
+    return review_exists != nil
+  end
+
   #attr_accessible :email, :encrypted_password, :role
 
   #enum :role, [:administrator, :instructor, :student] 
