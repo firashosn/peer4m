@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
     all_reviews = Evaluation.where(:reviewee_id => self.id)
     if all_reviews.count > 0
         all_reviews_for_field = all_reviews.pluck(eval_field)
-        avg = all_reviews_for_field.sum.to_i/all_reviews_for_field.length
+        avg = all_reviews_for_field.sum.to_f/all_reviews_for_field.length
         return avg
     else
       return 0
@@ -45,7 +45,14 @@ class User < ActiveRecord::Base
   end
 
   def get_all_comments
-    
+    all_reviews = Evaluation.where(:reviewee_id => self.id)
+    if all_reviews.count > 0
+      #add team name and assignment name 
+        all_comments = all_reviews.pluck('comment')
+        return all_comments
+    else
+      return 0
+    end
   end
 
   #attr_accessible :email, :encrypted_password, :role

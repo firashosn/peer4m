@@ -88,15 +88,6 @@
                         <i class="glyphicon glyphicon-pencil"></i>
                       <% end %>
                   <%end%>
-
-
-              <td class="t-info text-center">
-
-             <% if current_user.role == "student" && !current_user.is_already_reviewed(@team_id,teammate.id) %>   
-                <%= link_to new_course_assignment_team_evaluation_path(@course,@assignment,@team_id,teammate.id), :remote => false, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluate Team Member', class: "tb-btn-space" do %>
-                <i class="glyphicon glyphicon-pencil"></i>
-                <% end %> <!-- closes the icon -->
-                <%end%> <!-- closes the if -->
             <% end %> 
             </td>
             </tr>
