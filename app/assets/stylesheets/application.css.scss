@@ -347,6 +347,18 @@ div.navbar.navbar-default {
 	font-size:2rem;
 }
 
+// Accordion For Team Members
+
+.panel-default > .panel-heading {
+	background:rgba(255, 77, 77, 0.7);
+	border-color:none;
+}
+
+.panel-group .panel {
+	margin-bottom:20px;
+}
+
+
 
 
 // Table icons

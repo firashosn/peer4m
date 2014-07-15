@@ -32,7 +32,6 @@ class TeamsController < ApplicationController
   def create
     @assignment = Assignment.find(params[:assignment_id])
     @team = @assignment.teams.build()
-    binding.pry
     @team.name = @team.get_team_index(params[:assignment_id])
     #get the total teams for this assignment and make this team name that plus 1
 
@@ -90,7 +89,7 @@ end
       @teams = Team.where(:assignment_id => @assignment.id)
 
    end #else #if current_user.role == "student"
-
+   # binding.pry
  end
 
  
@@ -107,7 +106,6 @@ def update
     @assignment = Assignment.find(params[:id])
     if @assignment.update(assignment_params)
       redirect_to course_assignments_path(@course)
-
     else
     render 'edit'
     end

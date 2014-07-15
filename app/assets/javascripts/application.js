@@ -48,6 +48,8 @@ $(window).load(function() {
        $('.no-courses, .no-assignments, .no-teams').delay(3500).fadeIn(400);     
 });
 
+$('.collapse').collapse()
+
 
 
 

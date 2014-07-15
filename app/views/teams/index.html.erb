@@ -6,11 +6,10 @@
       <h1 class="text-center page-title">Teams</h1>
       <h4 class="text-center sub-title"><%= @course.course_name %>, <%= @assignment.name %></h4>
 
-  <% if current_user.role == "instructor" %>
+  <% if current_user.role == "instructor" && @view_students == false %>
     
   <h3 class="inline"><%= link_to 'Add a Team +', new_course_assignment_team_path, :remote => true, class: "btn action btn-info" %></h3>
 
-  <h3 class="inline"><%= link_to 'View Evaluations', new_course_assignment_team_path, :remote => true, class: "btn action btn-default" %></h3>
   
   <% elsif current_user.role == "student" %>
   <ul class="pager">
@@ -35,7 +34,7 @@
         <div class="table-responsive">
         <table class="table">
           <thead>
-            <% if current_user.role == "instructor" %>
+            <% if current_user.role == "instructor" && @view_students == false %>
             <th class="text-left">Team ID</th>
             <th class="text-left">Team Status</th>
             <th class="text-center" colspan="3">Actions</th>
@@ -47,8 +46,11 @@
             
           </thead>
 
+
+
             <tbody>
             <% if current_user.role == "instructor" && @view_students == false %>
+
 
             <% @teams.each do |team| %>
             <tr>
@@ -77,10 +79,52 @@
           
           <% elsif current_user.role == "student" || @view_students == true %>
 
-              <% @teammates.each do |teammate| %>
-                <tr>
+
+          <% if current_user.role == "instructor" %>
+            <ul class="pager">
+                <li class="previous"><%= link_to course_assignments_path do %>
+                &larr; Teams
+                <% end %>
+                </li>
+              </ul>
+          <% end %> 
+
+
+              <% @teammates.each_with_index do |teammate,index| %>
+
+
+
+              <% if current_user.role == "instructor" %>
+
+               
+
+
+          <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <% href_name = "#collapse#{index}" -%>
+                  <a data-toggle="collapse" data-parent="#accordion" href="<%= href_name -%>">
+                  <%= teammate.first_name %> <%= teammate.last_name %><i class="fa fa-sort-desc pull-right"></i>
+                  </a>
+              </h4>
+            </div>
+            <% name = "collapse#{index}" -%>
+            <div id="<%= name -%>", class="panel-collapse collapse in">
+              <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+
+
+
+              <% else %>
+
+                              <tr>
                   <td class="t-info text-left"><%= teammate.first_name %></td>
                   <td class="t-info text-left"><%= teammate.last_name %></td>
+                  
                   <td class="t-info text-center">
 
                   <% if current_user.role == "student" && !current_user.is_already_reviewed(@team_id,teammate.id) %>   
@@ -90,16 +134,9 @@
                   <%end%>
               
 
-              <td class="t-info text-center">
-
-             <% if current_user.role == "student" && !current_user.is_already_reviewed(@team_id,teammate.id) %>   
-                <%= link_to new_course_assignment_team_evaluation_path(@course,@assignment,@team_id,teammate.id), :remote => false, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluate Team Member', class: "tb-btn-space" do %>
-                <i class="glyphicon glyphicon-pencil"></i>
-                <% end %> <!-- closes the icon -->
-                <%end%> <!-- closes the if -->
-
+              <% end %> 
   
-            <% end %> 
+            <% end %> <!-- closes the teammates loop -->
 
             </td>
             </tr>
