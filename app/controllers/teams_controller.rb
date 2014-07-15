@@ -4,7 +4,6 @@ class TeamsController < ApplicationController
   #before_action :set_team, only: [:edit, :update, :destroy]
 
   def new
-
     @team = Team.new
     @course = Course.find(params[:course_id])
     curUsers = User.joins(:enrollments).where('enrollments.course_id' => @course[:id]) 
@@ -33,6 +32,8 @@ class TeamsController < ApplicationController
   def create
     @assignment = Assignment.find(params[:assignment_id])
     @team = @assignment.teams.build()
+    binding.pry
+    @team.name = @team.get_team_index(params[:assignment_id])
     #get the total teams for this assignment and make this team name that plus 1
 
     if @team.save
@@ -56,33 +57,40 @@ end
 
   def index
    @view_students = false
+   @has_teammates = true
    @course = Course.find(params[:course_id]) 
    @assignment = Assignment.find(params[:assignment_id])
-   #@teams = Team.joins(:team_enrollments).where('team_enrollments.assignment_id' => @assignment.id)
+   
    if current_user.role == "student"
-    #binding.pry
-   #get students asociated with this team
-   assignment_teams = Team.where(:assignment_id => @assignment.id)
-   @my_team = nil
-   assignment_teams.each do |team| 
-    @my_team = current_user.team_enrollments.find_by(:team_id => team.id)
-    @team_id = team.id
-    break if @my_team != nil
-   end
+     assignment_teams = Team.where(:assignment_id => @assignment.id)
+     @my_team = nil
+     assignment_teams.each do |team| 
+       @my_team = current_user.team_enrollments.find_by(:team_id => team.id)
+       @team_id = team.id
+       break if @my_team != nil
+     end
 
     if @my_team != nil
       @teammates = User.joins(:team_enrollments).where('team_enrollments.team_id' => @my_team.team_id)
       @teammates = @teammates.where.not(:id => current_user.id)
+    else
+      @has_teammates = false
     end
-   else
+#binding.pry
+   else #if current_user.role == "student"
+
     if params[:format].nil? 
+
     else
       @view_students = true
       @teammates = User.joins(:team_enrollments).where('team_enrollments.team_id' => params[:format])
       #binding.pry
     end
+
       @teams = Team.where(:assignment_id => @assignment.id)
-   end
+
+   end #else #if current_user.role == "student"
+
  end
 
  

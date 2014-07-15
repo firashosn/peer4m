@@ -1,26 +1,13 @@
 class Team < ActiveRecord::Base
-  #require 'CSV'
 
-  
   has_many :team_enrollments
   has_many :users, :through => :team_enrollments
   has_many :evaluations
   belongs_to :assignment
 
-=begin
- def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-
-      team_hash = row.to_hash # get the team name
-      team = Team.where(id: team_hash["id"])
-
-      if team.count == 1
-        team.first.update_attributes(team_hash)
-      else
-        Team.create!(team_hash)
-      end # end if !product.nil?
-    end # end CSV.foreach
-  end # end self.import(file)
-=end
+  def get_team_index(assignment_id)
+    total_teams = Team.where(:assignment_id => assignment_id)
+    return total_teams.count + 1
+  end
 
 end

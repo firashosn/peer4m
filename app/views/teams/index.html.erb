@@ -23,10 +23,12 @@
   <% end %> 
     </div>
   </div>
-
           <% if @teams != nil && @teams.size == 0 %>
           <%= render 'shared/loader' %>
               <h4 class="text-center no-teams">You currently don't have any teams. Add a team to begin building the list.</h4>
+          <% elsif @has_teammates != true %>
+          <%= render 'shared/loader' %>
+          <h4 class="text-center no-teams">You currently don't have any teammates. Go out there and get some, soldier!</h4>
           <% else %> 
       <div class="row">
       <div class="col-md-12 courses-table">
@@ -50,7 +52,7 @@
 
             <% @teams.each do |team| %>
             <tr>
-              <td class="t-info text-left"><%= team.id %></td>
+              <td class="t-info text-left"><%= team.name %></td>
               <td class="t-info text-left"><%= team.status %></td>
 
               <td class="t-info text-center">
@@ -74,27 +76,22 @@
           <% end %>
           
           <% elsif current_user.role == "student" || @view_students == true %>
-
-              <% @teammates.each do |teammate| %>
-            <tr>
-              <td class="t-info text-left"><%= teammate.first_name %></td>
-              <td class="t-info text-left"><%= teammate.last_name %></td>
-
             
+              <% @teammates.each do |teammate| %>
+                <tr>
+                  <td class="t-info text-left"><%= teammate.first_name %></td>
+                  <td class="t-info text-left"><%= teammate.last_name %></td>
+                  <td class="t-info text-center">
 
-              <td class="t-info text-center">
-
-             <% if current_user.role == "student" && !current_user.is_already_reviewed(@team_id,teammate.id) %>   
-                <%= link_to new_course_assignment_team_evaluation_path(@course,@assignment,@team_id,teammate.id), :remote => false, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluate Team Member', class: "tb-btn-space" do %>
-                <i class="glyphicon glyphicon-pencil"></i>
-                <% end %>
-                <%end%>
-
-  
-            <% end %> 
+                  <% if current_user.role == "student" && !current_user.is_already_reviewed(@team_id,teammate.id) %>   
+                      <%= link_to new_course_assignment_team_evaluation_path(@course,@assignment,@team_id,teammate.id), :remote => false, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluate Team Member', class: "tb-btn-space" do %>
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      <% end %>
+                  <%end%>
+              <% end %> 
             </td>
             </tr>
-            <% end %> 
+          <% end %> 
           </tbody>
         </table>
         </div> <!-- / Table responsive -->
