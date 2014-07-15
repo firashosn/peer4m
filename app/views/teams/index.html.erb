@@ -23,11 +23,11 @@
     </div>
   </div>
           <% if @teams != nil && @teams.size == 0 %>
-          <%= render 'shared/loader' %>
+            <%= render 'shared/loader' %>
               <h4 class="text-center no-teams">You currently don't have any teams. Add a team to begin building the list.</h4>
           <% elsif @has_teammates != true %>
-          <%= render 'shared/loader' %>
-          <h4 class="text-center no-teams">You currently don't have any teammates. Go out there and get some, soldier!</h4>
+            <%= render 'shared/loader' %>
+            <h4 class="text-center no-teams">You currently don't have any teammates. Go out there and get some, soldier!</h4>
           <% else %> 
       <div class="row">
       <div class="col-md-12 courses-table">
@@ -132,11 +132,12 @@
                         <i class="glyphicon glyphicon-pencil"></i>
                       <% end %>
                   <%end%>
-              
+
 
               <% end %> 
   
             <% end %> <!-- closes the teammates loop -->
+
 
             </td>
             </tr>
