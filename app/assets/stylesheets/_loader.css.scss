@@ -30,24 +30,32 @@ $anim_duration: 3s;
 }
 
 .ex:nth-child(1) {  
-  -webkit-animation: spin1 $anim_duration infinite 1s;
-  -webkit-transform-origin:50% 52%;
+-webkit-animation:spin1 $anim_duration infinite 1s;
+   -moz-animation:spin1 $anim_duration infinite 1s;
+-webkit-transform-origin:50% 52%;
+   -moz-transform-origin:50% 52%;
   margin-left:10px;
 }
 .ex:nth-child(2) {  
   -webkit-animation: spin2 $anim_duration infinite 1s;
+  -moz-animation: spin2 $anim_duration infinite 1s;
   -webkit-transform-origin:50% 52%;
+  -moz-transform-origin:50% 52%;
    margin-left:-20px;
 }
 .ex:nth-child(3) { 
   -webkit-animation: spin2 $anim_duration infinite 1s;
+  -moz-animation: spin2 $anim_duration infinite 1s;
   -webkit-transform-origin:50% 52%;
+  -moz-transform-origin:50% 52%;
     margin-left:10px;
 } 
 .ex:nth-child(4) {  
    margin-left:-1px;
    -webkit-animation: spin1 $anim_duration infinite 1s;
+   -moz-animation:spin1 $anim_duration infinite 1s;
    -webkit-transform-origin:50% 52%;
+   -moz-transform-origin:50% 52%;
     margin-left:-20px;
 
 }

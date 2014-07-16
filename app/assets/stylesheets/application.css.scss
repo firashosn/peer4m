@@ -278,6 +278,26 @@ div.navbar.navbar-default {
 
 }
 
+.category-title {
+	display:inline-block;
+	margin-right:10px;
+
+}
+
+.bubble-box {
+	display:inline-block;
+	margin-right:20px;
+}
+
+.student-comments {
+	font-size:1em;
+}
+
+.rating-box {
+	display:inline-block;
+}
+
+
 .rating-title {
 	font-family:$font-lanenar;
 	color:#ff4d4d;
@@ -308,6 +328,13 @@ div.navbar.navbar-default {
 	font-size:8em;
 	padding:10px;
 
+}
+
+.rating-bubble {
+	@include border-radius(50%);	
+	background:#39d1b4;
+	padding:10px;
+	display:inline-block;
 }
 
 .comment-box {
