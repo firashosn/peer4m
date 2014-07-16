@@ -2,7 +2,7 @@ class EvaluationsController < ApplicationController
 
 def new
   @evaluation = Evaluation.new
-  @student = User.find_by(:id => params[:format]) 
+  @student = User.find(params[:user_id])
   #binding.pry
 end
 

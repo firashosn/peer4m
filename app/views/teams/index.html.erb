@@ -81,6 +81,7 @@
 
 
           <% if current_user.role == "instructor" %>
+            
             <ul class="pager">
                 <li class="previous"><%= link_to course_assignments_path do %>
                 &larr; Teams
@@ -110,7 +111,7 @@
               </h4>
             </div>
             <% name = "collapse#{index}" -%>
-            <div id="<%= name -%>", class="panel-collapse collapse in">
+            <div id="<%= name -%>", class="panel-collapse collapse">
               <div class="panel-body">
                 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
               </div>
@@ -128,7 +129,7 @@
                   <td class="t-info text-center">
 
                   <% if current_user.role == "student" && !current_user.is_already_reviewed(@team_id,teammate.id) %>   
-                      <%= link_to new_course_assignment_team_evaluation_path(@course,@assignment,@team_id,teammate.id), :remote => false, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluate Team Member', class: "tb-btn-space" do %>
+                      <%= link_to new_course_assignment_team_evaluation_path(@course,@assignment,@team_id, user_id: teammate.id), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluate Team Member', class: "tb-btn-space" do %>
                         <i class="glyphicon glyphicon-pencil"></i>
                       <% end %>
                   <%end%>
