@@ -73,7 +73,7 @@ class CoursesController < ApplicationController
        if c.save
           n=n+1
        else
-          binding.pry
+          # binding.pry
        end
      end
      flash.now[:message]="CSV Import Successful,  #{n} new records added to data base"

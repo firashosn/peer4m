@@ -18,7 +18,6 @@
       <% end %>
     </li>
   </ul>
-  <h3 class="inline"><%= link_to 'View Evaluations', new_course_assignment_team_path, :remote => true, class: "btn action btn-default" %></h3>
   <% end %> 
     </div>
   </div>
@@ -97,8 +96,7 @@
 
               <% if current_user.role == "instructor" %>
 
-               
-
+              
 
           <div class="panel-group" id="accordion">
             <div class="panel panel-default">
@@ -123,7 +121,7 @@
                     <h5 class="category-title">Team Player</h5><div class="bubble-box"><h6 class="rating-bubble">4</h6></div>
                   </div>  
                   <div class="col-md-12">
-                    <h5>Comment</h5>
+                    <h5>Comment:</h5>
                     <p class="student-comments">
                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                    </p>
@@ -132,10 +130,9 @@
                 </div> <!-- end of row -- >
 
               </div> <!-- end of panel body -->
-            </div> <!-- closes the the panel-->
-          </div>
-        </div>
-
+            </div> <!-- closes the the collapse panel-->
+          </div> <!-- closes the panel wrapper-->
+        </div> <!--closes the accordion -->
 
 
               <% else %>
@@ -150,8 +147,11 @@
                       <%= link_to new_course_assignment_team_evaluation_path(@course,@assignment,@team_id, user_id: teammate.id), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluate Team Member', class: "tb-btn-space" do %>
                         <i class="glyphicon glyphicon-pencil"></i>
                       <% end %>
+                      <% else %>
+                      <i class="fa fa-check"></i>
+                      <!-- i class="glyphicon glyphicon-ok"></i> -->
+                
                   <%end%>
-
 
               <% end %> 
   

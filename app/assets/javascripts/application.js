@@ -39,6 +39,7 @@ $(document).ready(function() {
 // Datepicker
 function add_datepicker() {
 	$('[data-behaviour~=datepicker]').datepicker({ format: 'dd/mm/yyyy'});
+	
 }
 
 // CSS Loader
@@ -51,6 +52,7 @@ $(window).load(function() {
 // Accordion
 
 $('.collapse').collapse()
+
 
 
 
