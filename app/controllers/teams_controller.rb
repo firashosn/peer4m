@@ -59,7 +59,6 @@ end
    @has_teammates = true
    @course = Course.find(params[:course_id]) 
    @assignment = Assignment.find(params[:assignment_id])
-   
    if current_user.role == "student"
      assignment_teams = Team.where(:assignment_id => @assignment.id)
      @my_team = nil
@@ -68,22 +67,18 @@ end
        @team_id = team.id
        break if @my_team != nil
      end
-
     if @my_team != nil
       @teammates = User.joins(:team_enrollments).where('team_enrollments.team_id' => @my_team.team_id)
       @teammates = @teammates.where.not(:id => current_user.id)
     else
       @has_teammates = false
     end
-#binding.pry
    else #if current_user.role == "student"
-
     if params[:format].nil? 
-
     else
       @view_students = true
       @teammates = User.joins(:team_enrollments).where('team_enrollments.team_id' => params[:format])
-      #binding.pry
+      @team_id = params[:format]
     end
 
       @teams = Team.where(:assignment_id => @assignment.id)
