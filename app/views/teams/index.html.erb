@@ -92,14 +92,7 @@
 
 
               <% @teammates.each_with_index do |teammate,index| %>
-
-
-
               <% if current_user.role == "instructor" %>
-
-               
-
-
           <div class="panel-group" id="accordion">
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -114,21 +107,23 @@
             <div id="<%= name -%>", class="panel-collapse collapse">
               <div class="panel-body">
                 <div class="row">
-                  <div class="col-md-12">
-                    <h4>Reviewer: Jonah Hill</h4>
-                    <h5 class="category-title">Dependibility</h5><div class="bubble-box"><h6 class="rating-bubble">2</h6></div>
-                    <h5 class="category-title">Communication</h5><div class="bubble-box"><h6 class="rating-bubble">5</h6></div>
-                    <h5 class="category-title">Quality of Work</h5><div class="bubble-box"><h6 class="rating-bubble">1</h6></div>
-                    <h5 class="category-title">Work Ethic</h5><div class="bubble-box"><h6 class="rating-bubble">3</h6></div>
-                    <h5 class="category-title">Team Player</h5><div class="bubble-box"><h6 class="rating-bubble">4</h6></div>
-                  </div>  
+                  <% @teammates.each do |reviewer| %> <!-- reviewers loop -->
+                  <% if reviewer.id != teammate.id %>
+                  <div class="col-md-12"> <!--  review div  -->
+                    <h4>Reviewer: <%= reviewer.first_name %> <%= reviewer.last_name %></h4>
+                    <% User::EVALUATION_FIELDS.each_with_index do |eval,index| %>
+                    <h5 class="category-title"><%= eval.humanize %></h5><div class="bubble-box"><h6 class="rating-bubble"><%= current_user.get_evaluation_field_for_reviewee_with_reviewer_id_and_team_id(eval,teammate.id,reviewer.id,@team_id) %></h6></div>
+                    <% end %> <!-- end of eval fields do -->
+                  </div> <!-- closes the review div loop -->
+                  
                   <div class="col-md-12">
                     <h5>Comment</h5>
                     <p class="student-comments">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <%= current_user.get_evaluation_field_for_reviewee_with_reviewer_id_and_team_id("comment",teammate.id,reviewer.id,@team_id) %>
                    </p>
                   </div>
-
+                    <% end %> <!-- closes the if -->
+                  <% end %> <!-- closes reviewers loop -->
                 </div> <!-- end of row -- >
 
               </div> <!-- end of panel body -->

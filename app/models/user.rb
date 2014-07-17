@@ -44,6 +44,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_evaluation_field_for_reviewee_with_reviewer_id_and_team_id(eval_field,reviewer_id,reviewee_id, team_id)
+    review = Evaluation.find_by(:reviewee_id => reviewee_id, :reviewer_id => reviewer_id, :team_id => team_id)
+    if review.nil? 
+        return 0
+    else
+      field = review[eval_field]
+      return field
+    end
+  end
+
   def get_all_comments
     all_reviews = Evaluation.where(:reviewee_id => self.id)
     if all_reviews.count > 0
