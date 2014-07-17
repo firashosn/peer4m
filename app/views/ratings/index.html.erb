@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-md-12 heading-titles">
       <h1 class="text-center page-title"><%= current_user.first_name%>' Overall Ratings</h1>
-  	</div>
+  		</div>
 		
 		
 		<% User::EVALUATION_FIELDS.each_with_index do |eval,index| %>
@@ -21,21 +21,22 @@
 						<h1 class="rating-value"> <%= current_user.get_evaluation_field_average(eval) %> </h1>
 			  		</div>
 			  <div class="rating-body">
-			    <p></p>
+			    ...
 			  </div>
 			  <div class="panel-footer">
 			  	<p class="rating-fine-print">*Rating is out of 5 based on a cumulative average.</p>
 			  </div> <!-- close panel footer -->
 			</div> <!-- close panel -->
 		</div> <!-- close Dependability -->
+		<% end %> <!-- close do at very top -->
 	</div> <!-- close row -->
-
+	
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <h1>Philosophy 101</h1>
 	<h4 class="dashboard-assignment">Assignment #1</h4>
-	<div class="cumulative-ratings">
+		<div class="cumulative-ratings">
 	      	<ul class="ratings-wrapper">
 	        <li class="rating-list"><h5 class="category-title">Dependibility</h5><div class="bubble-box"><h6 class="rating-bubble">2</h6></div>
 	       </li>
@@ -46,12 +47,10 @@
 	    	</ul>
          </div>
     
-    
-    <div class="row">
       <div class="col-md-12">
-      	<h1>Comments</h1>
+      	<h4>Comments</h4>
 			<% @comments = current_user.get_all_comments %>
-			<% if @comments != nil %>
+			<% if @comments == 0 %>
 				No Comments
 			<% else %> 
 			<% @comments.each do |comment| %>
@@ -59,9 +58,10 @@
 			<% end %>
 		<% end %> <!-- closes the random if statement i put in -->
 		</div>
+ 	</div>
+</div>
 
-	<% end %> <!-- close do at very top -->
-
+ 
 </div> <!-- close container-fluid -->
 
 
