@@ -119,6 +119,8 @@ a.footer-info:hover {
 
 
 
+
+
 // Home Page Navbar
 
 h1 {
@@ -164,15 +166,10 @@ div.navbar.navbar-default {
 }
 
 
-.navbar-default .navbar-brand.internal-brand {
-	font-size: 4rem;
-	padding:5px;
-	margin:3px 0;
-	letter-spacing: 2px;
-	line-height:50px;
-	height:50px;
-	text-transform: uppercase;
-	color: #ff4d4d;
+.internal-brand {
+	padding:8px 0 4px 0;
+	margin: 0 0 0 -12px;
+
 
 }
 
@@ -239,9 +236,7 @@ div.navbar.navbar-default {
 
 }
 
-.fa-cog, .fa-sign-out {
-	margin-right:5px;
-}
+
 
 .navbar-default .navbar-nav.internal-nav > .open > a {
 	color:rgba(14, 180, 240, 1);
@@ -406,17 +401,7 @@ ul.ratings-wrapper {
 
 
 
-// Table icons
 
-.glyphicon-eye-open, .glyphicon-pencil, .glyphicon-trash, .fa-user {
-	font-size:18px;
-	color:rgba(255,77,77,1);
-}
-
-.fa-check {
-	font-size:20px;
-	color:rgba(58,193,98,1);
-}
 
 
 // Tables

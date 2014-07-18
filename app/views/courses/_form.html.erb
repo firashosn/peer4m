@@ -2,7 +2,8 @@
 	
 	<% if current_user.role == "instructor" %>
 	
-	<%= f.text_field :start_date, hide_label: :true, placeholder: "Click to select Start Date", "data-behaviour" => "datepicker", value: @course.start_date.strftime("%d/%m/%Y") %>
+	<%= f.text_field :start_date, hide_label: :true, placeholder: "Click to select Start Date", "data-behaviour" => "datepicker" %>
+	<!-- value: @course.start_date.strftime("%d/%m/%Y")  -->
 	
 	<%= f.text_field :course_name, hide_label: :true, placeholder: "Course Name" %>
 	

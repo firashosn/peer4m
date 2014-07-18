@@ -24,7 +24,6 @@ end
 end
 
   def create
- 
   	@team = Team.find_by(:id => params[:team_id])
     @course = Course.find_by(:id => params[:course_id])
     @assignment = Assignment.find_by(:id => params[:assignment_id])

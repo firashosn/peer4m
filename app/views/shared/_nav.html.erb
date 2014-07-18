@@ -4,7 +4,9 @@
       <div class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand internal-brand" href="#">PEER4M</a>
+            <%= link_to courses_path do %>
+          <img class="internal-brand" src="assets/logo.png">
+          <% end %>
           </div>
               <ul class="nav navbar-nav internal-nav pull-right">
                 <li ><%= link_to 'Courses', courses_path %></li>
