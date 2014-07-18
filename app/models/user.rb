@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def enrolled_courses
-    self.enrollments.map(&:course)
+    return self.enrollments.map(&:course)
   end
 
   def is_already_reviewed(team_id,reviewee_id)
@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     if all_reviews.count > 0
         all_reviews_for_field = all_reviews.pluck(eval_field)
         avg = all_reviews_for_field.sum.to_f/all_reviews_for_field.length
-        return avg
+        return avg.round(1)
     else
       return 0
     end
@@ -65,8 +65,26 @@ class User < ActiveRecord::Base
     end
   end
 
-  #attr_accessible :email, :encrypted_password, :role
+  def get_assignment_evaluation_field_average(assignment, eval_field)
+    is_comment = eval_field == "comment"
+    if assignment.teams != nil && assignment.teams.count > 0
+      assignment_teams = assignment.teams.pluck(:id)
+      user_teams = self.team_enrollments.map(&:team)
+      user_team_ids = user_teams.map(&:id)
+      user_assignment_team_id = user_team_ids & assignment_teams
+      all_reviews = Evaluation.where(:team_id => user_assignment_team_id, :reviewee_id => self.id)
+      if all_reviews.count > 0
+        if is_comment
+          all_comments = all_reviews.pluck('comment')
+        else
+          all_reviews_for_field = all_reviews.pluck(eval_field)
+          avg = all_reviews_for_field.sum.to_f/all_reviews_for_field.length
+          return avg.round(1)
+        end
+      else
+        return 0
+      end
+    end
+  end
 
-  #enum :role, [:administrator, :instructor, :student] 
-  #validates_enum :role
 end

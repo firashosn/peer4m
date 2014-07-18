@@ -33,32 +33,36 @@
 	
 
 <div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <h1>Philosophy 101</h1>
-	<h4 class="dashboard-assignment">Assignment #1</h4>
-		<div class="cumulative-ratings">
-	      	<ul class="ratings-wrapper">
-	        <li class="rating-list"><h5 class="category-title">Dependibility</h5><div class="bubble-box"><h6 class="rating-bubble">2</h6></div>
-	       </li>
-	        <li class="rating-list"><h5 class="category-title">Communication</h5><div class="bubble-box"><h6 class="rating-bubble">5</h6></div></li>
-	        <li class="rating-list"><h5 class="category-title">Quality of Work</h5><div class="bubble-box"><h6 class="rating-bubble">1</h6></div></li>
-	        <li class="rating-list"><h5 class="category-title">Work Ethic</h5><div class="bubble-box"><h6 class="rating-bubble">3</h6></div></li>
-	        <li class="rating-list"><h5 class="category-title">Team Player</h5><div class="bubble-box"><h6 class="rating-bubble">4</h6></div></li>
-	    	</ul>
-         </div>
-    
-      <div class="col-md-12">
-      	<h4>Comments</h4>
-			<% @comments = current_user.get_all_comments %>
-			<% if @comments == 0 %>
-				No Comments
-			<% else %> 
-			<% @comments.each do |comment| %>
-				<p class="student-comments comment-box"> <%= comment %> </p>
-			<% end %>
-		<% end %> <!-- closes the random if statement i put in -->
-		</div>
- 	</div>
+	<div class="col-md-10 col-md-offset-1">	
+	  	<!-- get all courses -->
+	  	<% @courses = current_user.enrolled_courses %>
+	  	<% @courses.each do | course| %>
+		    <h1><%= course.course_name %></h1>
+		    <% @assignments = course.get_all_assignments %>
+		    <% @assignments.each do | assignment | %>
+				<h4 class="dashboard-assignment"><%= assignment.name %></h4>		
+					<div class="cumulative-ratings">
+				      	<ul class="ratings-wrapper">
+				        <% User::EVALUATION_FIELDS.each do |eval| %>
+				        <li class="rating-list"><h5 class="category-title"><%= eval.humanize %></h5><div class="bubble-box"><h6 class="rating-bubble"><%=current_user.get_assignment_evaluation_field_average(assignment,eval) %></h6></div>
+				       </li>
+				        <% end %> <!-- closes the evals loop -->
+				    	</ul>
+			         </div>
+			        <div class="col-md-12">
+			      	<h4>Comments</h4>
+						<% @comments = current_user.get_assignment_evaluation_field_average(assignment,"comment") %>
+						<% if @comments == 0 %>
+							No Comments
+						<% else %> 
+						<% @comments.each do |comment| %>
+							<p class="student-comments comment-box"> <%= comment %> </p>
+						<% end %>
+					<% end %> <!-- closes if comments == 0 -->
+					</div><!-- closes the comment div -->
+			<% end %> <!-- closes the assignments loop -->
+		<% end %> <!-- closes the courses loop -->
+	</div> <!-- closes div class="col-md-10 col-md-offset-1"-->
 </div>
 
  

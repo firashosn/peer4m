@@ -94,15 +94,45 @@ end
 
 def edit
     @course = Course.find(params[:course_id])
+    @team = Team.find(params[:id])
+
+    curUsers = User.joins(:enrollments).where('enrollments.course_id' => @course.id) 
+    curStudents = curUsers.where('role' => 'student')
+
+    #students on this team
+    @students = User.joins(:team_enrollments).where('team_enrollments.team_id' => @team.id) 
+    #need the students that are not on a team in this assignment
+
+    existing_teams = Team.where('assignment_id' => params[:assignment_id])
+    existing_team_ids = existing_teams.pluck('id')
+    if existing_team_ids.count > 0
+      curStudents.each do |student|
+        current_student_teams = student.team_enrollments.pluck('team_id')
+        is_match = existing_team_ids & current_student_teams
+        if is_match.empty?
+         @students.push(student) 
+        end
+      end
+    else
+      @students = curStudents
+    end
 end
 
 def update
     @course = Course.find(params[:course_id])
-    @assignment = Assignment.find(params[:id])
-    if @assignment.update(assignment_params)
-      redirect_to course_assignments_path(@course)
+    @assignment = Assignment.find(params[:assignment_id])
+    @team = Team.find(params[:id])
+
+    @team_users = TeamEnrollment.where(:team_id => @team.id)
+    @team_users.destroy_all
+
+    if @team.save
+      params[:status].each do |k,v|
+      addUserToTeam(v,@team)
+      end
+      redirect_to course_assignment_teams_path(params[:course_id], params[:assignment_id])
     else
-    render 'edit'
+      render 'edit'
     end
   end
 
