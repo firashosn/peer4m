@@ -7,8 +7,15 @@
       <h4 class="text-center sub-title"><%= @course.course_name %>, <%= @assignment.name %></h4>
 
   <% if current_user.role == "instructor" && @view_students == false %>
+
+   <ul class="pager">
+    <li class="previous"><%= link_to course_assignments_path do %>
+      &larr; Assignments
+      <% end %>
+    </li>
+  </ul>
     
-  <h3 class="inline"><%= link_to 'Add a Team +', new_course_assignment_team_path, :remote => true, class: "btn action btn-info" %></h3>
+  <h3><%= link_to 'Add a Team +', new_course_assignment_team_path, :remote => true, class: "btn action btn-info" %></h3>
 
   
   <% elsif current_user.role == "student" %>

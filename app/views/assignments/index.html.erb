@@ -5,6 +5,12 @@
     <div class="col-md-12 heading-titles">
       <h1 class="text-center page-title"><%= @course.course_name %></h1>
   <% if current_user.role == "instructor" %>
+    <ul class="pager">
+      <li class="previous"><%= link_to courses_path do %>
+      &larr; Courses
+      <% end %>
+      </li>
+    </ul>
     <h3><%= link_to 'Add an Assignment +', new_course_assignment_path, :remote => true, class: "btn action btn-info" %></h3>
     <% elsif current_user.role == "student" %>
     <ul class="pager">
