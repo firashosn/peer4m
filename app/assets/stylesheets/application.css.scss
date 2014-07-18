@@ -309,8 +309,10 @@ div.navbar.navbar-default {
 	color:#fff;
 	background:#39d1b4;
 	@include border-radius(50%);
-	font-size:8em;
-	padding:10px;
+	font-size:4em;
+	padding:40px;
+	display:inline-block;
+
 
 }
 
@@ -513,6 +515,15 @@ input#course_start_date {
 	margin-top:40px;
 	display:none; //fades in once loader is done
 
+}
+
+.no-comment {
+	color:rgba(34,34,34,0.3);
+	padding:2%;
+}
+
+.comment-section {
+	margin-bottom:40px;
 }
 
 // Forms

@@ -49,12 +49,12 @@
 				        <% end %> <!-- closes the evals loop -->
 				    	</ul>
 			         </div>
-			        <div class="col-md-12">
-			      	<h4>Comments</h4>
+			        <div class="col-md-12 comment-section">
 						<% @comments = current_user.get_assignment_evaluation_field_average(assignment,"comment") %>
 						<% if @comments == 0 %>
-							No Comments
-						<% else %> 
+							<h4 class="text-center no-comment">You currently don't have any comments for this assignment.</h4>
+						<% else %>
+						<h5>Comments:</h5>
 						<% @comments.each do |comment| %>
 							<p class="student-comments comment-box"> <%= comment %> </p>
 						<% end %>
