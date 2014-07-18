@@ -3,8 +3,8 @@
   
     <%= f.text_field :name, placeholder: "Assignment Name", hide_label: :true %>
 
-    <%= f.text_field :close_time, hide_label: :true, placeholder: "Click to select a Closing Date", "data-behaviour" => "datepicker", value: @assignment.close_time.strftime("%d/%m/%Y") %>
-
+    <%= f.text_field :close_time, hide_label: :true, placeholder: "Click to select a Closing Date", "data-behaviour" => "datepicker" %>
+    <!-- value: @assignment.close_time.strftime("%d/%m/%Y")  -->
  
      <%= f.submit "Save changes", class: "btn btn-info" %>
 

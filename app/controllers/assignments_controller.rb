@@ -6,7 +6,7 @@ class AssignmentsController < ApplicationController
 
 def new
     @assignment = Assignment.new
-    set_close_time
+    # set_close_time
 end
 
 def index
@@ -31,7 +31,7 @@ def create
 end
 
 def edit
-    set_close_time
+    # set_close_time
     @course = Course.find(params[:course_id])
 end
 
@@ -61,8 +61,8 @@ def destroy
       @assignment = Assignment.find(params[:id])
     end
 
-    def set_close_time
-      @assignment.close_time = Date.today unless @assignment.close_time
-    end
+    # def set_close_time
+    #   @assignment.close_time = Date.today unless @assignment.close_time
+    # end
 
 end
