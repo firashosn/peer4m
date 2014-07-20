@@ -54,6 +54,23 @@ $(window).load(function() {
 $('.collapse').collapse()
 
 
+// Dropdown Menu caret rotates
+
+$(document).ready(function() {
+	var position = 0;
+	$('.dropdown-toggle').click(function() {
+		position+=180;
+		$('.caret').css({
+			'-webkit-transform':'rotate('+position+'deg)',
+			'-moz-transform':'rotate('+position+'deg)',
+			'-ms-transform':'rotate('+position+'deg)',
+			'-o-transform':'rotate('+position+'deg)'
+		});
+	});
+
+});
+
+
 
 
 
