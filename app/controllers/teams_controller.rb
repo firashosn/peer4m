@@ -27,6 +27,10 @@ class TeamsController < ApplicationController
       end
     end
     
+    if @students.count > 1
+      @students = @students.order(last_name: :asc)
+    end
+
   end
 
   def create
@@ -82,7 +86,7 @@ end
     end
 
       @teams = Team.where(:assignment_id => @assignment.id)
-      @teams.order(name: :asc)
+      @teams = @teams.order(name: :asc)
 
    end #else #if current_user.role == "student"
    # binding.pry
