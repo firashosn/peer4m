@@ -82,6 +82,7 @@ end
     end
 
       @teams = Team.where(:assignment_id => @assignment.id)
+      @teams.order(name: :asc)
 
    end #else #if current_user.role == "student"
    # binding.pry
