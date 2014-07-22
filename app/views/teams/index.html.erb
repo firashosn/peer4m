@@ -126,7 +126,12 @@
                   <div class="col-md-12">
                     <h5>Comment:</h5>
                     <p class="student-comments">
-                    <%= current_user.get_evaluation_field_for_reviewee_with_reviewer_id_and_team_id("comment",reviewer.id,teammate.id,@team_id) %>
+                    <% @comment = current_user.get_evaluation_field_for_reviewee_with_reviewer_id_and_team_id("comment",reviewer.id,teammate.id,@team_id) %>
+                    <%if @comment == 0 %>
+                    <h4 class="text-left no-comment">You currently don't have a comment for this assignment.</h4>
+                    <% else %>
+                    <%= @Comment %>
+                    <% end %> 
                    </p>
                    <hr>
                   </div>
