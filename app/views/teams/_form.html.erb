@@ -9,7 +9,7 @@
             <th class="text-left">Student Last Name</th>
             <th class="text-left">Student Email</th>
             <th class="text-left">Team Status</th>
-            <th class="text-center" colspan="3">Actions</th>
+            
           </thead> 
             <tbody>
               
@@ -22,14 +22,8 @@
               <td class="t-info text-left">   
               <% name = "status[#{index}]" %>    
               <%= check_box_tag name, student.id %>        
-  
-
               </td>
 
-              
-              <td class="t-info text-center">
-            
-            </td>
             </tr>
           
           <% end %>
