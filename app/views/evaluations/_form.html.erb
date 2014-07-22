@@ -9,13 +9,13 @@
 <%= f.hidden_field :reviewee_id, :value => @student.id %>
 <%= f.hidden_field :reviewer_id, :value => current_user.id %>
 
-<%= f.select :quality_of_work, options_for_select([['Quality Of Work',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']]),hide_label: :true %>
-<%= f.select :dependability, [['Dependability',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']],hide_label: :true %>
-<%= f.select :communication, [['Communication',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']],hide_label: :true %>
-<%= f.select :team_player_skills, [['Team Player Skills',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']],hide_label: :true %>
-<%= f.select :work_ethic, [['Work Ethic',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']],hide_label: :true %>
+<%= f.select :quality_of_work, options_for_select([['Quality Of Work(1-Poor, 5-Excellent)',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']]),hide_label: :true %>
+<%= f.select :dependability, [['Dependability(1-Poor, 5-Excellent)',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']],hide_label: :true %>
+<%= f.select :communication, [['Communication(1-Poor, 5-Excellent)',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']],hide_label: :true %>
+<%= f.select :team_player_skills, [['Team Player Skills(1-Poor, 5-Excellent)',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']],hide_label: :true %>
+<%= f.select :work_ethic, [['Work Ethic(1-Poor, 5-Excellent)',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']],hide_label: :true %>
 
-<%= f.text_field :comment, placeholder: "Comment", hide_label: :true %>
+<%= f.text_area :comment, placeholder: "Comment", hide_label: :true %>
 
 <%= f.submit "Submit", class: "btn btn-info" %>
 

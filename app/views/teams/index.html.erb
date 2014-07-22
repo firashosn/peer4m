@@ -119,7 +119,7 @@
                   <div class="col-md-12"> <!--  review div  -->
                     <h4>Reviewer: <%= reviewer.first_name %> <%= reviewer.last_name %></h4>
                     <% User::EVALUATION_FIELDS.each_with_index do |eval,index| %>
-                    <h5 class="category-title"><%= eval.humanize %></h5><div class="bubble-box"><h6 class="rating-bubble"><%= current_user.get_evaluation_field_for_reviewee_with_reviewer_id_and_team_id(eval,teammate.id,reviewer.id,@team_id) %></h6></div>
+                    <h5 class="category-title"><%= eval.humanize %></h5><div class="bubble-box"><h6 class="rating-bubble"><%= current_user.get_evaluation_field_for_reviewee_with_reviewer_id_and_team_id(eval,reviewer.id,teammate.id,@team_id) %></h6></div>
                     <% end %> <!-- end of eval fields do -->
                   </div> <!-- closes the review div loop -->
                   
