@@ -33,6 +33,29 @@
                       <li><%= link_to '<i class="fa fa-sign-out"></i> Sign out'.html_safe, destroy_user_session_path, :method => 'delete' %></li>
                     </ul>
                 </li>
+
+              <!--   <li><%= link_to(root_path, :'data-toggle' => 'dropdown', class: 'dropdown-toggle') do %>
+                  <i class="fa fa-bell-o"></i>
+                  <ul class="dropdown-menu notifications" role="notifications">
+                      <div class="dropdown-caret">
+                          <span class="caret-outer"></span>
+                          <span class="caret-inner"></span>
+                      </div>
+                     <h4 class="notification-title"></i>Notifications</h4>
+                     <div class="divider"></div>
+                      
+                      <!-- Loop here -->
+                      <!-- <li id="notification-number" class="notification">
+                      <a class="content-block" href="#">
+                        <div class="notification-color"></div>
+                        <p><strong>Evaluation Deadline</strong> • 1 day ago</p>
+                        <h3>Marketing, Video Film Assignment</h3>
+                        <p class="notification-message"></p>
+                      </a>
+                    </li>
+                    </ul> -->
+                <% end %>
+                </li> 
                 
             </ul>
           </div>
