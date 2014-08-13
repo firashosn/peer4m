@@ -7,20 +7,12 @@ def new
 end
 
 def index
-  #binding.pry
-  #@evaluations = Evaluation.find(:id => params[:team_id])
-
 end
 
  def show
-  #binding.pry
   @reviewer = current_user
   @student = User.find_by(:id => params[:id])
   @team = Team.find_by(:id => params[:team_id])
-    #binding.pry
-  #reviewee
-  #team
-  #create evaluation
 end
 
   def create
@@ -29,6 +21,9 @@ end
     @assignment = Assignment.find_by(:id => params[:assignment_id])
     @evaluation = @team.evaluations.build(evaluation_params)
     if(is_valid_params(params[:evaluation]) && @evaluation.save)
+      reviewee = User.find_by(:id => params[:reviewee_id])
+      binding.pry
+      reviewee.notifications.create(:link_to_id => nil, :user_id => params[:reviewee_id], :notification_type => Notification.types['evaluated'])
       redirect_to course_assignment_teams_path(@course,@assignment,@team)
     else
       redirect_to course_assignment_teams_path(@course,@assignment,@team)

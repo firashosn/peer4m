@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140714045807) do
+ActiveRecord::Schema.define(version: 20140808022720) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -73,6 +73,17 @@ ActiveRecord::Schema.define(version: 20140714045807) do
     t.datetime "updated_at"
   end
 
+  create_table "notifications", force: true do |t|
+    t.integer  "notification_type"
+    t.datetime "opened_time"
+    t.integer  "link_to_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
+
   create_table "students", force: true do |t|
     t.string   "user_name"
     t.string   "password"
@@ -99,6 +110,18 @@ ActiveRecord::Schema.define(version: 20140714045807) do
 
   add_index "teams", ["assignment_id"], name: "index_teams_on_assignment_id"
 
+  create_table "user_infos", force: true do |t|
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "current_institution"
+    t.string   "current_program"
+    t.datetime "enrollment_date"
+    t.string   "gender"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -115,9 +138,11 @@ ActiveRecord::Schema.define(version: 20140714045807) do
     t.string   "role"
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "user_info_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["user_info_id"], name: "index_users_on_user_info_id"
 
 end

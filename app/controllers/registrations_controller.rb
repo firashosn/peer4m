@@ -9,7 +9,7 @@ before_action :authenticate_user!
     		redirect_to courses_path
     	end
     else 
-      redirect_to :back, :flash => { :error => "You fucked up bitch! Try Again" } 
+      redirect_to :back, :flash => { :error => "please try again" } 
 
     	# 	  user_courses_path(:user_id)
     	# end

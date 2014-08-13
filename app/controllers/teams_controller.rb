@@ -54,6 +54,9 @@ class TeamsController < ApplicationController
 def addUserToTeam(userId,team)
   if(userId != nil)
           team.team_enrollments.create(:team_id => @team.id, :user_id => userId)
+          team_user = User.find_by(:id => userId)
+          team_user.notifications.create(:link_to_id => @team.id, :user_id => team_user.id, :notification_type => Notification.types['team_created'])
+          binding.pry
   end
 end
 

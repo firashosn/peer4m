@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
 
 #insructor is enrolled, but his role is instructor
-
+  has_one :user_info
 	has_many :enrollments
   has_many :courses
   has_many :team_enrollments
   has_many :teams, :through => :team_enrollments
+  has_many :notifications
 	# has_many :courses, :through => :enrollments
 
   # Include default devise modules. Others available are:
