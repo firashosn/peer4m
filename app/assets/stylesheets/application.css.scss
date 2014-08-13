@@ -41,12 +41,14 @@ body {
 #wrapper {
 	min-height:100%;
 	position:relative;
+	padding-bottom: 80px;
 
 }
 
-#content {
-	padding-bottom:130px;
-}
+// #content {
+// 	// padding-bottom:130px;
+// 	position:relative;
+// }
 
 // Footer
 
@@ -255,20 +257,26 @@ div.navbar.navbar-default {
 // Notifications Dropdown
 
 ul.dropdown-menu.notifications {
-	min-width:420px;
+	min-width:450px;
 	left:-955%;
-	position:absolute;
-	padding-top:0;
 }
 
 
-.notification-title {
-	padding: 15px 20px;
+.notification-title, .view-all {
+
+	padding: 10px 20px;
 	background:#fff;
 	margin:0;
 	cursor:default;
 	color:rgba(255, 77, 77, 1);
 	font-family: 'Helvetica';
+
+
+
+	h4 {
+		display: inline-block;
+	}
+	
 
 }
 
@@ -276,9 +284,6 @@ ul.dropdown-menu.notifications {
 	margin-right: 5px;
 }
 
-.notification a:hover {
-	background:#ccc;
-}
 
 .dropdown-menu.notifications .divider {
 	margin:0;
@@ -291,22 +296,58 @@ ul.dropdown-menu.notifications {
 	@include border-radius(3px);
 }
 
-#notification-number {
-	border:2px solid #ccc;
-	margin:5px;
+.notification-number {
+	background:rgba(0,0,0,0.4);
+	margin:3px 5px;
+	border-radius:4px;
+	padding: 5px 10px;
+
+	h3 {
+		margin-top: 0;
+		padding:5px;
+	}
+
+	p {
+		padding:5px;
+	}
+
 }
 
+.content-block {
 
+	h3 {
+		font-size: 15px;
+	}
+}
 
+.notification-wrapper {
+	overflow:auto;
+	max-height:275px;
 
+}
 
+.fa-arrow-right {
+	font-size:1.6rem;
+	color:#ddd;
+	margin-left:5px;
+}
 
-
-
-
-
-
-
+.badge {
+	position:absolute;
+	top:10px;
+	right:-5px;
+	min-width: 10px;
+	padding: 3px 7px;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	background-color: #777;
+	border-radius: 10px;
+}
 
 
 
@@ -629,6 +670,13 @@ input {
   	-webkit-box-shadow: none;
   	-moz-box-shadow: none;
   }
+
+
+  	#wrapper {
+  	padding-bottom: 120px;
+  }
+  
+
 
 
 }

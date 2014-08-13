@@ -34,7 +34,9 @@ Rails.application.routes.draw do
 
     resources :users
 
-    resources :ratings 
+    resources :ratings
+
+    resources :notifications
 
     # do
     #   resources :courses 
