@@ -20,11 +20,12 @@ class User < ActiveRecord::Base
 
 
 #insructor is enrolled, but his role is instructor
-
+  has_one :user_info
 	has_many :enrollments
   has_many :courses
   has_many :team_enrollments
   has_many :teams, :through => :team_enrollments
+  has_many :notifications
 	# has_many :courses, :through => :enrollments
 
   
@@ -102,6 +103,18 @@ class User < ActiveRecord::Base
         return 0
       end
     end
+  end
+
+  def get_num_new_notifications()
+    new_notifications = self.notifications.where(:opened_time => nil)
+    return new_notifications.count 
+  end
+
+  def get_current_notifications()
+    new_notification_count = self.notifications.where(:opened_time => nil).count
+    self.notifications.order(created_at: :desc)
+    current_notifications = self.notifications.limit(new_notification_count + 5)
+    return current_notifications
   end
 
 end

@@ -9,7 +9,9 @@ before_action :authenticate_user!
     		redirect_to courses_path
     	end
     else 
+
       redirect_to :back
+
     end
   end
 
