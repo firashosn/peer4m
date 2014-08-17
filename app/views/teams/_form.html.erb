@@ -5,9 +5,9 @@
       <%else%>
 	       <table class="table">
           <thead>
-            <th class="text-left">Student First Name</th>
-            <th class="text-left">Student Last Name</th>
-            <th class="text-left">Student Email</th>
+            <th class="text-left">First Name</th>
+            <th class="text-left">Last Name</th>
+            <th class="text-left">Email</th>
             <th class="text-left">Team Status</th>
             
           </thead> 
@@ -34,6 +34,8 @@
   <% if @students != nil && @students.size == 0 %>
   <% else %> 
     <%= f.submit "Add Team", class: "btn btn-info" %>
+    Use Previous Team List
+    <%= check_box_tag "use_previous", '1' %>    
   <% end %>
    
 	

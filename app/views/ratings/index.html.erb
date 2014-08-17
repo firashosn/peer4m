@@ -58,9 +58,12 @@
 							<h4 class="text-center no-comment">You currently don't have any comments for this assignment.</h4>
 						<% else %>
 						<h5>Comments:</h5>
-						<% @comments.each do |comment| %>
-							<p class="student-comments comment-box"> <%= comment %> </p>
-						<% end %>
+						<% if @comments != nil %>
+							<% @comments.each do |comment| %>
+								<p class="student-comments comment-box"> <%= comment %> </p>
+							<% end %>
+						<%end%>
+
 					<% end %> <!-- closes if comments == 0 -->
 					</div><!-- closes the comment div -->
 			<% end %> <!-- closes the assignments loop -->

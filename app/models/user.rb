@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   validates :role, inclusion: ROLES
 
   def add_default_role
-  	self.role = 'instructor' if self.role.nil?
+  	self.role = 'student' if self.role.nil?
   end
 
   def enrolled_courses
@@ -111,9 +111,17 @@ class User < ActiveRecord::Base
   end
 
   def get_current_notifications()
-    new_notification_count = self.notifications.where(:opened_time => nil).count
+    new_notifications = self.notifications.where(:opened_time => nil)
+    new_notification_count = new_notifications.count
+
     self.notifications.order(created_at: :desc)
     current_notifications = self.notifications.limit(new_notification_count + 5)
+
+    new_notifications.each do |new_notification|
+      new_notification.opened_time = Time.current
+      new_notification.save
+    end
+
     return current_notifications
   end
 

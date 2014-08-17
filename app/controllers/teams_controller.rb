@@ -4,6 +4,7 @@ class TeamsController < ApplicationController
   #before_action :set_team, only: [:edit, :update, :destroy]
 
   def new
+
     @team = Team.new
     @course = Course.find(params[:course_id])
     curUsers = User.joins(:enrollments).where('enrollments.course_id' => @course[:id]) 
@@ -27,28 +28,33 @@ class TeamsController < ApplicationController
       end
     end
     
-    if @students.count > 1
-      @students = @students.order(last_name: :asc)
+    if @students != nil && @students.count > 1
+      #@students = @students.order(last_name: :asc)
     end
 
   end
 
   def create
-    @assignment = Assignment.find(params[:assignment_id])
-    @team = @assignment.teams.build()
-    @team.name = @team.get_team_index(params[:assignment_id])
-    #get the total teams for this assignment and make this team name that plus 1
+    use_previous = params[:use_previous]
 
-    if @team.save
-      #binding.pry
-      params[:status].each do |k,v|
-        addUserToTeam(v,@team)
+    if use_previous == nil
+      @assignment = Assignment.find(params[:assignment_id])
+      @team = @assignment.teams.build()
+      @team.name = @team.get_team_index(params[:assignment_id])
+
+      if @team.save
+        #binding.pry
+        params[:status].each do |k,v|
+          addUserToTeam(v,@team)
+        end
+          redirect_to course_assignment_teams_path
+      else
+          render 'new'   
       end
-        redirect_to course_assignment_teams_path
     else
-        render 'new'   
+      binding.pry
     end
-      
+    
  end
 
 def addUserToTeam(userId,team)

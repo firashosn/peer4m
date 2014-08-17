@@ -12,11 +12,33 @@ class Notification < ActiveRecord::Base
   end
 
   def get_created_diff
-  	return "5 min ago"
+
+    created_time = self.created_at
+    created_time_diff = Time.current - created_time
+    
+    if created_time_diff < 60 
+      return created_time_diff + " seconds ago"
+    elsif created_time_diff < 3600
+      minute_diff = created_time_diff/60
+      return minute_diff + " minutes ago"
+    elsif created_time_diff < 86400
+      hour_diff = created_time_diff/3600
+      return minute_diff + " hours ago"
+    elsif created_time_diff < 172800
+      return "Yesterday at " + created_time.strftime("%H:%M")
+    end
+
+    return created_time.strftime("%B %d at %H:%M")
+
   end
 
   def get_description()
-  	"descrition"
+  	team = Team.find_by(:id => self.link_to_id)
+    assignment = Assignment.find_by(:id => team.assignment_id)
+    course_id = assignment.course_id
+    course = Course.find_by(:id => course_id)
+    return course.course_name + " , " + assignment.name
+    
   end
   
   def get_redirect_link()
