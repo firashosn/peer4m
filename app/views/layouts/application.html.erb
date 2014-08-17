@@ -14,23 +14,22 @@
 </head>
 
 <% if user_signed_in? %>
-<body class="internal-bg">
+
+  <body class="internal-bg">
+
 <% end %> 
   
   <div id="wrapper">
     <div id="content">
-
+      
+     
 
 <%= yield %>
 
 
 
-</div>
+  </div>
 <!-- This content id adds padding so the absolutley positioned footer doesnt end up either overlapping (hiding) the bottom of the page content, or staying in the same position -->
-
-
-
-
 </div> <!-- Closing of the html wrapper. The wrapper helps aleviate a floating footer when there isnt any content on the page yet. -->
 
 

@@ -146,10 +146,10 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-datepicker-rails
   bootstrap-sass (~> 3.1.1.1)
-  bootstrap_form
+  bootstrap_form (~> 2.1.1)
   coffee-rails (~> 4.0.0)
   devise
-  font-awesome-rails
+  font-awesome-rails (~> 4.1.0.0)
   font-awesome-sass-rails (~> 3.0.2.2)
   jbuilder (~> 2.0)
   jquery-rails

@@ -1,5 +1,24 @@
 class User < ActiveRecord::Base
 
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, 
+         :validatable
+  
+
+
+
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+
+
+  validates :first_name, 
+            :last_name,
+            presence:true,
+            format: { with: /[a-zA-Z]/, message: 'Please only use letters' }
+
+
+
 #insructor is enrolled, but his role is instructor
 
 	has_many :enrollments
@@ -8,10 +27,8 @@ class User < ActiveRecord::Base
   has_many :teams, :through => :team_enrollments
 	# has_many :courses, :through => :enrollments
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  
+
   after_initialize :add_default_role
 
   ROLES = ['administrator', 'student', 'instructor' ]

@@ -26,15 +26,15 @@ $font-lanenar:'Lanenar', Century Gothic;
 @import "fonts";
 @import "mixins";
 @import "buttons";
+@import "messages";
 @import "bootstrap";
 
 
 // Wrapper and container to hold down the footer when no content above it
 
-html,
-body {
+
+html, body {
 	height:100%;
-	background:#fff;
 }
 
 
@@ -46,7 +46,7 @@ body {
 }
 
 // #content {
-// 	// padding-bottom:130px;
+// 	padding-bottom:130px;
 // 	position:relative;
 // }
 
@@ -73,9 +73,12 @@ body {
 }
 
 .internal-information {
-	padding:10px;
-	line-height:22px;
-	height:22px;
+	padding-top:10px;
+
+	& p {
+		margin-bottom:0;
+	}
+	
 }
 
 .footer-info {
@@ -332,26 +335,6 @@ ul.dropdown-menu.notifications {
 	margin-left:5px;
 }
 
-.badge {
-	position:absolute;
-	top:10px;
-	right:-5px;
-	min-width: 10px;
-	padding: 3px 7px;
-	font-size: 12px;
-	font-weight: 700;
-	line-height: 1;
-	color: #fff;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: baseline;
-	background-color: #777;
-	border-radius: 10px;
-}
-
-
-
-
 
 
 
@@ -417,6 +400,10 @@ ul.dropdown-menu.notifications {
 .panel-footer {
 	background:#fff;
 }
+
+// .cumulative-ratings {
+// 	position:relative;
+// }
 
 .rating-value {
 	margin:0;

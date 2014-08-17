@@ -38,8 +38,7 @@ $(document).ready(function() {
 
 // Datepicker
 function add_datepicker() {
-	$('[data-behaviour~=datepicker]').datepicker({ format: 'dd/mm/yyyy'});
-	
+	$('[data-behaviour~=datepicker]').datepicker({ format: 'dd/mm/yyyy', "autoclose": true });
 }
 
 // CSS Loader
@@ -69,6 +68,37 @@ $('.collapse').collapse()
 // 	});
 
 // });
+
+// Fading out Flash messages
+
+window.setTimeout(function() { 
+    $(".alert").removeClass('in'); 
+
+}, 5000);
+
+
+// Form Validations
+
+// $(document).ready(function() {
+
+//  document.getElementById('first-name').setCustomValidity('Please enter your first name');
+
+//  document.getElementById('last-name').setCustomValidity('Please enter your last name');
+	
+// });
+
+
+// Props Button Clicker
+
+// $(document).ready(function(){
+//     $('.props').click(function() {
+//         var counter = $('.props-badge').val();
+//         counter++ ;
+//         $('.props-badge').val(counter);
+//     });
+// });
+
+
 
 
 

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'},
   :controllers => {:registrations => "registrations"}, :path => '', :path_names => {:edit => 'profile' }
   
+  # Home and About
   root 'home#index'
   get 'about' => 'about#index' 
 
@@ -38,9 +39,9 @@ Rails.application.routes.draw do
 
     resources :notifications
 
-    # do
-    #   resources :courses 
-    # end
+    resources :admin
+
+    resources :support
     
 
     # resources :users do

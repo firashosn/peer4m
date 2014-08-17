@@ -29,48 +29,27 @@
                           <span class="caret-inner"></span>
                       </div>
                       <li><%= link_to '<i class="fa fa-cog"></i> Edit Profile'.html_safe, profile_path %></li>
+                      <li><%= link_to '<i class="fa fa-question-circle"></i> Support'.html_safe, support_index_path %></li>
                       <li class="divider"></li>
                       <li><%= link_to '<i class="fa fa-sign-out"></i> Sign out'.html_safe, destroy_user_session_path, :method => 'delete' %></li>
                     </ul>
                 </li>
 
                 <li><%= link_to(root_path, :'data-toggle' => 'dropdown', class: 'dropdown-toggle') do %>
-                  <i class="fa fa-bell-o"><span class="badge">4</span></i>
+                  <i class="fa fa-bell-o"><span class="notification-badge">4</span></i>
                   <ul class="dropdown-menu notifications" role="notifications">
                       <div class="dropdown-caret">
                           <span class="caret-outer"></span>
                           <span class="caret-inner"></span>
                       </div>
                       <div class="notification-title">
-                     <h4>Notifications</h4><h4 class="pull-right">View All<i class="fa fa-arrow-right"></i></h4>
+                     <h4>Notifications</h4>
+                     <!-- <h4 class="pull-right">View All<i class="fa fa-arrow-right"></i>
+                     </h4> -->
                     </div>
                      <div class="divider"></div>
                       <div class="notification-wrapper">
                         <!-- notification 1 -->
-                        <li class="notification-number">
-                        <a class="content-block" href="#">
-                          <div class="notification-color"></div>
-                          <p><strong>Evaluation Deadline</strong> • 1 day ago</p>
-                          <h3>Marketing, Video Film Assignment</h3>
-                        </a>
-                      </li> <!-- /notification -->
-                      <!-- notification 2 -->
-                        <li class="notification-number">
-                        <a class="content-block" href="#">
-                          <div class="notification-color"></div>
-                          <p><strong>Evaluation Deadline</strong> • 1 day ago</p>
-                          <h3>Marketing, Video Film Assignment</h3>
-                        </a>
-                      </li> <!-- /notification -->
-                      <!-- notification 3 -->
-                        <li class="notification-number">
-                        <a class="content-block" href="#">
-                          <div class="notification-color"></div>
-                          <p><strong>Evaluation Deadline</strong> • 1 day ago</p>
-                          <h3>Marketing, Video Film Assignment</h3>
-                        </a>
-                      </li> <!-- /notification -->
-                      <!-- notification 4 -->
                         <li class="notification-number">
                         <a class="content-block" href="#">
                           <div class="notification-color"></div>

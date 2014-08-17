@@ -9,10 +9,7 @@ before_action :authenticate_user!
     		redirect_to courses_path
     	end
     else 
-      redirect_to :back, :flash => { :error => "You fucked up bitch! Try Again" } 
-
-    	# 	  user_courses_path(:user_id)
-    	# end
+      redirect_to :back
     end
   end
 
@@ -20,7 +17,7 @@ private
 
   def user_params
     # binding.pry
-    params.require(:user).permit(:email, :password, :role, :first_name, :last_name)
+    params.require(:user).permit(:email, :password, :password_confirmation, :role, :first_name, :last_name)
   end
 
 end 

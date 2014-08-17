@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
         @user = User.find(@currUser.id)
         if @course.save
           @user.enrollments.create(:course_id => @course.id, :user_id => @user.id)
-        	redirect_to courses_path
+        	redirect_to courses_path, flash: { success: "You have successfully created a course!" }
         else
         	render 'new'
         end

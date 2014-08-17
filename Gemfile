@@ -24,12 +24,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-gem 'bootstrap_form'
+gem 'bootstrap_form', '~> 2.1.1'
 #Rails Bootstrap Forms is a rails form builder that makes it super easy to integrate twitter bootstrap-style forms into your rails application.
 
 gem 'bootstrap-sass', '~> 3.1.1.1'
 
-gem "font-awesome-rails"
+gem 'font-awesome-rails', '~> 4.1.0.0'
 
 gem 'font-awesome-sass-rails', '~> 3.0.2.2'
 

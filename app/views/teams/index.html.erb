@@ -47,6 +47,7 @@
             <% elsif current_user.role == "student" %>
             <th class="text-left">First Name</th>
             <th class="text-left">Last Name</th>
+            <!-- <th class="text-left">Props</th> -->
             <th class="text-center" colspan="3">Evaluation Status</th>
             <% end %>
             
@@ -62,6 +63,7 @@
             <tr>
               <td class="t-info text-left"><%= team.name %></td>
               <td class="t-info text-left"><%= team.status %></td>
+
 
               <td class="t-info text-center">
 
@@ -147,11 +149,12 @@
 
               <% else %>
 
-                              <tr>
-                  <td class="t-info text-left"><%= teammate.first_name %></td>
-                  <td class="t-info text-left"><%= teammate.last_name %></td>
+                  <tr>
+                    <td class="t-info text-left"><%= teammate.first_name %></td>
+                    <td class="t-info text-left"><%= teammate.last_name %></td>
+                    <!-- <td class="t-info text-left"><img src="/assets/props.png"></td> -->
                   
-                  <td class="t-info text-center">
+                    <td class="t-info text-center">
 
                   <% if current_user.role == "student" && !current_user.is_already_reviewed(@team_id,teammate.id) %>   
                       <%= link_to new_course_assignment_team_evaluation_path(@course,@assignment,@team_id, user_id: teammate.id), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Evaluate Team Member', class: "tb-btn-space" do %>

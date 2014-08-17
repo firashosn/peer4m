@@ -1,6 +1,6 @@
 // Dropdown Menu icons
 
-.fa-cog, .fa-sign-out {
+.fa-cog, .fa-sign-out, .fa-question-circle {
 	margin-right:5px;
 }
 
@@ -22,7 +22,8 @@
 
 // Internal footer social icons
 
-.in-social.fa-facebook, .in-social.fa-twitter,.in-social.fa-linkedin {
+
+.in-social.fa-facebook, .in-social.fa-twitter {
 	font-size:1.3em;
 	color:rgba(255,255,255,0.3);
 	height:22px;
@@ -31,6 +32,68 @@
 
 }
 
-.in-social.fa-facebook:hover, .in-social.fa-twitter:hover,.in-social.fa-linkedin:hover {
+.in-social.fa-facebook:hover, .in-social.fa-twitter:hover {
 	color:rgba(49,176,213,0.8);
 }
+
+
+//  Badges
+
+.notification-badge {
+	position:absolute;
+	top:10px;
+	right:-5px;
+	min-width: 10px;
+	padding: 3px 7px;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	background-color: #777;
+	border-radius: 10px;
+
+}
+
+// .props-badge {
+// 	position:absolute;
+// 	top:7px;
+// 	right:6px;
+// 	min-width: 10px;
+// 	padding: 3px 7px;
+// 	font-size: 12px;
+// 	background-color:#fff;
+// 	color: #777;
+// 	border-radius: 10px;
+// 	text-align: center;
+// 	white-space: nowrap;
+// 	vertical-align: baseline;
+
+// 	}
+
+
+// Info Icon - Rubric PDF
+
+.fa-info-circle {
+	float:right;
+	font-size:18px;
+	color:#ff4d4d;
+	display:inline-block;
+
+	&:hover {
+		cursor:pointer;
+	}
+
+}
+
+.evaluation-header p {
+	display:inline-block;
+}
+
+
+
+
+
+
