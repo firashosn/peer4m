@@ -52,7 +52,7 @@ class Notification < ActiveRecord::Base
   		link_array = [course_id,assignment_id,team_id]
   		return link_array
   	else
-  		binding.pry
+  		# binding.pry
   	end 
   end
 

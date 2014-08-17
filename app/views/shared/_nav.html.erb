@@ -41,9 +41,9 @@
                 <li><%= link_to(root_path, :'data-toggle' => 'dropdown', class: 'dropdown-toggle') do %>
 
                   <i class="fa fa-bell-o">
-                    <%if @num_new_notifications > 0 %>
+                    <% if @num_new_notifications > 0 %>
                       <span class="badge">
-                      <%=@num_new_notifications%>
+                      <%= @num_new_notifications %>
                       </span>
                     <%end%>
                   </i>
