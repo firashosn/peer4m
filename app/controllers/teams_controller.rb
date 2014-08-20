@@ -155,6 +155,11 @@ def destroy
     @team_enrollment = TeamEnrollment.where(:team_id => params[:id])
     @team_enrollment.destroy_all
     @team.destroy
+    notification_to_delete = Notification.find_by(:link_to_id => @team.id)
+    if notification_to_delete != nil
+      notification_to_delete.destroy
+    end
+
     redirect_to course_assignment_teams_path(params[:course_id], params[:assignment_id]), flash: { success: "Successfully deleted!" }
   end
 
