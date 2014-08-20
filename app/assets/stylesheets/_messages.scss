@@ -1,10 +1,15 @@
+@import "mixins";
+
 .alert {
 	position:absolute;
 	z-index:999;
-	top:100px;
-	left:15px;
-	// right:20px;
-	// bottom:65px;
+	// top:100px;
+	// left:15px;
+	@include border-radius(50px);
+	color:#fff;
+	border:none;
+	right:40px;
+	bottom:65px;
 }
 
 .fade {
@@ -17,3 +22,16 @@
 .fade.in {
   opacity: 1;
 }
+
+ .alert-success {
+ 	background-color: rgba(0,230,115,0.7);
+ 	border-color:transparent;
+ }
+
+
+
+ // "alert-danger"    # Red
+
+ // "alert-warning"   # Yellow
+
+ // "alert-info"      # Blue

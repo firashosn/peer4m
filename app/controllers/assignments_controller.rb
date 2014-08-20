@@ -19,7 +19,7 @@ def create
     @assignment = @course.assignments.build(assignment_params)
     
       if @assignment.save
-        redirect_to course_assignments_path(@course)
+        redirect_to course_assignments_path(@course), flash: { success: "Successfully created an assignment!" }
     else
     	render 'new'
     end
@@ -39,7 +39,7 @@ def update
     @course = Course.find(params[:course_id])
     @assignment = Assignment.find(params[:id])
     if @assignment.update(assignment_params)
-      redirect_to course_assignments_path(@course)
+      redirect_to course_assignments_path(@course), flash: { success: "Successfully updated the assignment!" }
 
     else
     render 'edit'
@@ -49,7 +49,7 @@ def update
 def destroy
     @course = Course.find(params[:course_id])
     @assignment.destroy
-    redirect_to course_assignments_path(@course)
+    redirect_to course_assignments_path(@course), flash: { success: "Successfully deleted!" }
   end
 
  private

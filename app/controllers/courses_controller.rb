@@ -50,7 +50,7 @@ class CoursesController < ApplicationController
 
   def update
     if @course.update(course_params)
-      redirect_to courses_path
+      redirect_to courses_path, flash: { success: "Successfully updated the course!" }
     else
       render 'edit'
     end
@@ -60,7 +60,7 @@ class CoursesController < ApplicationController
     @enrollments = Enrollment.where(:course_id => @course.id)
     @enrollments.destroy_all
     @course.destroy
-    redirect_to courses_path
+    redirect_to courses_path, flash: { success: "Successfully deleted!" }
   end
 
   def csv_import_studentlist

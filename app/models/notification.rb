@@ -17,13 +17,13 @@ class Notification < ActiveRecord::Base
     created_time_diff = Time.current - created_time
     
     if created_time_diff < 60 
-      return created_time_diff + " seconds ago"
+      return created_time_diff.to_s + " seconds ago"
     elsif created_time_diff < 3600
       minute_diff = created_time_diff/60
-      return minute_diff + " minutes ago"
+      return minute_diff.to_s + " minutes ago"
     elsif created_time_diff < 86400
       hour_diff = created_time_diff/3600
-      return minute_diff + " hours ago"
+      return minute_diff.to_s + " hours ago"
     elsif created_time_diff < 172800
       return "Yesterday at " + created_time.strftime("%H:%M")
     end

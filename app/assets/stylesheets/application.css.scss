@@ -484,6 +484,11 @@ ul.ratings-wrapper {
 
 }
 
+// .modal-body.modal-overflow {
+// 	overflow:auto;
+// 	min-height:300px;
+// }
+
 .no-students {
 	font-family:$font-lanenar;
 	margin:40px;
@@ -641,6 +646,13 @@ input {
 .last-name-field {
 	padding-right:0;
 	padding-left:5px;
+}
+
+// Support
+
+.support-info {
+	margin:20px 0;
+	line-height:1.4;
 }
 
 

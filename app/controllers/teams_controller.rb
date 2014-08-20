@@ -43,16 +43,15 @@ class TeamsController < ApplicationController
       @team.name = @team.get_team_index(params[:assignment_id])
 
       if @team.save
-        #binding.pry
         params[:status].each do |k,v|
           addUserToTeam(v,@team)
         end
-          redirect_to course_assignment_teams_path
+          redirect_to course_assignment_teams_path, flash: { success: "You have successfully added a team!" }
       else
           render 'new'   
       end
     else
-      binding.pry
+      
     end
     
  end
@@ -62,7 +61,7 @@ def addUserToTeam(userId,team)
           team.team_enrollments.create(:team_id => @team.id, :user_id => userId)
           team_user = User.find_by(:id => userId)
           team_user.notifications.create(:link_to_id => @team.id, :user_id => team_user.id, :notification_type => Notification.types['team_created'])
-          binding.pry
+        
   end
 end
 
@@ -144,7 +143,7 @@ def update
       params[:status].each do |k,v|
       addUserToTeam(v,@team)
       end
-      redirect_to course_assignment_teams_path(params[:course_id], params[:assignment_id])
+      redirect_to course_assignment_teams_path(params[:course_id], params[:assignment_id]), flash: { success: "Successfully updated the team!" }
     else
       render 'edit'
     end
@@ -156,7 +155,7 @@ def destroy
     @team_enrollment = TeamEnrollment.where(:team_id => params[:id])
     @team_enrollment.destroy_all
     @team.destroy
-    redirect_to course_assignment_teams_path(params[:course_id], params[:assignment_id])
+    redirect_to course_assignment_teams_path(params[:course_id], params[:assignment_id]), flash: { success: "Successfully deleted!" }
   end
 
  private

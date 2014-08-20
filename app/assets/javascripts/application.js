@@ -53,6 +53,14 @@ $(window).load(function() {
 $('.collapse').collapse()
 
 
+// Fading out Flash messages
+
+window.setTimeout(function() { 
+    $(".alert").removeClass('in'); 
+
+}, 4000);
+
+
 // Dropdown Menu caret rotates
 
 // $(document).ready(function() {
@@ -67,24 +75,6 @@ $('.collapse').collapse()
 // 		});
 // 	});
 
-// });
-
-// Fading out Flash messages
-
-window.setTimeout(function() { 
-    $(".alert").removeClass('in'); 
-
-}, 5000);
-
-
-// Form Validations
-
-// $(document).ready(function() {
-
-//  document.getElementById('first-name').setCustomValidity('Please enter your first name');
-
-//  document.getElementById('last-name').setCustomValidity('Please enter your last name');
-	
 // });
 
 

@@ -22,7 +22,6 @@ end
     @evaluation = @team.evaluations.build(evaluation_params)
     if(is_valid_params(params[:evaluation]) && @evaluation.save)
       reviewee = User.find_by(:id => params[:reviewee_id])
-      binding.pry
       reviewee.notifications.create(:link_to_id => nil, :user_id => params[:reviewee_id], :notification_type => Notification.types['evaluated'])
       redirect_to course_assignment_teams_path(@course,@assignment,@team)
     else
