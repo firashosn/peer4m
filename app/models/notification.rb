@@ -45,15 +45,20 @@ class Notification < ActiveRecord::Base
   	case self.notification_type
   	when Notification.types['team_created']
   		team = Team.find_by(:id => self.link_to_id)
-  		assignment = Assignment.find_by(:id => team.assignment_id)
-  		team_id = team.id
-  		assignment_id = assignment.id
-  		course_id = assignment.course_id
-  		link_array = [course_id,assignment_id,team_id]
-  		return link_array
+      if team != nil
+  		  assignment = Assignment.find_by(:id => team.assignment_id)
+        if assignment != nil
+    		  team_id = team.id
+    		  assignment_id = assignment.id
+    		  course_id = assignment.course_id
+    		  link_array = [course_id,assignment_id,team_id]
+    		  return link_array
+        end
+      end
   	else
-  		# binding.pry
+  		return nil
   	end 
+    return nil
   end
 
 end
