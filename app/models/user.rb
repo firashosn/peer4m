@@ -114,6 +114,10 @@ class User < ActiveRecord::Base
     new_notifications = self.notifications.where(:opened_time => nil)
     new_notification_count = new_notifications.count
 
+    if self.notifications.count == 0
+      return nil
+    end
+
     self.notifications.order(created_at: :desc)
     current_notifications = self.notifications.limit(new_notification_count + 5)
 

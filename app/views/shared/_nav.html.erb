@@ -62,6 +62,7 @@
 
                      <div class="divider"></div>
                       <div class="notification-wrapper">
+                        <%if @current_notifications != nil %>
                         <% @current_notifications.each do |notification| %>
                         <!-- notification 1 -->
                         <li class="notification-number"> <!--notification -->
@@ -70,10 +71,17 @@
                           <%= link_to course_assignment_teams_path(@link_ids[0],@link_ids[1],@link_ids[2]), class: 'content-block' do %>
                           <p><strong><%= notification.get_type_name() %></strong> • <%= notification.get_created_diff()%></p>
                           <h3><%=notification.get_description()%></h3>
-                        
                         <% end %> 
                       </li> <!-- /notification -->
-                      <%end%> <!-- /Do Loop for notifications -->
+                       <%end%> <!-- /Do Loop for notifications -->
+                      <%else%>
+                       <li class="notification-number"> <!--notification -->
+                        you currently have no notifications
+                          <%= link_to support_index_path, class: 'content-block' do %>
+                        <% end %> 
+                      </li> <!-- /notification -->
+                      <%end%><!-- /if current_notifications != nil -->
+
                     </ul>
                   </div> <!-- /notifications wrapper -->
                 <% end %>
