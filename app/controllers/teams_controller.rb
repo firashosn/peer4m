@@ -4,13 +4,11 @@ class TeamsController < ApplicationController
   #before_action :set_team, only: [:edit, :update, :destroy]
 
   def new
-
     @team = Team.new
     @course = Course.find(params[:course_id])
     curUsers = User.joins(:enrollments).where('enrollments.course_id' => @course[:id]) 
     curStudents = curUsers.where('role' => 'student')
     @students = []
-
     if Team.nil?
     else
       existing_teams = Team.where('assignment_id' => params[:assignment_id])
@@ -37,11 +35,10 @@ class TeamsController < ApplicationController
   def create
     use_previous = params[:use_previous]
 
-    if use_previous == nil
+    if use_previous == nil && params[:status] != nil
       @assignment = Assignment.find(params[:assignment_id])
       @team = @assignment.teams.build()
       @team.name = @team.get_team_index(params[:assignment_id])
-
       if @team.save
         params[:status].each do |k,v|
           addUserToTeam(v,@team)
@@ -50,17 +47,41 @@ class TeamsController < ApplicationController
       else
           render 'new'   
       end
-    else
-      
+    elsif use_previous != nil 
+      other_assignments = Assignment.where(:course_id => params[:course_id])
+      if other_assignments != nil && other_assignments.count > 0
+        sorted_assignments = other_assignments.order(created_at: :desc)
+        most_recent_assignment = sorted_assignments.second
+        all_teams_for_prev_ass = Team.where(:assignment_id => most_recent_assignment.id)
+        if all_teams_for_prev_ass != nil && all_teams_for_prev_ass.count > 0
+          all_teams_for_prev_ass_sorted = all_teams_for_prev_ass.order(name: :asc)
+          all_teams_for_prev_ass_sorted.each do |prev_team|
+            team_members = prev_team.get_team_users
+            if team_members != nil 
+              @assignment = Assignment.find(params[:assignment_id])
+              @team = @assignment.teams.build()
+              @team.name = @team.get_team_index(params[:assignment_id])
+              if @team.save
+                team_members.each do |user_id|
+                addUserToTeam(user_id,@team)
+                end
+              end
+            end
+          end
+        end
+      end
+        redirect_to :back, flash: { error: "There are no previous assignments" } 
+      else
+        redirect_to :back, flash: { error: "please select students" } 
     end
     
  end
 
 def addUserToTeam(userId,team)
   if(userId != nil)
-          team.team_enrollments.create(:team_id => @team.id, :user_id => userId)
+          team.team_enrollments.create(:team_id => team.id, :user_id => userId)
           team_user = User.find_by(:id => userId)
-          team_user.notifications.create(:link_to_id => @team.id, :user_id => team_user.id, :notification_type => Notification.types['team_created'])
+          team_user.notifications.create(:link_to_id => team.id, :user_id => team_user.id, :notification_type => Notification.types['team_created'])
         
   end
 end
@@ -152,9 +173,11 @@ def update
 def destroy
     @assignment = Assignment.find(params[:assignment_id])
     @team = Team.find(params[:id])
+    binding.pry
     @team_enrollment = TeamEnrollment.where(:team_id => params[:id])
     @team_enrollment.destroy_all
     @team.destroy
+    #make sure evaluations are deleted too
     notification_to_delete = Notification.find_by(:link_to_id => @team.id)
     if notification_to_delete != nil
       notification_to_delete.destroy
