@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
 
   ROLES = ['administrator', 'student', 'instructor' ]
 
+  INSTITUTIONS = [ ['Select Institution' , ''] , ['York', 'York'], ['George Brown', 'George Brown'] ]
+
+  PROGRAMS = [ ['Select Program', ''], ['Business', 'Business' ], ['Game Development', 'Game Development'] ]
+
   EVALUATION_FIELDS = ['quality_of_work','dependability','communication','team_player_skills','work_ethic']
 
   validates :role, inclusion: ROLES
