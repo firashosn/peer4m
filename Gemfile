@@ -39,7 +39,9 @@ gem 'devise'
 
 gem 'pry'
 
-group :development do
+gem 'letter_opener'
+
+group :development, :test do
   gem 'sqlite3'
 end
 

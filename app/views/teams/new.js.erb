@@ -1,4 +1,5 @@
-$('.modal-body').html("<%= escape_javascript(render 'form') %>")
+$('.modal-body').html("<%= escape_javascript(render 'form') %>");
+$('.modal-body').addClass("body-overflow");
 $('#course').modal('show');
 $('.modal-title').text('Add a Team');
 

@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, 
          :validatable
-  
-
 
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -26,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :team_enrollments
   has_many :teams, :through => :team_enrollments
   has_many :notifications
+  has_many :supports
 	# has_many :courses, :through => :enrollments
 
   
@@ -33,6 +32,10 @@ class User < ActiveRecord::Base
   after_initialize :add_default_role
 
   ROLES = ['administrator', 'student', 'instructor' ]
+
+  INSTITUTIONS = [ ['Select Institution' , ''] , ['York', 'York'], ['George Brown', 'George Brown'] ]
+
+  PROGRAMS = [ ['Select Program', ''], ['Business', 'Business' ], ['Game Development', 'Game Development'] ]
 
   EVALUATION_FIELDS = ['quality_of_work','dependability','communication','team_player_skills','work_ethic']
 

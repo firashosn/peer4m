@@ -1,16 +1,29 @@
-<h2>Change your password</h2>
+<body class="forgot-password bg">
+	<div class="container">
+  	<div class="row">
+    	<div class="col-md-6 col-md-offset-3 authentication-form-bg">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+	<h2 class="auth-headings text-center">Change your password</h2>
 
-  <div><%= f.label :password, "New password" %><br />
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %></div>
+		<%= bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+	  		
+	  		<div class="authentication-errors"><%= devise_error_messages! %></div>
+	  		<%= f.hidden_field :reset_password_token %>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+	  <div>
+	    <%= f.password_field :password, autofocus: true, hide_label:true, autocomplete: "off", placeholder: "New Password" %>
+	</div>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
+	  <div>
+	    <%= f.password_field :password_confirmation, autocomplete: "off", hide_label:true, placeholder: "New Password Confirmation" %>
+	</div>
 
-<%= render "devise/shared/links" %>
+	  <div>
+	  	<%= f.submit "Change my password", class: "btn btn-custom" %>
+	  </div>
+	<% end %>
+
+		</div>
+	</div>
+</div>
+</body>

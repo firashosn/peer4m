@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808022720) do
+ActiveRecord::Schema.define(version: 20140820022053) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -93,6 +93,13 @@ ActiveRecord::Schema.define(version: 20140808022720) do
     t.datetime "updated_at"
   end
 
+  create_table "supports", force: true do |t|
+    t.string   "optional_email"
+    t.string   "question"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "team_enrollments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -139,6 +146,8 @@ ActiveRecord::Schema.define(version: 20140808022720) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "user_info_id"
+    t.string   "current_institution"
+    t.string   "current_program"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

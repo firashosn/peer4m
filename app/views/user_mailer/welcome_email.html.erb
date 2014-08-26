@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  </head>
+   <style type="text/css">
+   
+   .header {
+    font-family:Century Gothic, sans serif;
+   }
+
+   .header > a {
+    color:#31b0d5;
+    text-decoration: none;
+   }
+
+   .info-box {
+    margin-left: 10px;
+    font-family:Century Gothic, sans serif;
+   }
+  
+  </style>
+
+
+  <body>
+    <h1 class="header">Welcome to <a href="http://foobli.com">foobli.com</a>, <%= @user.first_name %></h1>
+    
+    <div class="info-box">
+      <p>Thanks for participating in our pilot project. This means the world to us.</p>
+      <p>To login to the site, just follow this link: <%= @url %>.</p>
+      <p>If you have any questions or concerns, please email us at <a href="mailto:info@foobli.com">info@foobli.com</a></p>
+      <p>If you are having an issues regarding the platform please check out the support page</p>
+       <p>Have a great idea or feature you think we should add? Don't be shy, let us know! All feeback is welcome.</p>
+      <p>Have a great day!</p>
+  </body>
+</html>

@@ -6,14 +6,14 @@ def new
   #binding.pry
 end
 
-def index
-end
+  def index
+  end
 
- def show
-  @reviewer = current_user
-  @student = User.find_by(:id => params[:id])
-  @team = Team.find_by(:id => params[:team_id])
-end
+  def show
+    @reviewer = current_user
+    @student = User.find_by(:id => params[:id])
+    @team = Team.find_by(:id => params[:team_id])
+  end
 
   def create
   	@team = Team.find_by(:id => params[:team_id])
@@ -21,7 +21,7 @@ end
     @assignment = Assignment.find_by(:id => params[:assignment_id])
     @evaluation = @team.evaluations.build(evaluation_params)
     if(is_valid_params(params[:evaluation]) && @evaluation.save)
-      reviewee = User.find_by(:id => params[:reviewee_id])
+      reviewee = User.find_by(:id => params[:evaluation][:reviewee_id])
       reviewee.notifications.create(:link_to_id => nil, :user_id => params[:reviewee_id], :notification_type => Notification.types['evaluated'])
       redirect_to course_assignment_teams_path(@course,@assignment,@team)
     else

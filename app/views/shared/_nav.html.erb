@@ -31,7 +31,7 @@
                       <li><%= link_to '<i class="fa fa-cog"></i> Edit Profile'.html_safe, profile_path %></li>
                       <li><%= link_to '<i class="fa fa-question-circle"></i> Support'.html_safe, new_support_path %></li>
                       <li class="divider"></li>
-                      <li><%= link_to '<i class="fa fa-sign-out"></i> Sign out'.html_safe, destroy_user_session_path, :method => 'delete' %></li>
+                      <li><%= link_to '<i class="fa fa-power-off"></i> Sign out'.html_safe, destroy_user_session_path, :method => 'delete' %></li>
                     </ul>
                 </li>
                 
@@ -42,7 +42,7 @@
 
                   <i class="fa fa-bell-o">
                     <% if @num_new_notifications > 0 %>
-                      <span class="badge">
+                      <span class="notification-badge">
                       <%= @num_new_notifications %>
                       </span>
                     <%end%>
@@ -66,18 +66,19 @@
                         <%if @current_notifications != nil %>
                         <% @current_notifications.each do |notification| %>
 
-                        <!-- notification 1 -->
-                        <li class="notification-number"> <!--notification -->
                        
                             <% @link_ids = notification.get_redirect_link() %>
                               <% if @link_ids != nil %>
+
+                            <!-- notification 1 -->
+                              <li class="notification-number"> <!--notification -->
                                <%= link_to course_assignment_teams_path(@link_ids[0],@link_ids[1],@link_ids[2]), class: 'content-block' do %>
 
                           <p><strong><%= notification.get_type_name() %></strong> • <%= notification.get_created_diff()%></p>
                           <h3><%=notification.get_description()%></h3>
+                          </li> <!-- /notification -->
                           <% end %> 
                         <%end%>
-                        </li> <!-- /notification -->
                        <%end%> <!-- /Do Loop for notifications -->
                       <%else%>
                        <li class="notification-number"> <!--notification -->

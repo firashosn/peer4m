@@ -13,12 +13,19 @@ before_filter :set_cache_buster
   def create
     @user = User.new(user_params)
     if @user.save
+      # Tell the UserMailer to send a welcome email after save
+        UserMailer.welcome_email(@user).deliver
     	if @user.role == "instructor" || "student"
     		redirect_to courses_path
     	end
     else 
 
-      redirect_to :back
+      clean_up_passwords @user
+      @validatable = devise_mapping.validatable?
+      if @validatable
+        @minimum_password_length = resource_class.password_length.min
+      end
+      respond_with @user
 
     end
   end

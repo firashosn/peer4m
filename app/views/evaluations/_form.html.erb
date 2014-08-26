@@ -2,11 +2,6 @@
 
 <div class="evaluation-header">
 	<p><strong>Reviewing :</strong> <%= @student.first_name %></p>
-	
-	<%= link_to "/private/Foobli-Rubric.pdf", 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Download Rubric', class: 'rubric' do %>
-	<i class="fa fa-info-circle"></i>
-	
-	<% end %> 
 </div>
 
 
@@ -23,6 +18,7 @@
 <%= f.text_area :comment, placeholder: "Comment", hide_label: :true %>
 
 <%= f.submit "Submit", class: "btn btn-info" %>
+<%= link_to "View Rubric", "/Foobli-Rubric.pdf", :target => "_blank", class: 'rubric btn btn-custom' %>
 
 <% end %>
 

@@ -58,10 +58,12 @@
   
   0% { 
   	-webkit-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
   };
 
   100% { 
-  	-webkit-transform:rotate(360deg); 
+  	-webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg); 
   };
   
 }
@@ -70,11 +72,13 @@
 @mixin spin2 {
   0% {
   	-webkit-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
 
   };
 
   100% { 
   	-webkit-transform:rotate(-360deg);
+    -moz-transform:rotate(-360deg);
   };
   
 }
