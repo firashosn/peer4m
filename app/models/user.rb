@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
 
 #insructor is enrolled, but his role is instructor
-  has_one :user_info
+  # has_one :user_info
 	has_many :enrollments
   has_many :courses
   has_many :team_enrollments
