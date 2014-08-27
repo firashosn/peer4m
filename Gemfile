@@ -41,7 +41,7 @@ gem 'pry'
 
 gem 'letter_opener'
 
-group :development, :test do
+group :development do
   gem 'sqlite3'
 end
 
