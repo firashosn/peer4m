@@ -13,7 +13,7 @@ class UserMailer < ActionMailer::Base
     @user = user
     @question = question
     @url = 'http://foobli.com/support/new'
-    mail(to: "rmarinac89@gmail.com", subject: 'Foobli Support') do |format|
+    mail(to: @user.email, subject: 'Foobli Support') do |format|
       format.html { render 'support_email' }
     end
   end
