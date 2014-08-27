@@ -118,7 +118,6 @@ end
       @teams = @teams.order(name: :asc)
 
    end #else #if current_user.role == "student"
-   # binding.pry
  end
 
  
@@ -173,7 +172,6 @@ def update
 def destroy
     @assignment = Assignment.find(params[:assignment_id])
     @team = Team.find(params[:id])
-    binding.pry
     @team_enrollment = TeamEnrollment.where(:team_id => params[:id])
     @team_enrollment.destroy_all
     @team.destroy
