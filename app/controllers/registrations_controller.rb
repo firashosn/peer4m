@@ -33,7 +33,7 @@ before_filter :set_cache_buster
 private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :role, :first_name, :last_name)
+    params.require(:user).permit(:email, :password, :password_confirmation, :role, :first_name, :last_name, :current_program, :current_institution)
   end
 
 end 
