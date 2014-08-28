@@ -146,6 +146,8 @@ ActiveRecord::Schema.define(version: 20140820022053) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "user_info_id"
+    t.string   "current_program"
+    t.string   "current_institution"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
