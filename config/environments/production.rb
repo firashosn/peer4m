@@ -83,6 +83,8 @@ Rails.application.configure do
 
   config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
+  config.action_mailer.default_url_options = { :host => 'foobli.com' }
+
   # For SMTP only
 config.action_mailer.delivery_method = :smtp
 
