@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820022053) do
+ActiveRecord::Schema.define(version: 20140829002950) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -147,7 +147,6 @@ ActiveRecord::Schema.define(version: 20140820022053) do
     t.string   "last_name"
     t.integer  "user_info_id"
     t.string   "current_program"
-    t.string   "current_institution"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
