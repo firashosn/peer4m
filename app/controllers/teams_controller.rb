@@ -8,12 +8,14 @@ class TeamsController < ApplicationController
     @course = Course.find(params[:course_id])
     curUsers = User.joins(:enrollments).where('enrollments.course_id' => @course[:id]) 
     curStudents = curUsers.where('role' => 'student')
-    @students = []
+    @students = nil
+    @teams = Team.where(:assignment_id => params[:assignment_id])
     if Team.nil?
     else
       existing_teams = Team.where('assignment_id' => params[:assignment_id])
       existing_team_ids = existing_teams.pluck('id')
       if existing_team_ids.count > 0
+        @students = []
         curStudents.each do |student|
           current_student_teams = student.team_enrollments.pluck('team_id')
           is_match = existing_team_ids & current_student_teams
@@ -21,7 +23,7 @@ class TeamsController < ApplicationController
            @students.push(student) 
           end
         end
-      else
+      elsif curStudents.count > 0
         @students = curStudents
       end
     end
