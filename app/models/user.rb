@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   ROLES = ['administrator', 'student', 'instructor' ]
 
-  INSTITUTIONS = [ ['Select Institution' , ''] , ['York', 'York'], ['George Brown', 'George Brown'] ]
+  INSTITUTIONS = [ ['Select Institution' , ''] , ['York University', 'York University'], ['George Brown University', 'George Brown University'] ]
 
   PROGRAMS = [ ['Select Program', ''], ['Business', 'Business' ], ['Game Development', 'Game Development'] ]
 

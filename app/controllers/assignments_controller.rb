@@ -6,7 +6,7 @@ class AssignmentsController < ApplicationController
 
 def new
     @assignment = Assignment.new
-    # set_close_time
+    set_open_date
 end
 
 def index
@@ -31,8 +31,8 @@ def create
 end
 
 def edit
-    # set_close_time
     @course = Course.find(params[:course_id])
+    set_open_date
 end
 
 def update
@@ -54,18 +54,23 @@ def destroy
 
  private
     def assignment_params
-      params.require(:assignment).permit(:name, :close_time)
+      params.require(:assignment).permit(:name, :open_time, :close_time)
     end
 
     def set_assignment
       @assignment = Assignment.find(params[:id])
     end
 
+
     def is_valid_params(params)
         if params[:close_time] == ""
           return false
         end
       return true
+    end
+
+    def set_open_date
+      @assignment.open_time = Date.today unless @assignment.open_time
     end
 
     # def set_close_time
