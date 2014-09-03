@@ -35,6 +35,7 @@
           <thead>
             <th class="text-left">Assignment Name</th>
             <th class="text-left">Status</th>
+            <th class="text-left">Opening Time</th>
             <th class="text-left">Closing Time</th>
             <th class="text-center" colspan="3">Actions</th>
           </thead> 
@@ -43,6 +44,7 @@
             <tr>
               <td class="t-info text-left"><%= assignment.name %></td>
               <td class="t-info text-left"><%= assignment.status %></td>
+              <td class="t-info text-left"><%= assignment.open_time.try(:to_date) %></td>
               <td class="t-info text-left"><%= assignment.close_time.try(:to_date) %></td>
           
               <td class="t-info text-center">
