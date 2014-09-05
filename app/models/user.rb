@@ -49,6 +49,41 @@ class User < ActiveRecord::Base
     return self.enrollments.map(&:course)
   end
 
+  def self.are_students
+    return User.where(:role => 'student')
+  end
+
+  def poll_batch_notifications
+    en_courses = self.enrolled_courses
+    if en_courses.count > 0
+      en_courses.each do |course|
+        assignments = course.get_open_assignments()
+        if assignments.count > 0 
+          #check 
+        end
+      end
+    end
+  end
+
+  def poll_evaluation_deadline_appoaching
+    en_courses = self.enrolled_courses
+    if en_courses!= nil && en_courses.count > 0
+      en_courses.each do |course|
+        open_assignments = course.get_open_assignments()
+        if open_assignments.count > 0 
+          open_assignments.each do |assignment|
+            diff_in_days = assignment.get_closing_time_day_difference()
+            if diff_in_days <= 3 && diff_in_days > 1
+              binding.pry
+            elsif diff_in_days <= 1
+              binding.pry
+            end
+          end
+        end
+      end
+    end
+  end
+
   def is_already_reviewed(team_id,reviewee_id)
     review_exists = Evaluation.find_by(:team_id => team_id, :reviewer_id => self.id, :reviewee_id => reviewee_id)
     return review_exists != nil
@@ -128,7 +163,6 @@ class User < ActiveRecord::Base
       new_notification.opened_time = Time.current
       new_notification.save
     end
-
     return current_notifications
   end
 

@@ -1,7 +1,9 @@
 class Notification < ActiveRecord::Base
   belongs_to :user
 
-  enum type: [ :team_created, :ranking_update, :evaluation_deadline_approaching, :evaluated ]
+  enum type: [ :team_created, :ranking_update, :evaluation_period_open, :evaluation_deadline_approaching, :evaluated ]
+
+
 
   def get_type_name
   	Notification::types.each do |type|

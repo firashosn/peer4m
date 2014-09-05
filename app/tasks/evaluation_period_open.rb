@@ -1,13 +1,11 @@
-class Tasks::EvaluationPeriodOpen
-
+class EvaluationPeriodOpen
 	def perform
-		User.are_students.each do |a_user|
-			batch_notifications = a_user.poll_batch_notifications()
-			#in the poll check for evals ended and opened
-			#create notification if one doesn't exist
-			#boom done
+		all_students = User.where(:role => 'student')
+		#User.are_students.each do |a_user|
+		if all_students.count > 0
+			all_students.each do |a_student|
+			batch_notifications = a_student.poll_batch_notifications()
 			end
-
+		end	
 	end
-
 end

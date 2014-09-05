@@ -31,15 +31,17 @@
     </table>
     <%end%>
       
-  <% if @students == nil || @students.size == 0 || @teams.count > 0 %>
+  <% if @students == nil || @students.size == 0 %>
   <% else %>
     <div class="modalFooter"> 
       <%= f.submit "Add Team", class: "btn btn-info" %>
-      <div class="PreviousClassList">
-        <h5>Use Previous Team List
-        <%= check_box_tag "use_previous", '1' %>
-        </h5>
-      </div>
+      <% if @teams.count == 0 %>
+        <div class="PreviousClassList">
+          <h5>Use Previous Team List
+          <%= check_box_tag "use_previous", '1' %>
+          </h5>
+        </div>
+      <%end%>
     </div> 
   <% end %>
    

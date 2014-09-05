@@ -18,10 +18,10 @@ def create
     @course = Course.find(params[:course_id])
     @assignment = @course.assignments.build(assignment_params)
     
-      if @assignment.save
-        redirect_to course_assignments_path(@course), flash: { success: "Successfully created an assignment!" }
+    if is_valid_params(params[:assignment]) && @assignment.save
+      redirect_to course_assignments_path(@course), flash: { success: "Successfully created an assignment!" }
     else
-    	render 'new'
+    	redirect_to course_assignments_path(@course), flash: { error: "Please specify a closing time" }
     end
  end
 
@@ -60,6 +60,14 @@ end
 
     def set_assignment
       @assignment = Assignment.find(params[:id])
+    end
+
+
+    def is_valid_params(params)
+        if params[:close_time] == ""
+          return false
+        end
+      return true
     end
 
     def set_open_date
