@@ -18,7 +18,7 @@ class UserMailer < ActionMailer::Base
     end
   end
 
-  def notification_new_team_email(user, question)
+  def notification_new_team_email(course_id,assignment_id,team_id)
     @user = user
     @question = question
     @url = 'http://foobli.com/support/new'

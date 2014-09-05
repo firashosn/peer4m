@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
     return User.where(:role => 'student')
   end
 
-  def poll_batch_notifications
+  def poll_evaluation_open
     en_courses = self.enrolled_courses
     if en_courses.count > 0
       en_courses.each do |course|
@@ -74,9 +74,9 @@ class User < ActiveRecord::Base
           open_assignments.each do |assignment|
             diff_in_days = assignment.get_closing_time_day_difference()
             if diff_in_days <= 3 && diff_in_days > 1
-              binding.pry
+              self.notifications.create(:link_to_id => assignment.id, :user_id => self.id, :notification_type => Notification.types['evaluation_deadline_approaching'])
             elsif diff_in_days <= 1
-              binding.pry
+             self.notifications.create(:link_to_id => assignment.id, :user_id => self.id, :notification_type => Notification.types['evaluation_deadline_approaching'])
             end
           end
         end
