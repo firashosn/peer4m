@@ -72,9 +72,9 @@ class TeamsController < ApplicationController
           end
         end
       end
-        redirect_to :back, flash: { error: "There are no previous assignments" } 
+        redirect_to :back, flash: { error: "There are no previous assignments." } 
       else
-        redirect_to :back, flash: { error: "please select students" } 
+        redirect_to :back, flash: { error: "please select students!" } 
     end
     
  end

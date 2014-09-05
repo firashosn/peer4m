@@ -6,7 +6,7 @@
 	<h2 class="auth-headings text-center">Forgot your password?</h2>
 
 	<%= bootstrap_form_for resource, url: password_path(resource_name) do |f| %>
-	<%= devise_error_messages! %>
+	<div class="authentication-errors"><%= devise_error_messages! %></div>
 
   <%= f.email_field :email, autofocus: true, hide_label:true, placeholder: "Enter your email address" %>
 

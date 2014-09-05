@@ -26,13 +26,14 @@ def create
  end
 
  
- def show
+def show
 	@assignment = Assignment.find(params[:id])
 end
 
 def edit
     @course = Course.find(params[:course_id])
     set_open_date
+    # format_close_date
 end
 
 def update
@@ -50,7 +51,7 @@ def destroy
     @course = Course.find(params[:course_id])
     @assignment.destroy
     redirect_to course_assignments_path(@course), flash: { success: "Successfully deleted!" }
-  end
+end
 
  private
     def assignment_params
@@ -64,6 +65,10 @@ def destroy
     def set_open_date
       @assignment.open_time = Date.today unless @assignment.open_time
     end
+
+    # def format_close_date
+    #   @assignment.close_time = Date.strftime("%d/%m/%Y")
+    # end
 
     # def set_close_time
     #   @assignment.close_time = Date.today unless @assignment.close_time
