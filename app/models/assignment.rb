@@ -4,7 +4,7 @@ class Assignment < ActiveRecord::Base
 
 def is_open_for_evaluation
   if self.close_time != nil && self.open_time != nil
-    return self.close_time < Time.current && self.open_time > Time.current
+    return self.close_time > Time.current && self.open_time < Time.current
   end
   
   return 0
