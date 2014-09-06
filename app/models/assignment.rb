@@ -20,7 +20,7 @@ def get_closing_time_day_difference
 end
 
 def update_notification
-  binding.pry
+  # binding.pry
 end
 
 end

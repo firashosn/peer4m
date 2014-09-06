@@ -3,9 +3,9 @@
   
     <%= f.text_field :name, placeholder: "Assignment Name", hide_label: :true %>
 
-    <%= f.text_field :open_time, hide_label: :true, placeholder: "Choose a starting Date", value: @assignment.open_time.strftime("%d/%m/%Y"), class: "dp1", "data-behaviour" => "datepicker" %>
+    <%= f.text_field :open_time, hide_label: :true, placeholder: "Choose a starting Date", value: @assignment.open_time.strftime("%d/%m/%Y"), "data-behaviour" => "datepicker" %>
 
-    <%= f.text_field :close_time, hide_label: :true, placeholder: "Choose a closing Date", class: "dp2", "data-behaviour" => "datepicker" %>
+    <%= f.text_field :close_time, hide_label: :true, placeholder: "Choose a closing Date", "data-behaviour" => "datepicker" %>
    
      <%= f.submit "Submit", class: "btn btn-info" %>
 
