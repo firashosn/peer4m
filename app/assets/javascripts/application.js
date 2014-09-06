@@ -56,6 +56,7 @@ function filter_dates(){
 }
 
 
+
 // CSS Loader
 
 $(window).load(function() {
@@ -74,6 +75,19 @@ window.setTimeout(function() {
     $(".alert").removeClass('in'); 
 
 }, 4000);
+
+
+// Sign up form
+
+$(document).ready(function() {
+    $('input#user_first_name, input#user_last_name').on('keyup', function(event) {
+        $(this).val(function(i, v){
+            return v.replace(/[a-zA-z]/, function(c){
+               return c.toUpperCase();
+            })
+        })
+    });
+});
 
 
 // Dropdown Menu caret rotates
