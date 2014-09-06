@@ -37,9 +37,10 @@ $(document).ready(function() {
 });
 
 // Datepicker
-function add_datepicker() {
+function add_datepicker() 
 	$('[data-behaviour~=datepicker]').datepicker({ format: 'dd/mm/yyyy', "autoclose": true });
 }
+
 
 // CSS Loader
 

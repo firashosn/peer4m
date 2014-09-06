@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  </head>
+   <style type="text/css">
+
+   .header {
+    font-family:Century Gothic, sans serif;
+   }
+
+   .header > a {
+    color:#31b0d5;
+    text-decoration: none;
+   }
+
+   .info-box {
+    margin-left: 10px;
+    font-family:Century Gothic, sans serif;
+   }
+   
+  
+  </style>
+
+
+  <body>
+    <h1 class="header"><%= @user.first_name %>, You've just been added to a team!</h1>
+    
+    <div class="info-box">
+      <p>Go check out who your teammates are: <%= @url %></p>
+  </body>
+</html>

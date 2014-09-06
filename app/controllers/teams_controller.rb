@@ -84,7 +84,7 @@ def addUserToTeam(userId,team)
           team.team_enrollments.create(:team_id => team.id, :user_id => userId)
           team_user = User.find_by(:id => userId)
           team_user.notifications.create(:link_to_id => team.id, :user_id => team_user.id, :notification_type => Notification.types['team_created'])
-        
+        UserMailer.notification_new_team_email(team_user).deliver
   end
 end
 

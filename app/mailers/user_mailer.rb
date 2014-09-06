@@ -18,12 +18,11 @@ class UserMailer < ActionMailer::Base
     end
   end
 
-  def notification_new_team_email(user, question)
+  def notification_new_team_email(user)
     @user = user
-    @question = question
-    @url = 'http://foobli.com/support/new'
-    mail(to: @user.email, subject: 'Foobli Support') do |format|
-      format.html { render 'support_email' }
+    # @url = course_assignment_teams_path(@course, assignment)
+    mail(to: user.email, subject: 'New Team') do |format|
+      format.html { render 'notification_new_team_email' }
     end
   end
 end

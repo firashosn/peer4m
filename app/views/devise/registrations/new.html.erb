@@ -24,15 +24,23 @@
            <%= f.select :current_program, options_for_select(User::PROGRAMS), hide_label: :true, required:true, inline:true %>
           </div>
            
-         <div>
+         <div class="col-md-12 email">
           <%= f.email_field :email, required:true, hide_label: :true, placeholder: "Enter your email address" %> 
         </div>
     
-            <%= f.password_field :password, required:true, autocomplete: "off", hide_label: :true, placeholder: "Enter your password" %>
+        <div class="col-md-12 password">
+            <%= f.password_field :password, required:true, autocomplete: "off", hide_label: :true, placeholder: "Enter your password (8 characters minimum)" %>
+        </div>
     
+      <div class="col-md-12 password-confirmation">
             <%= f.password_field :password_confirmation, required:true, autocomplete: "off", hide_label: :true, placeholder: "Enter your password for confirmation" %>
+      </div>
 
+      <div class="col-md-12 submit">
           <%= f.submit "Sign up", class: "btn btn-info btn-block btn-lg" %>
+      </div>
+
+
         </div>
         <% end %>
         <div class="col-md-6 col-md-offset-3">
