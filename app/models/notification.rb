@@ -39,11 +39,15 @@ class Notification < ActiveRecord::Base
       return "you've been evaluated"
     else
       assignment = Assignment.find_by(:id => team.assignment_id)
+      if assignment != nil
       course_id = assignment.course_id
       course = Course.find_by(:id => course_id)
+      return course.course_name + " , " + assignment.name
+      end
     end
     
-    return course.course_name + " , " + assignment.name
+    return ""
+    
     
   end
   
