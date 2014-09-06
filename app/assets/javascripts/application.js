@@ -37,8 +37,22 @@ $(document).ready(function() {
 });
 
 // Datepicker
+var setStartDateForClose = function(){
+	ev = $("#assignment_open_time").val();
+	datePart = ev.split("/"); 
+	newDate = new Date(datePart[1] + "/" + datePart[0] + "/" + datePart[2]);
+	newDate.setDate(newDate.getDate() + 1);
+	$("#assignment_close_time").datepicker("setStartDate", newDate);
+}
+
 function add_datepicker() {
 	$('[data-behaviour~=datepicker]').datepicker({ format: 'dd/mm/yyyy', "autoclose": true });
+	filter_dates();
+	setStartDateForClose();
+}
+
+function filter_dates(){
+	$("#assignment_open_time").datepicker().on("changeDate", setStartDateForClose)
 }
 
 
