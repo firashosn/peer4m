@@ -18,6 +18,7 @@ class UserMailer < ActionMailer::Base
     end
   end
 
+
   def notification_new_team_email(user)
     @user = user
     # @url = course_assignment_teams_path(@course, assignment)

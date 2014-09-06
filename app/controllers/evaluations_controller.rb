@@ -8,7 +8,8 @@ def new
   @student = User.find(params[:user_id])
   team_evals = Evaluation.where(:team_id => params[:team_id])
   if (team_evals != nil && team_evals.count > 0)
-    reviewee_ids = team_evals.pluck('reviewee_id')
+    reviewed_ids = team_evals.where(:reviewer_id => current_user.id)
+    reviewee_ids = reviewed_ids.pluck('reviewee_id')
     if reviewee_ids.include?(@student.id)
       respond_to do |format|
         format.js {render inline: "location.reload();" }
@@ -34,7 +35,7 @@ end
     @evaluation = @team.evaluations.build(evaluation_params)
     if(!current_user.is_already_reviewed(params[:team_id],params[:evaluation][:reviewee_id]) && is_valid_params(params[:evaluation]) && @evaluation.save)
       reviewee = User.find_by(:id => params[:evaluation][:reviewee_id])
-      reviewee.notifications.create(:link_to_id => nil, :user_id => params[:reviewee_id], :notification_type => Notification.types['evaluated'])
+      reviewee.notifications.create(:link_to_id => @team.id, :user_id => params[:reviewee_id], :notification_type => Notification.types['evaluated'])
       redirect_to course_assignment_teams_path(@course,@assignment,@team)
     else
       redirect_to course_assignment_teams_path(@course,@assignment,@team)

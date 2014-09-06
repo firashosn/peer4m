@@ -17,15 +17,14 @@ class Notification < ActiveRecord::Base
 
     created_time = self.created_at
     created_time_diff = Time.current - created_time
-    
     if created_time_diff < 60 
-      return created_time_diff.to_s + " seconds ago"
+      return created_time_diff.round(0).to_s + " seconds ago"
     elsif created_time_diff < 3600
       minute_diff = created_time_diff/60
-      return minute_diff.to_s + " minutes ago"
+      return minute_diff.round(0).to_s + " minutes ago"
     elsif created_time_diff < 86400
       hour_diff = created_time_diff/3600
-      return minute_diff.to_s + " hours ago"
+      return hour_diff.round(0).to_s + " hours ago"
     elsif created_time_diff < 172800
       return "Yesterday at " + created_time.strftime("%H:%M")
     end
@@ -36,9 +35,14 @@ class Notification < ActiveRecord::Base
 
   def get_description()
   	team = Team.find_by(:id => self.link_to_id)
-    assignment = Assignment.find_by(:id => team.assignment_id)
-    course_id = assignment.course_id
-    course = Course.find_by(:id => course_id)
+    if team == nil
+      return "you've been evaluated"
+    else
+      assignment = Assignment.find_by(:id => team.assignment_id)
+      course_id = assignment.course_id
+      course = Course.find_by(:id => course_id)
+    end
+    
     return course.course_name + " , " + assignment.name
     
   end
@@ -57,6 +61,8 @@ class Notification < ActiveRecord::Base
     		  return link_array
         end
       end
+    when Notification.types['evaluated']
+      link_array = nil
   	else
   		return nil
   	end 
