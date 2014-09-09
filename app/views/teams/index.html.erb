@@ -71,11 +71,6 @@
             <% end %>
 
 
-              <%= link_to edit_course_assignment_team_path(@course,@assignment, team), :remote => true, 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'bottom', 'title' => 'Edit Team', class: "tb-btn-space" do %>
-              <i class="glyphicon glyphicon-pencil"></i>
-              <% end %>
-
-
               <%= link_to course_assignment_team_path(@course, @assignment, team), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'right', 'title' => 'Delete', method: :delete,
                data: { confirm: 'Are you sure?' }, class: "tb-btn-space" do %>
               <i class="glyphicon glyphicon-trash"></i>

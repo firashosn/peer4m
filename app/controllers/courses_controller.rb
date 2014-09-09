@@ -5,7 +5,6 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
-    # set_start_date
   end
 
   def create

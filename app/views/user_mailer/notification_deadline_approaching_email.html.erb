@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  </head>
+   <style type="text/css">
+
+   .header {
+    font-family:Century Gothic, sans serif;
+   }
+
+   .header > a {
+    color:#31b0d5;
+    text-decoration: none;
+   }
+
+  
+  </style>
+
+
+  <body>
+
+    <h1 class="header"><%= @user.first_name %>, This is just a friendly reminder that you have an evaluation deadline approaching for.</h1>
+    
+    <p>Follow this link: <%= @url %></p>
+
+  </body>
+</html>
+
+
+

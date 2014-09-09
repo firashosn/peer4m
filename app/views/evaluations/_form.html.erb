@@ -15,7 +15,7 @@
 <%= f.select :team_player_skills, [['Team Player Skills (1-Poor, 5-Excellent)',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']],hide_label: :true %>
 <%= f.select :work_ethic, [['Work Ethic (1-Poor, 5-Excellent)',''],['1','1'],['2','2'],['3','3'],['4','4'],['5','5']],hide_label: :true %>
 
-<%= f.text_area :comment, placeholder: "Comment", hide_label: :true %>
+<%= f.text_area :comment, class: "evalCommentBox", placeholder: "Comment", hide_label: :true, autocomplete:"off" %>
 
 <%= f.submit "Submit", class: "btn btn-info" %>
 <%= link_to "View Rubric", "/Foobli-Rubric.pdf", :target => "_blank", class: 'rubric btn btn-custom' %>

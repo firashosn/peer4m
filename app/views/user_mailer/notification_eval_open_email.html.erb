@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  </head>
+   <style type="text/css">
+
+   .header {
+    font-family:Century Gothic, sans serif;
+   }
+
+   .header > a {
+    color:#31b0d5;
+    text-decoration: none;
+   }
+
+  
+  </style>
+
+
+  <body>
+
+    <h1 class="header"><%= @user.first_name %>, Evaluations are now open!</h1>
+
+    <p>To evaluate your team members, follow this link: <%= @url %></p>
+
+  </body>
+</html>
+
+

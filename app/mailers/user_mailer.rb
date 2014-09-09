@@ -12,7 +12,7 @@ class UserMailer < ActionMailer::Base
     @user = user
     @question = question
     @url = 'http://foobli.com/support/new'
-    mail(from: @user.email, to: "support@foobli.com", subject: 'Foobli Support') do |format|
+    mail(from: @user.email, to: "rocco@foobli.com, firas@foobli.com", subject: 'Foobli Support') do |format|
       format.html { render 'support_email' }
     end
   end
@@ -25,4 +25,23 @@ class UserMailer < ActionMailer::Base
       format.html { render 'notification_new_team_email' }
     end
   end
+
+
+  def notification_eval_open_email(user)
+    @user = user
+    # @url = 
+    mail(from:"info@foobli.com", to: user.email, subject: 'Evaluation Open') do |format|
+      format.html { render 'notification_eval_open_email' }
+    end
+  end
+
+
+  def notification_deadline_approaching_email(user)
+    @user = user
+    # @url = 
+    mail(from:"info@foobli.com", to: user.email, subject: 'Deadline Approaching') do |format|
+      format.html { render 'notification_eval_open_email' }
+    end
+  end
+
 end
