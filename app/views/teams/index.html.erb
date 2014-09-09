@@ -61,7 +61,7 @@
             <% @teams.each do |team| %>
             <tr>
               <td class="t-info text-left"><%= team.name %></td>
-              <td class="t-info text-left"><%= team.status %></td>
+              <td class="t-info text-left"><%= team.get_team_review_status_string %></td>
 
 
               <td class="t-info text-center">

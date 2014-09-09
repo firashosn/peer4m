@@ -43,7 +43,7 @@
             <% @assignments.each do |assignment| %>
             <tr>
               <td class="t-info text-left"><%= assignment.name %></td>
-              <td class="t-info text-left"><%= assignment.status %></td>
+              <td class="t-info text-left"><%= assignment.get_assignment_review_status_string %></td>
               <td class="t-info text-left"><%= assignment.open_time.try(:to_date) %></td>
               <td class="t-info text-left"><%= assignment.close_time.try(:to_date) %></td>
           

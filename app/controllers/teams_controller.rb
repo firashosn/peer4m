@@ -10,6 +10,20 @@ class TeamsController < ApplicationController
     curStudents = curUsers.where('role' => 'student')
     @students = nil
     @teams = Team.where(:assignment_id => params[:assignment_id])
+
+    @can_use_previous = false
+    other_assignments = Assignment.where(:course_id => params[:course_id])
+    if other_assignments != nil && other_assignments.count > 0
+      sorted_assignments = other_assignments.order(created_at: :desc)
+      most_recent_assignment = sorted_assignments.second
+      if most_recent_assignment != nil
+        all_teams_for_prev_ass = Team.where(:assignment_id => most_recent_assignment.id)
+        if all_teams_for_prev_ass != nil && all_teams_for_prev_ass.count > 0
+          @can_use_previous = true
+        end
+      end
+    end
+
     if Team.nil?
     else
       existing_teams = Team.where('assignment_id' => params[:assignment_id])
@@ -29,7 +43,7 @@ class TeamsController < ApplicationController
     end
     
     if @students != nil && @students.count > 1
-      #@students = @students.order(last_name: :asc)
+      @students = @students.order(last_name: :asc)
     end
 
   end
@@ -72,7 +86,7 @@ class TeamsController < ApplicationController
           end
         end
       end
-        redirect_to :back, flash: { error: "There are no previous assignments." } 
+         
       else
         redirect_to :back, flash: { error: "please select students!" } 
     end

@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def poll_evaluation_deadline_appoaching
+  def poll_evaluation_deadline_approaching
     en_courses = self.enrolled_courses
     if en_courses!= nil && en_courses.count > 0
       en_courses.each do |course|
@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
           open_assignments.each do |assignment|
             diff_in_days = assignment.get_closing_time_day_difference()
             if diff_in_days <= 3 && diff_in_days > 1
-              self.notifications.create(:link_to_id => assignment.id, :user_id => self.id, :notification_type => Notification.types['evaluation_deadline_approaching'])
+             self.notifications.create(:link_to_id => assignment.id, :user_id => self.id, :notification_type => Notification.types['evaluation_deadline_approaching'])
             elsif diff_in_days <= 1
              self.notifications.create(:link_to_id => assignment.id, :user_id => self.id, :notification_type => Notification.types['evaluation_deadline_approaching'])
             end
