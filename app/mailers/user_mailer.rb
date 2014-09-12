@@ -18,27 +18,26 @@ class UserMailer < ActionMailer::Base
   end
 
 
-  def notification_new_team_email(user)
+  def notification_new_team_email(user,course_id,assignment_id,team_id)
     @user = user
-    # @url = course_assignment_teams_path(@course, assignment)
+    @url = course_assignment_teams_path(course_id, assignment_id, team_id)
     mail(from:"info@foobli.com", to: user.email, subject: 'New Team') do |format|
       format.html { render 'notification_new_team_email' }
     end
   end
 
 
-  def notification_eval_open_email(user)
+  def notification_eval_open_email(user,course_id,assignment_id,team_id)
     @user = user
-    # @url = 
+    @url = course_assignment_teams_path(course_id, assignment_id, team_id)
     mail(from:"info@foobli.com", to: user.email, subject: 'Evaluation Open') do |format|
       format.html { render 'notification_eval_open_email' }
     end
   end
 
-
-  def notification_deadline_approaching_email(user)
+  def notification_deadline_approaching_email(user,course_id,assignment_id,team_id)
     @user = user
-    # @url = 
+    @url = course_assignment_teams_path(course_id, assignment_id, team_id)
     mail(from:"info@foobli.com", to: user.email, subject: 'Deadline Approaching') do |format|
       format.html { render 'notification_eval_open_email' }
     end

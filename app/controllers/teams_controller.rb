@@ -50,14 +50,18 @@ class TeamsController < ApplicationController
 
   def create
     use_previous = params[:use_previous]
-
+    @course_id = params[:course_id]
     if use_previous == nil && params[:status] != nil
+      
       @assignment = Assignment.find(params[:assignment_id])
       @team = @assignment.teams.build()
       @team.name = @team.get_team_index(params[:assignment_id])
       if @team.save
         params[:status].each do |k,v|
-          addUserToTeam(v,@team)
+          if addUserToTeam(v,@team)
+            team_user = User.find_by(:id => v)
+            UserMailer.notification_new_team_email(team_user,@course_id,@assignment.id,@team.id).deliver
+          end
         end
           redirect_to course_assignment_teams_path, flash: { success: "You have successfully added a team!" }
       else
@@ -79,7 +83,10 @@ class TeamsController < ApplicationController
               @team.name = @team.get_team_index(params[:assignment_id])
               if @team.save
                 team_members.each do |user_id|
-                addUserToTeam(user_id,@team)
+                  if addUserToTeam(user_id,@team)
+                    team_user = User.find_by(:id => v)
+                    UserMailer.notification_new_team_email(team_user,@course_id,@assignemnt.id,@team.id).deliver
+                  end
                 end
               end
             end
@@ -98,8 +105,9 @@ def addUserToTeam(userId,team)
           team.team_enrollments.create(:team_id => team.id, :user_id => userId)
           team_user = User.find_by(:id => userId)
           team_user.notifications.create(:link_to_id => team.id, :user_id => team_user.id, :notification_type => Notification.types['team_created'])
-        UserMailer.notification_new_team_email(team_user).deliver
+        return true
   end
+  return false
 end
 
 
@@ -177,7 +185,11 @@ def update
 
     if @team.save
       params[:status].each do |k,v|
-      addUserToTeam(v,@team)
+      if addUserToTeam(v,@team)
+        team_user = User.find_by(:id => v)
+        UserMailer.notification_new_team_email(team_user,@course.id,@assignemnt.id,@team.id).deliver
+      end
+
       end
       redirect_to course_assignment_teams_path(params[:course_id], params[:assignment_id]), flash: { success: "Successfully updated the team!" }
     else

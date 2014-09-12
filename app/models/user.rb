@@ -58,8 +58,17 @@ class User < ActiveRecord::Base
     if en_courses.count > 0
       en_courses.each do |course|
         assignments = course.get_open_assignments()
-        if assignments.count > 0 
-          #check 
+        if open_assignments.count > 0 
+          open_assignments.each do |assignment|
+            my_team = assignment.get_user_team(self)
+            if my_team != nil && !my_team.is_user_done_reviews(self.id)
+              is_notification_already_created = self.notifications.find_by(:link_to_id => assignment.id, :notification_type => Notification.types['evaluation_period_open'])
+              if is_notification_already_created != nil
+                self.notifications.create(:link_to_id => assignment.id, :user_id => self.id, :notification_type => Notification.types['evaluation_period_open'])
+                UserMailer.notification_eval_open_email(v,course.id,assignemnt.id,my_team.id).deliver
+              end
+            end
+          end
         end
       end
     end
@@ -72,11 +81,13 @@ class User < ActiveRecord::Base
         open_assignments = course.get_open_assignments()
         if open_assignments.count > 0 
           open_assignments.each do |assignment|
-            diff_in_days = assignment.get_closing_time_day_difference()
-            if diff_in_days <= 3 && diff_in_days > 1
-             self.notifications.create(:link_to_id => assignment.id, :user_id => self.id, :notification_type => Notification.types['evaluation_deadline_approaching'])
-            elsif diff_in_days <= 1
-             self.notifications.create(:link_to_id => assignment.id, :user_id => self.id, :notification_type => Notification.types['evaluation_deadline_approaching'])
+            my_team = assignment.get_user_team(self)
+            if my_team != nil && !my_team.is_user_done_reviews(self.id)
+              diff_in_days = assignment.get_closing_time_day_difference()
+              if diff_in_days <= 3
+               self.notifications.create(:link_to_id => assignment.id, :user_id => self.id, :notification_type => Notification.types['evaluation_deadline_approaching'])
+                UserMailer.notification_deadline_approaching_email(v,course.id,assignemnt.id,my_team.id).deliver
+              end
             end
           end
         end
@@ -149,20 +160,25 @@ class User < ActiveRecord::Base
   end
 
   def get_current_notifications()
-    new_notifications = self.notifications.where(:opened_time => nil)
-    new_notification_count = new_notifications.count
 
     if self.notifications.count == 0
       return nil
     end
 
-    self.notifications.order(created_at: :desc)
-    current_notifications = self.notifications.limit(new_notification_count + 5)
+    new_notifications = self.notifications.where(:opened_time => nil)
+    new_notification_count = new_notifications.count
+
+    #self.notifications.order(created_at: :desc)
+    #current_notifications = self.notifications.limit(new_notification_count + 5)
 
     new_notifications.each do |new_notification|
       new_notification.opened_time = Time.current
       new_notification.save
     end
+
+    current_notifications = self.notifications.limit(new_notification_count + 5)
+    current_notifications = self.notifications.order(created_at: :desc)
+
     return current_notifications
   end
 

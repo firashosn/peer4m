@@ -19,6 +19,16 @@ class Assignment < ActiveRecord::Base
 
   end
 
+  def get_user_team(user)
+    assignment_teams = self.teams.pluck(:id)
+    user_teams = user.team_enrollments.map(&:team)
+    user_team_ids = user_teams.map(&:id)
+    user_assignment_team_id = user_team_ids & assignment_teams
+    team = Team.find_by(:id => user_assignment_team_id)
+    binding.pry
+    return team
+  end
+
   def get_assignment_review_status_string
     all_teams = self.teams
     total_num_teams = all_teams.count

@@ -41,4 +41,17 @@ class Team < ActiveRecord::Base
       end
   end
 
+  def is_user_done_reviews(user_id)
+      user_rows = TeamEnrollment.where(:team_id => self.id)
+      total_team_members_for_review = user_rows.count - 1
+      all_reviews = self.evaluations.pluck('reviewer_id')
+      completed_reviews = all_reviews.count
+      binding.pry
+      if completed_reviews > 0 && total_team_members_for_review > 0 && completed_reviews == total_team_members_for_review
+        return true
+      end
+
+      return false
+  end
+
 end
