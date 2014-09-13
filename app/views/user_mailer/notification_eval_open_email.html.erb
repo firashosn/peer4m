@@ -5,7 +5,7 @@
   </head>
    <style type="text/css">
 
-   .header {
+   body {
     font-family:Century Gothic, sans serif;
    }
 
@@ -14,15 +14,24 @@
     text-decoration: none;
    }
 
+   .emailSocial {
+    color: #31b0d5;
+    text-decoration: none;
+    display: block;
+   }
+
   
   </style>
 
 
   <body>
 
-    <h1 class="header"><%= @user.first_name %>, Evaluations are now open!</h1>
+    <h2 class="header"><%= @user.first_name %>, Evaluations are now open!</h2>
 
     <p>To evaluate your team members, follow this link: <%= @url %></p>
+
+     <a class="emailSocial" href="https://www.facebook.com/foobli">Like us on Facebook</a>
+    <a class="emailSocial" href="https://twitter.com/Foobli">Follow us on Twitter</a>
 
   </body>
 </html>

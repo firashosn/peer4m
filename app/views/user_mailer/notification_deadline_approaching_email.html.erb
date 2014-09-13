@@ -5,14 +5,23 @@
   </head>
    <style type="text/css">
 
-   .header {
+   body {
     font-family:Century Gothic, sans serif;
    }
+
 
    .header > a {
     color:#31b0d5;
     text-decoration: none;
    }
+
+   .emailSocial {
+    color: #31b0d5;
+    text-decoration: none;
+    display: block;
+   }
+
+
 
   
   </style>
@@ -20,9 +29,14 @@
 
   <body>
 
-    <h1 class="header"><%= @user.first_name %>, This is just a friendly reminder that you have an evaluation deadline approaching for.</h1>
+    <h2 class="header"><%= @user.first_name %>, This is just a friendly reminder that you have an evaluation deadline approaching for.</h2>
     
     <p>Follow this link: <%= @url %></p>
+    <a class="emailSocial" href="https://www.facebook.com/foobli">Like us on Facebook</a>
+    <a class="emailSocial" href="https://twitter.com/Foobli">Follow us on Twitter</a>
+
+    
+
 
   </body>
 </html>

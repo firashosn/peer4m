@@ -5,7 +5,7 @@
   </head>
    <style type="text/css">
 
-   .header {
+   body {
     font-family:Century Gothic, sans serif;
    }
 
@@ -16,7 +16,12 @@
 
    .info-box {
     margin-left: 10px;
-    font-family:Century Gothic, sans serif;
+   }
+
+   .emailSocial {
+    color: #31b0d5;
+    text-decoration: none;
+    display: block;
    }
    
   
@@ -24,9 +29,13 @@
 
 
   <body>
-    <h1 class="header"><%= @user.first_name %>, You've just been added to a team!</h1>
+    <h2 class="header"><%= @user.first_name %>, You've just been added to a team!</h2>
     
     <div class="info-box">
       <p>Go check out who your teammates are: <%= @url %></p>
+
+       <a class="emailSocial" href="https://www.facebook.com/foobli">Like us on Facebook</a>
+    <a class="emailSocial" href="https://twitter.com/Foobli">Follow us on Twitter</a>
+  </div>
   </body>
 </html>

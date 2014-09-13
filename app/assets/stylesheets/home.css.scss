@@ -672,10 +672,8 @@ p.quote-author {
 
 
 
-
-
 .copyright {
-	margin: 20px 0;
+	margin-top: 20px;
 	color: #adadad;
 	font-family: 'Lanenar';
 }
@@ -684,7 +682,6 @@ p.quote-author {
 	display:inline-block;
 	color:rgba(255,77,77,1);
 }
-
 
 
 
@@ -717,18 +714,42 @@ p.quote-author {
 	.align-c {
 	font-size: 5rem;
 	text-align: center;
+	
 	}
 
 	.bio-pic {
 	margin: 0 0 40px 0;
-}
+	
+	}
 
-.bio .row {
+	.bio .row {
 	margin:0 0 20px 0;
-}
+	
+	}
+
+	p.copyright {
+		margin-top:10px;
+		margin-bottom:0;
+	}
+
+	.contactInfo, .mainFooterSocials {
+		text-align: center;
+	}
+
+	.glyphicon-send, .glyphicon-earphone {
+		font-size: 1.7rem;
+		margin:0;
+	}
+
+	.main-social.fa-facebook, .main-social.fa-twitter {
+		margin:0;
+		font-size: 2rem;
+	}
 
 
 }
+
+
 
 
 @media (max-width: 768px) {
@@ -803,66 +824,76 @@ p.quote-author {
 	font-size: 2rem;
 	margin:15px;
 
-}
+	}
 
-.glyphicon-send,
-.glyphicon-earphone {
+	.glyphicon-send,
+	.glyphicon-earphone {
 
-	margin:0;
-}
+		margin:0;
+		font-size:1.5rem;
+	}
 
-.glyphicon-earphone {
-	margin-bottom: 20px;
-}
+	.mainFooterSocials, .contactInfo {
+		text-align:center;
+	}
 
-.glyphicon-star-empty,
-.glyphicon-tasks,
-.glyphicon-signal,
-.glyphicon-time {
+	p.copyright {
+		margin-top:10px;
+		margin-bottom:0;
+	}
 
-	margin:20px 0 20px 0;
+	.main-social.fa-facebook, .main-social.fa-twitter {
+		margin:10px 0;
+	}
+
+	.glyphicon-star-empty,
+	.glyphicon-tasks,
+	.glyphicon-signal,
+	.glyphicon-time {
+
+		margin:20px 0 20px 0;
+
+		}
+
+	.heading {
+		font-size: 3rem;
+	}
+
+	.stat {
+		text-align: center;
+	}
+
+	.align-c {
+		font-size: 5rem;
+		text-align: center;
+		}
+
+	.bio .row {
+		margin:0 0 40px 0;
 
 	}
 
-.heading {
-	font-size: 3rem;
-}
-
-.stat {
-	text-align: center;
-}
-
-.align-c {
-	font-size: 5rem;
-	text-align: center;
+	.bio-pic {
+		margin: 0 0 40px 0;
 	}
 
-.bio .row {
-	margin:0 0 40px 0;
 
-}
+	.bio h3 {
+		font-size: 2rem;
+	}
 
-.bio-pic {
-	margin: 0 0 40px 0;
-}
+	.social {
+		text-align: center;
 
+	}
 
-.bio h3 {
-	font-size: 2rem;
-}
+	.quote-text {
+		background:#fff;
+	}
 
-.social {
-	text-align: center;
-
-}
-
-.quote-text {
-	background:#fff;
-}
-
-.team h2 {
-	font-size:3rem;
-}
+	.team h2 {
+		font-size:3rem;
+	}
 
 }
 

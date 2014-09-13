@@ -4,11 +4,11 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
   </head>
    <style type="text/css">
-   
-   .header {
+
+   body {
     font-family:Century Gothic, sans serif;
    }
-
+   
    .header > a {
     color:#31b0d5;
     text-decoration: none;
@@ -16,14 +16,23 @@
 
    .info-box {
     margin-left: 10px;
-    font-family:Century Gothic, sans serif;
+   }
+
+   .info-box a {
+    color:#31b0d5;
+   }
+
+   .emailSocial {
+    color: #31b0d5;
+    text-decoration: none;
+    display: block;
    }
   
   </style>
 
 
   <body>
-    <h1 class="header">Welcome to <a href="http://foobli.com">foobli.com</a>, <%= @user.first_name %></h1>
+    <h2 class="header">Welcome to <a href="http://foobli.com">foobli.com</a>, <%= @user.first_name %></h2>
     
     <div class="info-box">
       <p>Thanks for participating in our pilot project. This means the world to us.</p>
@@ -32,5 +41,8 @@
       <p>If you are having an issues regarding the platform please check out the support page</p>
        <p>Have a great idea or feature you think we should add? Don't be shy, let us know! All feeback is welcome.</p>
       <p>Have a great day!</p>
+
+       <a class="emailSocial" href="https://www.facebook.com/foobli">Like us on Facebook</a>
+    <a class="emailSocial" href="https://twitter.com/Foobli">Follow us on Twitter</a>
   </body>
 </html>

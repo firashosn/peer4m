@@ -5,7 +5,6 @@
 }
 
 
-
 // Table icons
 
 .glyphicon-eye-open, .glyphicon-pencil, .glyphicon-trash, .fa-user {
@@ -34,6 +33,23 @@
 
 .in-social.fa-facebook:hover, .in-social.fa-twitter:hover {
 	color:rgba(49,176,213,0.8);
+}
+
+// External footer social icons
+
+.main-social.fa-facebook, .main-social.fa-twitter  {
+	padding: 15px;
+	margin: 10px 0;
+	color: #ff4d4d;
+
+}
+
+.mainFooterSocials {
+	text-align:right;
+}
+
+.contactInfo {
+	text-align:left;
 }
 
 

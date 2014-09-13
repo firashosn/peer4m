@@ -5,10 +5,8 @@
 		<div class="col-md-6 col-md-offset-3 authentication-form-bg">
 			<h2 class="text-center auth-headings">Sign in</h2>
 			
-			
+			<%=devise_error_messages!%>
 			<%= bootstrap_form_for resource, url: session_path(resource_name) do |f| %>
-
-			<%= devise_error_messages! %>
 
 			<div>
 			  <%= f.email_field :email, autofocus: true, hide_label: :true, placeholder: "Enter your email address" %>
@@ -37,5 +35,6 @@
 
 
 </div>
+<%= render 'shared/flash_messages', flash: flash %>
 </body>
 
