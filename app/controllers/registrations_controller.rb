@@ -17,7 +17,6 @@ before_filter :set_cache_buster
         UserMailer.welcome_email(@user).deliver
         if @user.role == "student" 
           @user.notifications.create(:link_to_id => nil, :user_id => @user.id, :notification_type => Notification.types['welcome'])
-    	  end
       if @user.role == "instructor" || "student"
     		redirect_to courses_path
     	end

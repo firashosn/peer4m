@@ -1,7 +1,7 @@
 class Notification < ActiveRecord::Base
   belongs_to :user
 
-  enum type: [ :team_created, :ranking_update, :evaluation_period_open, :evaluation_deadline_approaching, :evaluated ]
+  enum type: [ :team_created, :ranking_update, :evaluation_period_open, :evaluation_deadline_approaching, :evaluated, :welcome ]
 
 
 
@@ -35,9 +35,11 @@ class Notification < ActiveRecord::Base
 
   def get_description()
   	team = Team.find_by(:id => self.link_to_id)
-    if team == nil
+    if self.notification_type == Notification.types['evaluated']
       return "you've been evaluated"
-    else
+    elsif self.notification_type == Notification.types['welcome']
+      return "Foobli"
+    elsif team != nil
       assignment = Assignment.find_by(:id => team.assignment_id)
       if assignment != nil
       course_id = assignment.course_id
@@ -53,23 +55,25 @@ class Notification < ActiveRecord::Base
   
   def get_redirect_link()
   	case self.notification_type
-  	when Notification.types['team_created']
-  		team = Team.find_by(:id => self.link_to_id)
-      if team != nil
-  		  assignment = Assignment.find_by(:id => team.assignment_id)
-        if assignment != nil
-    		  team_id = team.id
-    		  assignment_id = assignment.id
-    		  course_id = assignment.course_id
-    		  link_array = [course_id,assignment_id,team_id]
-    		  return link_array
+    	when Notification.types['team_created'] || Notification.types['evaluation_period_open'] || Notification.types['evaluation_deadline_approaching']
+    		team = Team.find_by(:id => self.link_to_id)
+        if team != nil
+    		  assignment = Assignment.find_by(:id => team.assignment_id)
+          if assignment != nil
+      		  team_id = team.id
+      		  assignment_id = assignment.id
+      		  course_id = assignment.course_id
+      		  link_array = [course_id,assignment_id,team_id]
+      		  return link_array
+          end
         end
-      end
-    when Notification.types['evaluated']
-      link_array = nil
-  	else
-  		return nil
-  	end 
+      when Notification.types['evaluated']
+        link_array = nil
+      when Notification.types['welcome']
+        link_array = nil
+    	else
+    		return nil
+    end 
     return nil
   end
 
