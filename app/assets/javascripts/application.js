@@ -52,7 +52,7 @@ function add_datepicker() {
 }
 
 function filter_dates(){
-	$("#assignment_open_time").datepicker().on("changeDate", setStartDateForClose)
+	$("#assignment_open_time").datepicker().on("changeDate", setStartDateForClose);
 }
 
 
