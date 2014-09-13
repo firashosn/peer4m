@@ -23,7 +23,7 @@
 
 
 .mac {
-	background-image:url('./mac-desk.png');
+	background-image:url('./group-work.jpg');
 
 }
 
@@ -106,16 +106,16 @@ nav.navbar-default .navbar-nav > li > a {
 	color: #fff;
 	font-size: 1.7rem;
 	font-family: Lanenar;
-	padding:10px 30px;
-	margin:15px 10px 0;
+	padding:8px 20px;
+	margin:18px 10px 0;
 	@include border-radius(3px);
-	background:rgba(49,176,213,0.6);
+	background:rgba(49,176,213,0.8);
 
 }
 
 nav.navbar-default .navbar-nav > li > a:hover {
 	color:#fff;
-	background:rgba(49,176,213,0.8);
+	background:rgba(49,176,213,1);
 	
 }
 
@@ -253,7 +253,7 @@ background:rgba(49,176,213,0.8);
 .main-content .intro {
 	font-family: 'Lanenar';
 	margin-top:20%;
-	color: #fff;
+	color: #000;
 	font-size: 3rem;
 	letter-spacing: 1px;
 	margin-bottom: 5%;
