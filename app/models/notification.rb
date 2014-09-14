@@ -55,7 +55,7 @@ class Notification < ActiveRecord::Base
   
   def get_redirect_link()
   	case self.notification_type
-    	when Notification.types['team_created'] || Notification.types['evaluation_period_open'] || Notification.types['evaluation_deadline_approaching']
+    	when Notification.types['team_created'], Notification.types['evaluation_period_open'],Notification.types['evaluation_deadline_approaching']
     		team = Team.find_by(:id => self.link_to_id)
         if team != nil
     		  assignment = Assignment.find_by(:id => team.assignment_id)

@@ -5,7 +5,7 @@ class EvaluationPeriodOpen
 		#User.are_students.each do |a_user|
 		if all_students.count > 0
 			all_students.each do |a_student|
-			batch_notifications = a_student.poll_batch_notifications()
+			batch_notifications = a_student.poll_evaluation_open
 			end
 		end	
 	end

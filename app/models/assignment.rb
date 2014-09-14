@@ -25,7 +25,6 @@ class Assignment < ActiveRecord::Base
     user_team_ids = user_teams.map(&:id)
     user_assignment_team_id = user_team_ids & assignment_teams
     team = Team.find_by(:id => user_assignment_team_id)
-    binding.pry
     return team
   end
 
