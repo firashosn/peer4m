@@ -20,7 +20,7 @@
 // Ensuring the bg images are the height on the viewport on page load
 $(document).ready(function() {
 	WinHeight = $(window).height()
-$('.bg.mac, .bg.student').css('height', WinHeight);
+$('.bg.landing-pic, .bg.student').css('height', WinHeight);
 	
 });
 
