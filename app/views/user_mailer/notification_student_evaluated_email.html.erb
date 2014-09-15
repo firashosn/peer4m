@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  </head>
+   <style type="text/css">
+
+   body {
+    font-family:Century Gothic, sans serif;
+   }
+
+   .header > a {
+    color:#31b0d5;
+    text-decoration: none;
+   }
+
+   .info-box {
+    margin-left: 10px;
+   }
+
+   .emailSocial {
+    color: #31b0d5;
+    text-decoration: none;
+    display: block;
+   }
+   
+  
+  </style>
+
+
+  <body>
+
+    <h2 class="header"><%= @user.first_name %>, You've have been evaluated!</h2>
+    
+    <div class="info-box">
+       <a class="emailSocial" href="https://www.facebook.com/foobli">Like us on Facebook</a>
+    <a class="emailSocial" href="https://twitter.com/Foobli">Follow us on Twitter</a>
+  </div>
+  </body>
+</html>
