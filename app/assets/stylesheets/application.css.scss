@@ -547,7 +547,13 @@ ul.ratings-wrapper {
 	text-align:center;
 }
 
+.table {
 
+	td, th {
+	font-size:14px;	
+	}
+	
+}
 
 td.t-info {
 
@@ -593,6 +599,13 @@ tbody tr:nth-child(even){
 
 input#course_start_date {
 	width:38.5%;
+}
+
+.datepicker {
+	
+	td, tr {
+		font-size:14px;	
+	}
 }
 
 .datepicker table tr td.active.active, .datepicker table tr td.active:hover.active {
