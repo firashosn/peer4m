@@ -48,7 +48,7 @@ end
       end
       redirect_to course_assignment_teams_path(@course,@assignment,@team)
     else
-      redirect_to course_assignment_teams_path(@course,@assignment,@team) flash: { error: "Please make sure all fields are filled out correctly" }
+      redirect_to course_assignment_teams_path(@course,@assignment,@team), flash: { error: "Please make sure all fields are filled out correctly" }
     end
  end
 
