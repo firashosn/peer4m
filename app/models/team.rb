@@ -24,7 +24,7 @@ class Team < ActiveRecord::Base
       if(user_rows != nil && user_rows.count > 0)
         user_rows.each do |user_row|
           if(user_row.user_id != reviewee_id)
-            if self.is_user_done_reviews(user_row.id) == false
+            if self.is_user_done_reviews(user_row.user_id) == false
               return false
             end
           end
@@ -60,7 +60,8 @@ class Team < ActiveRecord::Base
       user_rows = TeamEnrollment.where(:team_id => self.id)
       total_team_members_for_review = user_rows.count - 1
       all_reviews = self.evaluations.pluck('reviewer_id')
-      completed_reviews = all_reviews.count
+      reviews_completed_by_user = all_reviews.select { |a| a == user_id }
+      completed_reviews = reviews_completed_by_user.count
       if completed_reviews > 0 && total_team_members_for_review > 0 && completed_reviews == total_team_members_for_review
         return true
       end

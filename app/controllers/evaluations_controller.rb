@@ -36,7 +36,7 @@ end
     if(!current_user.is_already_reviewed(params[:team_id],params[:evaluation][:reviewee_id]) && is_valid_params(params[:evaluation]) && @evaluation.save)
       reviewee = User.find_by(:id => params[:evaluation][:reviewee_id])
       if @team.get_is_peer_reviews_of_user_completed(reviewee.id)
-        reviewee.notifications.create(:link_to_id => @team.id, :user_id => params[:reviewee_id], :notification_type => Notification.types['evaluated'])
+        reviewee.notifications.create(:link_to_id => @team.id, :user_id => reviewee.id, :notification_type => Notification.types['evaluated'])
         UserMailer.notification_student_evaluated_email(reviewee,@course,@assignment,@team).deliver
       end
 

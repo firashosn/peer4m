@@ -34,7 +34,9 @@
         <table class="table">
           <thead>
             <th class="text-left">Assignment Name</th>
-            <th class="text-left">Status</th>
+            <% if current_user.role == "instructor" %>
+              <th class="text-left">Status</th>
+            <% end %>
             <th class="text-left">Opening Time</th>
             <th class="text-left">Closing Time</th>
             <th class="text-center" colspan="3">Actions</th>
@@ -43,7 +45,9 @@
             <% @assignments.each do |assignment| %>
             <tr>
               <td class="t-info text-left"><%= assignment.name %></td>
-              <td class="t-info text-left"><%= assignment.get_assignment_review_status_string %></td>
+              <% if current_user.role == "instructor" %>
+                <td class="t-info text-left"><%= assignment.get_assignment_review_status_string %></td>
+              <% end %>
               <td class="t-info text-left"><%= assignment.open_time.try(:to_date) %></td>
               <td class="t-info text-left"><%= assignment.close_time.try(:to_date) %></td>
           
