@@ -52,7 +52,6 @@ class TeamsController < ApplicationController
     use_previous = params[:use_previous]
     @course = Course.find(params[:course_id])
     if use_previous == nil && params[:status] != nil
-      
       @assignment = Assignment.find(params[:assignment_id])
       @team = @assignment.teams.build()
       @team.name = @team.get_team_index(params[:assignment_id])
@@ -69,6 +68,7 @@ class TeamsController < ApplicationController
       end
     elsif use_previous != nil 
       other_assignments = Assignment.where(:course_id => params[:course_id])
+      added_teams = false
       if other_assignments != nil && other_assignments.count > 0
         sorted_assignments = other_assignments.order(created_at: :desc)
         most_recent_assignment = sorted_assignments.second
@@ -86,12 +86,19 @@ class TeamsController < ApplicationController
                   if addUserToTeam(user_id,@team)
                     team_user = User.find_by(:id => user_id)
                     UserMailer.notification_new_team_email(team_user,@course,@assignment,@team).deliver
+                    added_teams = true
                   end
                 end
               end
             end
           end
         end
+      end
+
+      if added_teams
+        redirect_to course_assignment_teams_path, flash: { success: "You have successfully added a team!" }
+      else
+        redirect_to :back, flash: { error: "please select students!" } 
       end
          
       else

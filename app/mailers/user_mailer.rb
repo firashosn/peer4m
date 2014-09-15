@@ -21,7 +21,7 @@ class UserMailer < ActionMailer::Base
   def notification_team_evaluated_email(user,course,assignment,team)
     @user = user
     @url = course_assignment_teams_path(course.id, assignment.id, team.id)
-    mail(from:"info@foobli.com", to: user.email, subject: 'New Team') do |format|
+    mail(from:"info@foobli.com", to: user.email, subject: 'Team Evaluated') do |format|
       format.html { render 'notification_new_team_email' }
     end
   end
@@ -30,7 +30,7 @@ class UserMailer < ActionMailer::Base
   def notification_student_evaluated_email(user,course,assignment,team)
     @user = user
     @url = course_assignment_teams_path(course.id, assignment.id, team.id)
-    mail(from:"info@foobli.com", to: user.email, subject: 'New Team') do |format|
+    mail(from:"info@foobli.com", to: user.email, subject: 'You have been evaluated') do |format|
       format.html { render 'notification_new_team_email' }
     end
   end
