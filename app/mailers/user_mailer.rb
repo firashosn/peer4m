@@ -20,8 +20,12 @@ class UserMailer < ActionMailer::Base
   #this is for the prof
   def notification_team_evaluated_email(user,course,assignment,team)
     @user = user
-    @url = course_assignment_teams_path(course.id, assignment.id, team.id)
-    mail(from:"info@foobli.com", to: user.email, subject: 'Team Evaluated') do |format|
+    @team = team
+    @course = course
+    @assignment = assignment
+    @url = 'http://foobli.com/'
+    # course_assignment_teams_path(course.id, assignment.id, team.id)
+    mail(from:"info@foobli.com", to: user.email, subject: 'Team ' + team.name + ' Evaluated ' + course.course_id + ' - ' + assignment.name ) do |format|
       format.html { render 'notification_new_team_email' }
     end
   end
@@ -29,7 +33,8 @@ class UserMailer < ActionMailer::Base
   #this is when the students have finished the evaluation
   def notification_student_evaluated_email(user,course,assignment,team)
     @user = user
-    @url = course_assignment_teams_path(course.id, assignment.id, team.id)
+    @url = 'http://foobli.com/'
+    # course_assignment_teams_path(course.id, assignment.id, team.id)
     mail(from:"info@foobli.com", to: user.email, subject: 'You have been evaluated') do |format|
       format.html { render 'notification_new_team_email' }
     end
@@ -37,7 +42,8 @@ class UserMailer < ActionMailer::Base
 
   def notification_new_team_email(user,course,assignment,team)
     @user = user
-    @url = course_assignment_teams_path(course.id, assignment.id, team.id)
+    @url = 'http://foobli.com/'
+    # course_assignment_teams_path(course.id, assignment.id, team.id)
     mail(from:"info@foobli.com", to: user.email, subject: 'New Team Created ' + course.course_id + ' - ' + assignment.name ) do |format|
       format.html { render 'notification_new_team_email' }
     end
@@ -46,7 +52,8 @@ class UserMailer < ActionMailer::Base
 
   def notification_eval_open_email(user,course_id,assignment_id,team_id)
     @user = user
-    @url = course_assignment_teams_path(course_id, assignment_id, team_id)
+    @url = 'http://foobli.com/'
+    # course_assignment_teams_path(course_id, assignment_id, team_id)
     mail(from:"info@foobli.com", to: user.email, subject: 'Evaluation Open') do |format|
       format.html { render 'notification_eval_open_email' }
     end
@@ -54,7 +61,8 @@ class UserMailer < ActionMailer::Base
 
   def notification_deadline_approaching_email(user,course_id,assignment_id,team_id)
     @user = user
-    @url = course_assignment_teams_path(course_id, assignment_id, team_id)
+    @url = 'http://foobli.com/'
+    # course_assignment_teams_path(course_id, assignment_id, team_id)
     mail(from:"info@foobli.com", to: user.email, subject: 'Deadline Approaching') do |format|
       format.html { render 'notification_eval_open_email' }
     end
