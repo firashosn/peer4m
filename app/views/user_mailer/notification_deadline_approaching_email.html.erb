@@ -3,7 +3,8 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
   </head>
-   <style type="text/css">
+
+  <style type="text/css">
 
    body {
     font-family:Century Gothic, sans serif;
@@ -21,17 +22,15 @@
     display: block;
    }
 
-
-
-  
   </style>
+  
 
 
   <body>
 
     <h2 class="header"><%= @user.first_name %>, This is just a friendly reminder that you have an evaluation deadline approaching for.</h2>
     
-    <p>Follow this link: <%= @url %></p>
+    <p>Follow this link: <%= link_to 'click here' , @url %></p>
     <a class="emailSocial" href="https://www.facebook.com/foobli">Like us on Facebook</a>
     <a class="emailSocial" href="https://twitter.com/Foobli">Follow us on Twitter</a>
 
