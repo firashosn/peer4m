@@ -5,6 +5,7 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    set_start_date
   end
 
   def create
@@ -44,7 +45,7 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    # set_start_date
+    set_start_date
   end
 
   def update
@@ -71,8 +72,8 @@ class CoursesController < ApplicationController
       @course = Course.find(params[:id])
     end
 
-    # def set_start_date
-    #   @course.start_date = Date.today unless @course.start_date
-    # end
+    def set_start_date
+      @course.start_date = Date.today unless @course.start_date
+    end
 
 end

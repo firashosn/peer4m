@@ -6,7 +6,7 @@ class AssignmentsController < ApplicationController
 
 def new
     @assignment = Assignment.new
-    set_open_date
+    # set_open_date
 end
 
 def index
@@ -32,7 +32,7 @@ end
 
 def edit
     @course = Course.find(params[:course_id])
-    set_open_date
+    # set_open_date
     # format_close_date
 end
 
@@ -70,9 +70,9 @@ end
       return true
     end
 
-    def set_open_date
-      @assignment.open_time = Date.today unless @assignment.open_time
-    end
+    # def set_open_date
+    #   @assignment.open_time = Date.today unless @assignment.open_time
+    # end
 
     # def format_close_date
     #   @assignment.close_time = Date.strftime("%d/%m/%Y")

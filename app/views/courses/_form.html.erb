@@ -2,11 +2,13 @@
 	
 	<% if current_user.role == "instructor" %>
 	
-	<%= f.text_field :start_date, hide_label: :true, value: @course.start_date == nil ? nil: @course.start_date.strftime("%d/%m/%Y"), placeholder: "Click to select Start Date", "data-behaviour" => "datepicker" %>
+	<%= f.text_field :start_date, hide_label: :true, value: @course.start_date.strftime("%d/%m/%Y"), placeholder: "Click to select Start Date", "data-behaviour" => "datepicker" %>
+
+	<!-- value: @course.start_date == nil ? nil: @course.start_date.strftime("%d/%m/%Y") -->
 	
-	<%= f.text_field :course_name, hide_label: :true, placeholder: "Course Name" %>
+	<%= f.text_field :course_name, hide_label: :true, placeholder: "Course Name (Ex. Business)" %>
 	
-	<%= f.text_field :course_id, hide_label: :true, placeholder: "Course ID" %>  
+	<%= f.text_field :course_id, hide_label: :true, placeholder: "Course ID (Ex. BUS101)" %>  
    
    <%= f.submit "Submit", class: "btn btn-info" %>
 

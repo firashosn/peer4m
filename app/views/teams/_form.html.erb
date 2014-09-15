@@ -2,7 +2,7 @@
 <%= bootstrap_form_for [:course, :assignment, @team], url: {action: @team.new_record? ? "create" : "update"} do |f| %>
 	
   <% if @students == nil %> 
-    <div class="text-center no-students">No students registered in course</div>
+    <div class="text-center no-students">No students registered in course.</div>
   <%elsif @students.size == 0 %>
     <div class="text-center no-students">All students are assigned to a group.</div>
   <%else%>
@@ -11,7 +11,7 @@
         <th class="text-left">First Name</th>
         <th class="text-left">Last Name</th>
         <th class="text-left">Email</th>
-        <th class="text-left">Team Status</th>
+        <th class="text-left">Select Student</th>
         
       </thead> 
         <tbody>
