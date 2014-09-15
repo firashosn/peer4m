@@ -46,10 +46,9 @@ end
         prof.notifications.create(:link_to_id => @team.id, :user_id => prof.id, :notification_type => Notification.types['team_evaluated'])
         UserMailer.notification_team_evaluated_email(prof,@course,@assignment,@team).deliver
       end
-
       redirect_to course_assignment_teams_path(@course,@assignment,@team)
     else
-      redirect_to course_assignment_teams_path(@course,@assignment,@team)
+      redirect_to course_assignment_teams_path(@course,@assignment,@team) flash: { error: "Please make sure all fields are filled out correctly" }
     end
  end
 
@@ -64,6 +63,11 @@ end
           return false
         end
       end
+
+      if params['comment'] == ""
+          return false
+      end
+
       return true
     end
 
