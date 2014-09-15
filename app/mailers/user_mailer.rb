@@ -25,7 +25,7 @@ class UserMailer < ActionMailer::Base
     @assignment = assignment
     @url = 'http://foobli.com/'
     # course_assignment_teams_path(course.id, assignment.id, team.id)
-    mail(from:"info@foobli.com", to: user.email, subject: 'Team ' + team.name + ' Evaluated ' + course.course_id + ' - ' + assignment.name ) do |format|
+    mail(from:"info@foobli.com", to: user.email, subject: 'Team: ' + team.name.to_s + ' Evaluated ' + course.course_id + ' - ' + assignment.name) do |format|
       format.html { render 'notification_new_team_email' }
     end
   end
@@ -35,7 +35,7 @@ class UserMailer < ActionMailer::Base
     @user = user
     @url = 'http://foobli.com/'
     # course_assignment_teams_path(course.id, assignment.id, team.id)
-    mail(from:"info@foobli.com", to: user.email, subject: 'You have been evaluated') do |format|
+    mail(from:"info@foobli.com", to: user.email, subject: 'You have been evaluated: ' + course.course_id + ' - ' + assignment.name) do |format|
       format.html { render 'notification_new_team_email' }
     end
   end
@@ -44,7 +44,7 @@ class UserMailer < ActionMailer::Base
     @user = user
     @url = 'http://foobli.com/'
     # course_assignment_teams_path(course.id, assignment.id, team.id)
-    mail(from:"info@foobli.com", to: user.email, subject: 'New Team Created ' + course.course_id + ' - ' + assignment.name ) do |format|
+    mail(from:"info@foobli.com", to: user.email, subject: 'New Team Created: ' + course.course_id + ' - ' + assignment.name) do |format|
       format.html { render 'notification_new_team_email' }
     end
   end
