@@ -38,7 +38,7 @@ class UserMailer < ActionMailer::Base
   def notification_new_team_email(user,course,assignment,team)
     @user = user
     @url = course_assignment_teams_path(course.id, assignment.id, team.id)
-    mail(from:"info@foobli.com", to: user.email, subject: 'New Team') do |format|
+    mail(from:"info@foobli.com", to: user.email, subject: 'New Team Created ' + course.course_id + ' - ' + assignment.name ) do |format|
       format.html { render 'notification_new_team_email' }
     end
   end

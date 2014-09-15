@@ -50,7 +50,7 @@ class TeamsController < ApplicationController
 
   def create
     use_previous = params[:use_previous]
-    @course = User.find(params[:course_id])
+    @course = Course.find(params[:course_id])
     if use_previous == nil && params[:status] != nil
       
       @assignment = Assignment.find(params[:assignment_id])
@@ -84,8 +84,8 @@ class TeamsController < ApplicationController
               if @team.save
                 team_members.each do |user_id|
                   if addUserToTeam(user_id,@team)
-                    team_user = User.find_by(:id => v)
-                    UserMailer.notification_new_team_email(team_user,@course,@assignemnt,@team).deliver
+                    team_user = User.find_by(:id => user_id)
+                    UserMailer.notification_new_team_email(team_user,@course,@assignment,@team).deliver
                   end
                 end
               end
