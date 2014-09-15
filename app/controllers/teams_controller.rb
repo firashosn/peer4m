@@ -8,6 +8,11 @@ class TeamsController < ApplicationController
     @course = Course.find(params[:course_id])
     curUsers = User.joins(:enrollments).where('enrollments.course_id' => @course[:id]) 
     curStudents = curUsers.where('role' => 'student')
+
+    if curStudents != nil && curStudents.count > 1
+      curStudents = curStudents.order(last_name: :asc)
+    end
+
     @students = nil
     @teams = Team.where(:assignment_id => params[:assignment_id])
 
@@ -41,16 +46,11 @@ class TeamsController < ApplicationController
         @students = curStudents
       end
     end
-    
-    if @students != nil && @students.count > 1
-      @students = @students.order(last_name: :asc)
-    end
-
   end
 
   def create
     use_previous = params[:use_previous]
-    @course_id = params[:course_id]
+    @course = User.find(params[:course_id])
     if use_previous == nil && params[:status] != nil
       
       @assignment = Assignment.find(params[:assignment_id])
@@ -60,7 +60,7 @@ class TeamsController < ApplicationController
         params[:status].each do |k,v|
           if addUserToTeam(v,@team)
             team_user = User.find_by(:id => v)
-            UserMailer.notification_new_team_email(team_user,@course_id,@assignment.id,@team.id).deliver
+            UserMailer.notification_new_team_email(team_user,@course,@assignment,@team).deliver
           end
         end
           redirect_to course_assignment_teams_path, flash: { success: "You have successfully added a team!" }
@@ -85,7 +85,7 @@ class TeamsController < ApplicationController
                 team_members.each do |user_id|
                   if addUserToTeam(user_id,@team)
                     team_user = User.find_by(:id => v)
-                    UserMailer.notification_new_team_email(team_user,@course_id,@assignemnt.id,@team.id).deliver
+                    UserMailer.notification_new_team_email(team_user,@course,@assignemnt,@team).deliver
                   end
                 end
               end
@@ -187,7 +187,7 @@ def update
       params[:status].each do |k,v|
       if addUserToTeam(v,@team)
         team_user = User.find_by(:id => v)
-        UserMailer.notification_new_team_email(team_user,@course.id,@assignemnt.id,@team.id).deliver
+        UserMailer.notification_new_team_email(team_user,@course,@assignemnt,@team).deliver
       end
 
       end

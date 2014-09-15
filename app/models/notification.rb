@@ -1,13 +1,15 @@
 class Notification < ActiveRecord::Base
   belongs_to :user
 
-  enum type: [ :team_created, :ranking_update, :evaluation_period_open, :evaluation_deadline_approaching, :evaluated, :welcome ]
+  enum type: [ :team_created, :ranking_update, :evaluation_period_open, :evaluation_deadline_approaching, :evaluated, :welcome, :team_evaluated ]
 
 
 
   def get_type_name
   	Notification::types.each do |type|
-  		if type[1] == self.notification_type
+      if self.notification_type == Notification.types['welcome']
+        return "Welcome to Foobli"
+  		elsif type[1] == self.notification_type
     		return type[0].humanize
     	end
     end
@@ -35,10 +37,8 @@ class Notification < ActiveRecord::Base
 
   def get_description()
   	team = Team.find_by(:id => self.link_to_id)
-    if self.notification_type == Notification.types['evaluated']
-      return "you've been evaluated"
-    elsif self.notification_type == Notification.types['welcome']
-      return "Foobli"
+    if self.notification_type == Notification.types['welcome']
+      return "Find your notifications here"
     elsif team != nil
       assignment = Assignment.find_by(:id => team.assignment_id)
       if assignment != nil
@@ -55,7 +55,7 @@ class Notification < ActiveRecord::Base
   
   def get_redirect_link()
   	case self.notification_type
-    	when Notification.types['team_created'], Notification.types['evaluation_period_open'],Notification.types['evaluation_deadline_approaching']
+    	when Notification.types['team_created'], Notification.types['evaluation_period_open'],Notification.types['evaluation_deadline_approaching'],Notification.types['team_evaluated']
     		team = Team.find_by(:id => self.link_to_id)
         if team != nil
     		  assignment = Assignment.find_by(:id => team.assignment_id)

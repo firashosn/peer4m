@@ -19,6 +19,21 @@ class Team < ActiveRecord::Base
     return nil
   end
 
+  def get_is_peer_reviews_of_user_completed(reviewee_id)
+      user_rows = TeamEnrollment.where(:team_id => self.id)
+      if(user_rows != nil && user_rows.count > 0)
+        user_rows.each do |user_row|
+          if(user_row.user_id != reviewee_id)
+            if self.is_user_done_reviews(user_row.id) == false
+              return false
+            end
+          end
+        end
+        return true
+      end
+      return false
+  end
+
   def get_team_review_status_string
       user_rows = TeamEnrollment.where(:team_id => self.id)
       total_team_members_for_review = user_rows.count - 1

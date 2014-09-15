@@ -17,10 +17,27 @@ class UserMailer < ActionMailer::Base
     end
   end
 
-
-  def notification_new_team_email(user,course_id,assignment_id,team_id)
+  #this is for the prof
+  def notification_team_evaluated_email(user,course,assignment,team)
     @user = user
-    @url = course_assignment_teams_path(course_id, assignment_id, team_id)
+    @url = course_assignment_teams_path(course.id, assignment.id, team.id)
+    mail(from:"info@foobli.com", to: user.email, subject: 'New Team') do |format|
+      format.html { render 'notification_new_team_email' }
+    end
+  end
+
+  #this is when the students have finished the evaluation
+  def notification_student_evaluated_email(user,course,assignment,team)
+    @user = user
+    @url = course_assignment_teams_path(course.id, assignment.id, team.id)
+    mail(from:"info@foobli.com", to: user.email, subject: 'New Team') do |format|
+      format.html { render 'notification_new_team_email' }
+    end
+  end
+
+  def notification_new_team_email(user,course,assignment,team)
+    @user = user
+    @url = course_assignment_teams_path(course.id, assignment.id, team.id)
     mail(from:"info@foobli.com", to: user.email, subject: 'New Team') do |format|
       format.html { render 'notification_new_team_email' }
     end

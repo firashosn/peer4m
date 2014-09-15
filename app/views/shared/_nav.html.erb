@@ -74,13 +74,20 @@
                               <h3><%=notification.get_description()%></h3>
                             </li> <!-- /notification -->
                             <% end %> 
+                            <%elsif  notification.notification_type == Notification.types['evaluated']%>
+                              <li class="notification-number"> <!--notification -->
+                              <%= link_to ratings_path, class: 'content-block' do %>
+                              <p><strong><%= notification.get_type_name() %></strong> • <%= notification.get_created_diff()%></p>
+                              <h3><%=notification.get_description()%></h3>
+                            <% end %> 
+                            </li> <!-- /notification -->
                           <% else %>
                             <li class="notification-number"> <!--notification -->
                               <%= link_to courses_path, class: 'content-block' do %>
                               <p><strong><%= notification.get_type_name() %></strong> • <%= notification.get_created_diff()%></p>
                               <h3><%=notification.get_description()%></h3>
-                            </li> <!-- /notification -->
                             <% end %> 
+                            </li> <!-- /notification -->
                           <%end %>
                        <%end%> <!-- /Do Loop for notifications -->
                       <%else%>
