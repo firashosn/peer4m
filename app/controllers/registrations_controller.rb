@@ -15,9 +15,9 @@ before_filter :set_cache_buster
     if @user.save
       # Tell the UserMailer to send a welcome email after save
         UserMailer.welcome_email(@user).deliver
-        if @user.role == "student" 
+        #if @user.role == "student" 
           @user.notifications.create(:link_to_id => nil, :user_id => @user.id, :notification_type => Notification.types['welcome'])
-        end
+        #end
       if @user.role == "instructor" || "student"
     		redirect_to courses_path
     	end
