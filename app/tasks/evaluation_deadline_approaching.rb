@@ -1,4 +1,5 @@
 class EvaluationDeadlineApproaching
+  
   def eval_deadline_approaching_batch
     all_students = User.where(:role => 'student')
     if all_students.count > 0
