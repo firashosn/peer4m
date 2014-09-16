@@ -20,18 +20,7 @@ class Team < ActiveRecord::Base
   end
 
   def get_is_peer_reviews_of_user_completed(reviewee_id)
-      user_rows = TeamEnrollment.where(:team_id => self.id)
-      if(user_rows != nil && user_rows.count > 0)
-        user_rows.each do |user_row|
-          if(user_row.user_id != reviewee_id)
-            if self.is_user_done_reviews(user_row.user_id) == false
-              return false
-            end
-          end
-        end
-        return true
-      end
-      return false
+      return self.is_user_fully_reviewed(reviewee_id) == true
   end
 
   def get_team_review_status_string
@@ -63,6 +52,19 @@ class Team < ActiveRecord::Base
       reviews_completed_by_user = all_reviews.select { |a| a == user_id }
       completed_reviews = reviews_completed_by_user.count
       if completed_reviews > 0 && total_team_members_for_review > 0 && completed_reviews == total_team_members_for_review
+        return true
+      end
+
+      return false
+  end
+
+  def is_user_fully_reviewed(user_id)
+      user_rows = TeamEnrollment.where(:team_id => self.id)
+      total_team_members_for_review = user_rows.count - 1
+      all_reviews = self.evaluations.pluck('reviewee_id')
+      total_reviews_for_user = all_reviews.select { |a| a == user_id }
+      total_completed_reviews = total_reviews_for_user.count
+      if total_completed_reviews > 0 && total_team_members_for_review > 0 && total_completed_reviews == total_team_members_for_review
         return true
       end
 
