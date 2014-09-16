@@ -18,8 +18,11 @@ class UserMailer < ActionMailer::Base
   end
 
   #this is for the prof
-  def notification_team_evaluated_email(user, team, course, assignment)
+  def notification_team_evaluated_email(user,course,assignment,team)
     @user = user
+    @course = course
+    @assignment = assignment
+    @team = team
     @url = 'http://foobli.com/login'
     # course_assignment_teams_path(course.id, assignment.id, team.id)
     mail(from:"info@foobli.com", to: user.email, subject: 'Team: ' + team.name.to_s + ' Evaluated ' + course.course_id + ' - ' + assignment.name) do |format|
@@ -28,7 +31,7 @@ class UserMailer < ActionMailer::Base
   end
 
   #this is when the students have finished the evaluation
-  def notification_student_evaluated_email(user, team, course, assignment)
+  def notification_student_evaluated_email(user,course,assignment,team)
     @user = user
     @url = 'http://foobli.com/login'
     # course_assignment_teams_path(course.id, assignment.id, team.id)
