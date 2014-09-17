@@ -11,7 +11,7 @@ class AdminController < ApplicationController
   end
 
   def index
-    #binding.pry
+    @admin = current_user
   end
 
   def edit
