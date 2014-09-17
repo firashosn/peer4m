@@ -2,14 +2,7 @@ class AdminController < ApplicationController
 
   before_action :authenticate_user!, except: [:show]
 
-  def create
-   
-    @users = nil
-    if params['role'] != "" && params['institution'] != "" && params['program'] != ""
-      @users = User.where(:role => params['role'], :current_institution => params['institution'], :current_program => params['program'])
-       #binding.pry
-    end
-    
+  def create  
   	redirect_to admin_index_path(@users)
   end
 
@@ -18,7 +11,11 @@ class AdminController < ApplicationController
   end
 
   def index
-    binding.pry
+    @users = nil
+    if params['role'] != "" && params['institution'] != "" && params['program'] != ""
+      @users = User.where(:role => params['role'], :current_institution => params['institution'], :current_program => params['program'])
+       binding.pry
+    end
   end
 
   def edit
