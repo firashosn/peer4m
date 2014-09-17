@@ -12,6 +12,8 @@
 
 <%= f.select :role, options_for_select(User::ROLES), hide_label: :true, required:true, inline:true %>
 
+<%= f.submit "Go", class: "btn btn-info btn-lg" %>
+
 		</div>
 	</div>
 </div>
