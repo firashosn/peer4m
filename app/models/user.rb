@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
 
   ROLES = [ 'administrator', 'student', 'instructor' ]
 
+  ROLES_DROPDOWN = [ ['Select Role' , ''] , ['Instructor', 'instructor'], ['Student', 'student'] ]
+
   INSTITUTIONS = [ ['Select Institution' , ''] , ['York University', 'York University'], ['George Brown University', 'George Brown University'] ]
 
   PROGRAMS = [ ['Select Program', ''], ['Business', 'Business' ], ['Game Development', 'Game Development'] ]

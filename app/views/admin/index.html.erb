@@ -2,33 +2,19 @@
 
 <div class="container">
 	<div class="row">
-	<div class="col-md-6">
+		<div class="col-md-6">
 
-<%= bootstrap_form_for @admin do |f| %>
+<%= bootstrap_form_tag url: admin_index_path, method: :get do |f| %> 
+<%= f.select :role, User::ROLES_DROPDOWN.map { |x| x }  %> 
+<%= f.select :institution, User::INSTITUTIONS.map { |x| x }  %> 
+<%= f.select :program, User::PROGRAMS.map { |x| x }  %> 
+<%= f.submit %> 
+<% end %>
 
-<%= f.select :current_institution, options_for_select(User::INSTITUTIONS), hide_label: :true, required:true, inline:true %>
-
-<%= f.select :current_program, options_for_select(User::PROGRAMS), hide_label: :true, required:true, inline:true %>
-
-<%= f.select :role, options_for_select(User::ROLES), hide_label: :true, required:true, inline:true %>
-
-<%= f.submit "Go", class: "btn btn-info btn-lg" %>
 
 		</div>
 	</div>
 </div>
-
-<% end %>
-
-
-
-
-
-
-
-
-
-
 
 
 
