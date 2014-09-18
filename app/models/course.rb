@@ -24,6 +24,10 @@ class Course < ActiveRecord::Base
   	return open_assignments
   end
   
+  def is_user_already_enrolled(user)
+    self.enrollments.find_by(:user_id => user.id)
+  end
+
 end
 
 
