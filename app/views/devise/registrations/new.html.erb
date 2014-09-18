@@ -39,7 +39,7 @@
 
       <div class="col-md-12 submit">
 
-        <div><%= f.form_group :role, label: { text: "Role" } do %>
+        <div><%= f.form_group :role, label: { text: "Role:" } do %>
             <% User::ROLES.each do |role| %>
               <%= f.radio_button :role, role, label: role.humanize, inline: true %>
             <% end %>

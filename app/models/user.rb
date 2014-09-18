@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   after_initialize :add_default_role
 
-  ROLES = ['administrator', 'student', 'instructor' ]
+  ROLES = [ 'administrator', 'student', 'instructor' ]
 
   INSTITUTIONS = [ ['Select Institution' , ''] , ['York University', 'York University'], ['George Brown University', 'George Brown University'] ]
 
