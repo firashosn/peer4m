@@ -15,7 +15,11 @@
 
           <% if @courses != nil && @courses.size == 0 %>
             <%= render 'shared/loader' %>
+              <% if current_user.role == "instructor" %>
               <h4 class="text-center no-courses">You currently don't have any courses. Add a course to begin building your course list.</h4>
+              <% elsif current_user.role == "student" %>
+                <h4 class="text-center no-courses">You currently don't have any courses. Enroll in a course to begin building your course list.</h4>
+                <% end %> 
           <% else %> 
       <div class="row">
       <div class="col-md-12 courses-table">
