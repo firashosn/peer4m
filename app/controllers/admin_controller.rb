@@ -14,7 +14,7 @@ class AdminController < ApplicationController
     @users = nil
     if params['role'] != "" && params['institution'] != "" && params['program'] != ""
       @users = User.where(:role => params['role'], :current_institution => params['institution'], :current_program => params['program'])
-       binding.pry
+       # binding.pry
     end
   end
 
@@ -31,9 +31,10 @@ class AdminController < ApplicationController
   end
 
   private
-    def admin_params
+  
+  def admin_params
       #binding.pry
       #params.require(:course).permit(:role, :institution, :program)
-    end
+  end
 
 end
