@@ -30,9 +30,10 @@ class AdminController < ApplicationController
   end
 
   private
-    def admin_params
+  
+  def admin_params
       #binding.pry
       #params.require(:course).permit(:role, :institution, :program)
-    end
+  end
 
 end

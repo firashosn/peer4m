@@ -31,13 +31,13 @@ class User < ActiveRecord::Base
 
   after_initialize :add_default_role
 
-  ROLES = ['administrator', 'student', 'instructor' ]
+  ROLES = [ 'administrator', 'student', 'instructor' ]
 
   ROLES_DROPDOWN = [ ['Select Role' , ''] , ['Instructor', 'instructor'], ['Student', 'student'] ]
 
-  INSTITUTIONS = [ ['Select Institution' , ''] , ['York University', 'York University'], ['George Brown University', 'George Brown University'] ]
+  INSTITUTIONS = [ ['Select Institution' , ''] , ['York University', 'York University'], ['George Brown College', 'George Brown College'] ]
 
-  PROGRAMS = [ ['Select Program', ''], ['Business', 'Business' ], ['Game Development', 'Game Development'] ]
+  PROGRAMS = [ ['Select Program', ''], ['Business', 'Business' ], ['Game Design / Development', 'Game Design / Development'] ]
 
   EVALUATION_FIELDS = ['quality_of_work','dependability','communication','team_player_skills','work_ethic']
 
