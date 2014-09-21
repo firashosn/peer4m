@@ -25,7 +25,7 @@ class Course < ActiveRecord::Base
   end
   
   def is_user_already_enrolled(user)
-    self.enrollments.find_by(:user_id => user.id)
+    return self.enrollments.find_by(:user_id => user.id) != nil
   end
 
 end

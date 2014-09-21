@@ -14,7 +14,6 @@ class AdminController < ApplicationController
     @users = nil
     if params['role'] != "" && params['institution'] != "" && params['program'] != ""
       @users = User.where(:role => params['role'], :current_institution => params['institution'], :current_program => params['program'])
-       binding.pry
     end
   end
 
