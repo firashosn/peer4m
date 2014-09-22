@@ -7,15 +7,18 @@ class AdminController < ApplicationController
   end
 
   def show
-  	binding.pry
+  	# binding.pry
   end
 
   def index
     @users = nil
-    if params['role'] != "" && params['institution'] != "" && params['program'] != ""
-      @users = User.where(:role => params['role'], :current_institution => params['institution'], :current_program => params['program'])
-       # binding.pry
-    end
+    user_role = params['role'] == "" ? '*' :  params['role']
+    user_institution = params['institution'] == "" ? '*' :  params['institution']
+    user_program = params['program'] == "" ? '*' :  params['program']
+      @users = User.all
+        
+    #@users = User.where(:role => user_role, :current_institution => user_institution, :current_program => user_program)
+        
   end
 
   def edit
@@ -23,18 +26,19 @@ class AdminController < ApplicationController
   end
 
   def update
-    binding.pry
+    # binding.pry
   end
 
   def destroy
-    #binding.pry
+    user_id = params['id']
+    user = User.find_by(:id => user_id)
+    enrollments = Enrollment.where(:user_id => user_id)
+    enrollments.destroy_all
+    team_enrollments = TeamEnrollment.where(:user_id => user_id)
+    team_enrollments.destroy_all
+    user.destroy
+    redirect_to admin_index_path, flash: { success: "Successfully deleted!" }
   end
 
-  private
-  
-  def admin_params
-      #binding.pry
-      #params.require(:course).permit(:role, :institution, :program)
-  end
 
 end

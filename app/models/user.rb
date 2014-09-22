@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
               is_notification_already_created = self.notifications.find_by(:link_to_id => my_team.id, :notification_type => Notification.types['evaluation_period_open'])
               if is_notification_already_created == nil
                 self.notifications.create(:link_to_id => my_team.id, :user_id => self.id, :notification_type => Notification.types['evaluation_period_open'])
-                UserMailer.notification_eval_open_email(self,course.id,assignment.id,my_team.id).deliver
+                # UserMailer.notification_eval_open_email(self,course.id,assignment.id,my_team.id).deliver
               end
             end
           end
@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
               diff_in_days = assignment.get_closing_time_day_difference()
               if diff_in_days <= 3
                self.notifications.create(:link_to_id => my_team.id, :user_id => self.id, :notification_type => Notification.types['evaluation_deadline_approaching'])
-                UserMailer.notification_deadline_approaching_email(self,course.id,assignment.id,my_team.id).deliver
+                # UserMailer.notification_deadline_approaching_email(self,course.id,assignment.id,my_team.id).deliver
               end
             end
           end
