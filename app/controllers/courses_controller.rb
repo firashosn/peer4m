@@ -24,11 +24,11 @@ class CoursesController < ApplicationController
       elsif current_user.role == "student"
         params_c = params[:course]
         c = Course.find_by(enrollment_password: params_c[:enrollment_password])
-        if c != nil
-        @user.enrollments.create(:course_id => c.id, :user_id => current_user.id)
-          #if c.save
+        if c != nil && !c.is_user_already_enrolled(current_user)
+          @user.enrollments.create(:course_id => c.id, :user_id => current_user.id)
           redirect_to courses_path
-          #end
+        else
+          redirect_to courses_path, flash: { error: "You have already enrolled in this course!" }
         end
       end
   end

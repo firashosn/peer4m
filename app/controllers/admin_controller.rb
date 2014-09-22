@@ -18,7 +18,6 @@ class AdminController < ApplicationController
       @users = User.all
         
     #@users = User.where(:role => user_role, :current_institution => user_institution, :current_program => user_program)
-        
   end
 
   def edit
