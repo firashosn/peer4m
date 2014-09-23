@@ -155,6 +155,9 @@
                       <% end %>
                       <% elsif current_user.is_already_reviewed(@team_id,teammate.id) %>
                       <i class="fa fa-check"></i>
+                      <% else %>
+                      <i class="glyphicon glyphicon-pencil grey-pencil"></i>
+
                       <!-- i class="glyphicon glyphicon-ok"></i> -->
                 
                   <%end%>

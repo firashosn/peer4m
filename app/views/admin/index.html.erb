@@ -8,7 +8,12 @@
 		<%= f.select :role, User::ROLES_DROPDOWN.map { |x| x} %>
 		<%= f.select :institution, User::INSTITUTIONS.map { |x| x} %>
 		<%= f.select :program, User::PROGRAMS.map { |x| x} %>
-		<%= f.submit %> 
+		<%= f.submit "Search" %><%= link_to "Add User", sign_up_path, class: "add-user btn btn-custom" %>
+
+		
+
+
+	               				
 		<% end %>
 
 		</div>
@@ -38,10 +43,7 @@
 	                    <!-- <td class="t-info text-left"><img src="/assets/props.png"></td> -->
 	                  
 	                    <td class="t-info text-center">
-	                    	<%= link_to admin_path(user.id), 'data-toggle' =>  "tooltip", 'data-trigger' => 'hover', 'data-placement' => 'right', 'title' => 'Delete', method: :delete,
-	               						data: { confirm: 'Are you sure?' }, class: "tb-btn-space" do %>
-	              								<i class="glyphicon glyphicon-trash"></i>
-	              				<% end %>
+	              				<%= check_box_tag "1" %>
 	                    </td>
 	            			</tr>
             			<% end %>
