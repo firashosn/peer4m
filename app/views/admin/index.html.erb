@@ -8,16 +8,18 @@
 		<%= f.select :role, User::ROLES_DROPDOWN.map { |x| x} %>
 		<%= f.select :institution, User::INSTITUTIONS.map { |x| x} %>
 		<%= f.select :program, User::PROGRAMS.map { |x| x} %>
-		<%= f.submit "Search" %><%= link_to "Add User", sign_up_path, class: "add-user btn btn-custom" %>
-
-		
-
-
-	               				
+		<%= f.submit "Search" %>
+		<%= link_to "Add User", sign_up_path, class: "add-user btn btn-custom" %>            				
 		<% end %>
+
+
+		<!-- <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#course">
+  	Modal Sign Up
+		</button> -->
 
 		</div>
 
+		<%= bootstrap_form_tag url: admin_index_path, method: :delete do |f| %>
 		   <div class="col-md-12 courses-table">
         <div class="table-responsive">
         <table class="table">
@@ -52,6 +54,8 @@
           </tbody>
         </table>
         </div> <!-- / Table responsive -->
+        <%= f.submit "Delete" %>           				
+				<% end %>
       </div>
 
 

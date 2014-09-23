@@ -33,6 +33,7 @@
   <% if @students == nil || @students.size == 0 %>
   <% else %>
     <div class="modalFooter"> 
+      <%= f.text_field :name, required:true, autofocus: true, hide_label:true, placeholder: "Optional Team Name" %>
       <%= f.submit "Add Team", class: "btn btn-info" %>
       <% if @can_use_previous == true %>
         <div class="PreviousClassList">

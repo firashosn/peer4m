@@ -29,14 +29,15 @@ class AdminController < ApplicationController
   end
 
   def destroy
-    user_id = params['id']
-    user = User.find_by(:id => user_id)
-    enrollments = Enrollment.where(:user_id => user_id)
-    enrollments.destroy_all
-    team_enrollments = TeamEnrollment.where(:user_id => user_id)
-    team_enrollments.destroy_all
-    user.destroy
-    redirect_to admin_index_path, flash: { success: "Successfully deleted!" }
+    binding.pry
+    # user_id = params['id']
+    # user = User.find_by(:id => user_id)
+    # enrollments = Enrollment.where(:user_id => user_id)
+    # enrollments.destroy_all
+    # team_enrollments = TeamEnrollment.where(:user_id => user_id)
+    # team_enrollments.destroy_all
+    # user.destroy
+    # redirect_to admin_index_path, flash: { success: "Successfully deleted!" }
   end
 
 
