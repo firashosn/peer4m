@@ -39,12 +39,14 @@
 
       <div class="col-md-12 submit">
 
+        <% if current_user != nil && current_user.role == "administrator" %>
         <div><%= f.form_group :role, label: { text: "Role:" } do %>
             <% User::ROLES.each do |role| %>
               <%= f.radio_button :role, role, label: role.humanize, inline: true %>
             <% end %>
           <% end %>
         </div>
+        <%end%>
 
 
           <%= f.submit "Sign up", class: "btn btn-info btn-block btn-lg" %>

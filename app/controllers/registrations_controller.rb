@@ -1,7 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
 
-before_action :authenticate_user!
-
+#before_action :authenticate_user! 
 before_filter :set_cache_buster
 
   def set_cache_buster
