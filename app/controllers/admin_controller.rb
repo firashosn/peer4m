@@ -1,6 +1,9 @@
 class AdminController < ApplicationController
 
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user! 
+  before_filter do 
+    redirect_to courses_path unless current_user && current_user.role == 'administrator'
+  end
 
   def create  
   	redirect_to admin_index_path(@users)
@@ -12,12 +15,24 @@ class AdminController < ApplicationController
 
   def index
     @users = nil
-    user_role = params['role'] == "" ? '*' :  params['role']
-    user_institution = params['institution'] == "" ? '*' :  params['institution']
-    user_program = params['program'] == "" ? '*' :  params['program']
+    user_role = params['role']
+    user_institution = params['institution'] 
+    user_program = params['program'] 
+
+    if user_role == ""
       @users = User.all
-        
-    #@users = User.where(:role => user_role, :current_institution => user_institution, :current_program => user_program)
+    else
+      @users = User.where(:role => user_role)
+    end 
+
+    if user_institution != ""
+      @users = @users.where(:current_institution => user_institution)
+    end 
+
+    if user_program != ""
+      @users = @users.where(:current_program => user_program)
+    end 
+    
   end
 
   def edit
