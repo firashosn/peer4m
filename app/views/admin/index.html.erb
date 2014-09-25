@@ -9,7 +9,7 @@
 		<%= f.select :institution, User::INSTITUTIONS.map { |x| x} %>
 		<%= f.select :program, User::PROGRAMS.map { |x| x} %>
 		<%= f.submit "Search" %>
-		<%= link_to "Add User", sign_up_path, class: "add-user btn btn-custom" %>            				
+		<%= link_to "Add User", new_admin_path, :remote => true, class: "add-user btn btn-custom" %>            				
 		<% end %>
 
 

@@ -51,10 +51,17 @@ class TeamsController < ApplicationController
   def create
     use_previous = params[:use_previous]
     @course = Course.find(params[:course_id])
+
     if use_previous == nil && params[:status] != nil
       @assignment = Assignment.find(params[:assignment_id])
       @team = @assignment.teams.build()
-      @team.name = @team.get_team_index(params[:assignment_id])
+      optional_team_name = params['team']['name']
+      if optional_team_name == ""
+        @team.name = @team.get_team_index(params[:assignment_id])
+      else
+        @team.name = optional_team_name
+      end
+
       if @team.save
         params[:status].each do |k,v|
           if addUserToTeam(v,@team)

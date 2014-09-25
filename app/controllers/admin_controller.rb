@@ -5,8 +5,17 @@ class AdminController < ApplicationController
     redirect_to courses_path unless current_user && current_user.role == 'administrator'
   end
 
+  def new  
+    
+  end
+
   def create  
-  	redirect_to admin_index_path(@users)
+    @user = User.new
+    #if @user.save
+  	 redirect_to admin_index_path(@users)
+    #else
+      #redirect_to admin_index_path(@users), flash: { error: "Could not creat user" }
+    #end
   end
 
   def show
@@ -55,7 +64,11 @@ class AdminController < ApplicationController
     # redirect_to admin_index_path, flash: { success: "Successfully deleted!" }
   end
 
+private
 
+  def create_user
+    #params.require(user).permit(:email, :password, :password_confirmation, :role, :first_name, :last_name, :current_program, :current_institution)
+  end
 
 end
 
