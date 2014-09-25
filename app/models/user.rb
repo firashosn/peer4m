@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
             format: { with: /[a-zA-Z]/, message: 'Please only use letters' }
 
 
-
 #insructor is enrolled, but his role is instructor
   # has_one :user_info
 	has_many :enrollments
@@ -145,6 +144,7 @@ class User < ActiveRecord::Base
       if all_reviews.count > 0
         if is_comment
           all_comments = all_reviews.pluck('comment')
+          return all_comments
         else
           all_reviews_for_field = all_reviews.pluck(eval_field)
           avg = all_reviews_for_field.sum.to_f/all_reviews_for_field.length
@@ -154,6 +154,7 @@ class User < ActiveRecord::Base
         return 0
       end
     end
+    return 0
   end
 
   def get_num_new_notifications()
