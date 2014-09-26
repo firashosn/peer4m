@@ -10,16 +10,16 @@ class AdminController < ApplicationController
   end
 
   def create  
-    @user = User.new
-    #if @user.save
-  	 redirect_to admin_index_path(@users)
-    #else
-      #redirect_to admin_index_path(@users), flash: { error: "Could not creat user" }
-    #end
+    @user = User.create(:email => params['email'], :password => params['password'], :role => params['role'], :first_name => params['first_name'], :last_name => params['last_name'], :current_program => params['current_program'], :current_institution => params['current_institution'])
+    if @user.save
+  	 redirect_to admin_index_path(@users), flash: { success: "Created User" }
+    else
+      redirect_to admin_index_path(@users), flash: { error: "Could not creat user" }
+    end
   end
 
   def show
-  	# binding.pry
+  	 #binding.pry
   end
 
   def index
@@ -49,19 +49,17 @@ class AdminController < ApplicationController
   end
 
   def update
-    # binding.pry
+    #binding.pry
   end
 
   def destroy
-    binding.pry
-    # user_id = params['id']
-    # user = User.find_by(:id => user_id)
-    # enrollments = Enrollment.where(:user_id => user_id)
-    # enrollments.destroy_all
-    # team_enrollments = TeamEnrollment.where(:user_id => user_id)
-    # team_enrollments.destroy_all
-    # user.destroy
-    # redirect_to admin_index_path, flash: { success: "Successfully deleted!" }
+    params[:status].each do |k,v|
+      user_to_delete  = User.find_by(:id => v)
+      if user_to_delete != nil
+        user_to_delete.destroy
+      end
+    end
+    redirect_to admin_index_path(@users), flash: { success: "deleted Users" }
   end
 
 private

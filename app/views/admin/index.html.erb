@@ -19,7 +19,7 @@
 
 		</div>
 
-		<%= bootstrap_form_tag url: admin_index_path, method: :delete do |f| %>
+		<%= bootstrap_form_tag url: admin_path(1), method: :delete do |f| %>
 		   <div class="col-md-12 courses-table">
         <div class="table-responsive">
         <table class="table">
@@ -36,7 +36,7 @@
 
             <tbody>
             		<% if @users != nil %>
-	            		<% @users.each do |user| %>
+	            		<% @users.each_with_index do |user, index| %>
 	                  <tr>
 	                  	<td class="t-info text-left"><%= user.role.humanize %></td>
 	                    <td class="t-info text-left"><%= user.first_name %></td>
@@ -45,7 +45,8 @@
 	                    <!-- <td class="t-info text-left"><img src="/assets/props.png"></td> -->
 	                  
 	                    <td class="t-info text-center">
-	              				<%= check_box_tag "1" %>
+	              				 <% name = "status[#{index}]" %>    
+          						 <%= check_box_tag name, user.id %>    
 	                    </td>
 	            			</tr>
             			<% end %>
@@ -55,7 +56,7 @@
         </table>
         </div> <!-- / Table responsive -->
         <%= f.submit "Delete" %>           				
-				<% end %>
+		<% end %>
       </div>
 
 
