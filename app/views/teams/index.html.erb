@@ -40,7 +40,7 @@
         <table class="table">
           <thead>
             <% if current_user.role == "instructor" && @view_students == false %>
-            <th class="text-left">Team ID</th>
+            <th class="text-left">Team Name</th>
             <th class="text-left">Team Status</th>
             <th class="text-center" colspan="3">Actions</th>
             <% elsif current_user.role == "student" %>
